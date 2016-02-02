@@ -13,6 +13,11 @@
 		F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */; };
 		F46FDA191C5FDC4D0087B35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA181C5FDC4D0087B35C /* Assets.xcassets */; };
 		F46FDA1C1C5FDC4F0087B35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA1A1C5FDC4F0087B35C /* LaunchScreen.storyboard */; };
+		F46FDA291C6015420087B35C /* ACNsend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA281C6015420087B35C /* ACNsend.swift */; };
+		F46FDA2B1C6015550087B35C /* CreateChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2A1C6015540087B35C /* CreateChannelVC.swift */; };
+		F46FDA2D1C60155F0087B35C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2C1C60155F0087B35C /* ChannelCell.swift */; };
+		F46FDA321C6016650087B35C /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA301C6016650087B35C /* Channel+CoreDataProperties.swift */; };
+		F46FDA331C6016650087B35C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA311C6016650087B35C /* Channel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		F46FDA181C5FDC4D0087B35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F46FDA1B1C5FDC4F0087B35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46FDA1D1C5FDC500087B35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F46FDA281C6015420087B35C /* ACNsend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNsend.swift; sourceTree = "<group>"; };
+		F46FDA2A1C6015540087B35C /* CreateChannelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelVC.swift; sourceTree = "<group>"; };
+		F46FDA2C1C60155F0087B35C /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		F46FDA301C6016650087B35C /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F46FDA311C6016650087B35C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,8 @@
 		F46FDA021C5FDC430087B35C = {
 			isa = PBXGroup;
 			children = (
+				F46FDA301C6016650087B35C /* Channel+CoreDataProperties.swift */,
+				F46FDA311C6016650087B35C /* Channel.swift */,
 				F46FDA0D1C5FDC440087B35C /* LS_Layout */,
 				F46FDA0C1C5FDC440087B35C /* Products */,
 			);
@@ -56,8 +68,11 @@
 		F46FDA0D1C5FDC440087B35C /* LS_Layout */ = {
 			isa = PBXGroup;
 			children = (
+				F46FDA271C60150E0087B35C /* Model */,
+				F46FDA261C6015060087B35C /* Views */,
+				F46FDA251C6014F50087B35C /* Controller */,
+				F46FDA341C60262C0087B35C /* Background */,
 				F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */,
-				F46FDA101C5FDC460087B35C /* ViewController.swift */,
 				F46FDA121C5FDC490087B35C /* Main.storyboard */,
 				F46FDA181C5FDC4D0087B35C /* Assets.xcassets */,
 				F46FDA1A1C5FDC4F0087B35C /* LaunchScreen.storyboard */,
@@ -65,6 +80,38 @@
 				F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */,
 			);
 			path = LS_Layout;
+			sourceTree = "<group>";
+		};
+		F46FDA251C6014F50087B35C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA101C5FDC460087B35C /* ViewController.swift */,
+				F46FDA2A1C6015540087B35C /* CreateChannelVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F46FDA261C6015060087B35C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA2C1C60155F0087B35C /* ChannelCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F46FDA271C60150E0087B35C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F46FDA341C60262C0087B35C /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA281C6015420087B35C /* ACNsend.swift */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46FDA291C6015420087B35C /* ACNsend.swift in Sources */,
+				F46FDA331C6016650087B35C /* Channel.swift in Sources */,
+				F46FDA2D1C60155F0087B35C /* ChannelCell.swift in Sources */,
 				F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */,
+				F46FDA321C6016650087B35C /* Channel+CoreDataProperties.swift in Sources */,
+				F46FDA2B1C6015550087B35C /* CreateChannelVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
