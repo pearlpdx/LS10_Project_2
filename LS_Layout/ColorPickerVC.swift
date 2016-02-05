@@ -9,25 +9,25 @@
 import UIKit
 //import SwiftColorPicker
 
-extension UIColor {
-    var coreImageColor: CoreImage.CIColor? {
-        return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
-    }
-}
+//extension UIColor {
+//    var coreImageColor: CoreImage.CIColor? {
+//        return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
+//    }
+//}
 
 
 class ColorPickerVC: UIViewController {
-//    
+    
 //    @IBOutlet var colorWell:ColorWell?
 //    @IBOutlet var colorPicker:ColorPicker?
 //    @IBOutlet var huePicker:HuePicker?
 //    
-    
- //   var pickerController: ColorPickerController!
-    
- //   var curColor: UIColor!
-
-
+//    
+//    var pickerController: ColorPickerController!
+//    
+//    var curColor: UIColor!
+//
+//
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +50,7 @@ class ColorPickerVC: UIViewController {
 //            }
 //            
 //         }
-//        
+        
 
     }
 

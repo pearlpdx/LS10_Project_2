@@ -258,20 +258,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6a-El-aOS" customClass="MaterialView" customModule="LS_Layout" customModuleProvider="target">
                                 <rect key="frame" x="20" y="67" width="560" height="513"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7v-xl-AFu" customClass="ColorWell" customModule="LS_Layout" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7v-xl-AFu">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="dMy-60-ATa"/>
                                             <constraint firstAttribute="height" constant="41" id="fjV-9e-fc8"/>
                                         </constraints>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2x-AM-zx1" customClass="ColorPicker" customModule="LS_Layout" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="41" width="560" height="392"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujp-6K-S0X" customClass="HuePicker" customModule="LS_Layout" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujp-6K-S0X">
                                         <rect key="frame" x="0.0" y="433" width="560" height="50"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2x-AM-zx1">
+                                        <rect key="frame" x="0.0" y="41" width="560" height="392"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47058823529999999" green="0.56470588239999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -447,7 +447,6 @@
                                                     </constraints>
                                                     <connections>
                                                         <action selector="imgButtonPressed:" destination="gnb-2v-oic" eventType="touchUpInside" id="xO4-fa-pCB"/>
-                                                        <segue destination="RLy-78-Nr9" kind="show" id="c48-KT-BhH"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpl-14-vh9">
