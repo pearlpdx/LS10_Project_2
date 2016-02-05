@@ -11,6 +11,9 @@ import CoreData
 
 
 class Channel: NSManagedObject {
+    
+    var independent = false
+    
 
     
     //        var curLevel = 0

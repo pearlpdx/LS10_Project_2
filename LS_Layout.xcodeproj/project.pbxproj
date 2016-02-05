@@ -18,6 +18,13 @@
 		F46FDA2D1C60155F0087B35C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2C1C60155F0087B35C /* ChannelCell.swift */; };
 		F46FDA321C6016650087B35C /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA301C6016650087B35C /* Channel+CoreDataProperties.swift */; };
 		F46FDA331C6016650087B35C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA311C6016650087B35C /* Channel.swift */; };
+		F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6A1C61535E0087B35C /* MaterialView.swift */; };
+		F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6C1C61536F0087B35C /* MaterialButton.swift */; };
+		F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6E1C61537B0087B35C /* MaterialTextField.swift */; };
+		F46FDA721C6157C40087B35C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA711C6157C40087B35C /* Constants.swift */; };
+		F46FDA751C615D6C0087B35C /* ChannelCollectionCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA741C615D6C0087B35C /* ChannelCollectionCellVC.swift */; };
+		F46FDA771C616E7D0087B35C /* ChannelVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA761C616E7D0087B35C /* ChannelVCViewController.swift */; };
+		F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDAB41C6416400087B35C /* ColorPickerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		F46FDA2C1C60155F0087B35C /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		F46FDA301C6016650087B35C /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F46FDA311C6016650087B35C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		F46FDA6A1C61535E0087B35C /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		F46FDA6C1C61536F0087B35C /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		F46FDA6E1C61537B0087B35C /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		F46FDA711C6157C40087B35C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F46FDA741C615D6C0087B35C /* ChannelCollectionCellVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionCellVC.swift; sourceTree = "<group>"; };
+		F46FDA761C616E7D0087B35C /* ChannelVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVCViewController.swift; sourceTree = "<group>"; };
+		F46FDAB41C6416400087B35C /* ColorPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +82,7 @@
 		F46FDA0D1C5FDC440087B35C /* LS_Layout */ = {
 			isa = PBXGroup;
 			children = (
+				F46FDA731C6157E00087B35C /* Util */,
 				F46FDA271C60150E0087B35C /* Model */,
 				F46FDA261C6015060087B35C /* Views */,
 				F46FDA251C6014F50087B35C /* Controller */,
@@ -87,6 +102,7 @@
 			children = (
 				F46FDA101C5FDC460087B35C /* ViewController.swift */,
 				F46FDA2A1C6015540087B35C /* CreateChannelVC.swift */,
+				F46FDA761C616E7D0087B35C /* ChannelVCViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -94,7 +110,12 @@
 		F46FDA261C6015060087B35C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F46FDA6A1C61535E0087B35C /* MaterialView.swift */,
+				F46FDA6C1C61536F0087B35C /* MaterialButton.swift */,
+				F46FDA6E1C61537B0087B35C /* MaterialTextField.swift */,
 				F46FDA2C1C60155F0087B35C /* ChannelCell.swift */,
+				F46FDA741C615D6C0087B35C /* ChannelCollectionCellVC.swift */,
+				F46FDAB41C6416400087B35C /* ColorPickerVC.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -112,6 +133,14 @@
 				F46FDA281C6015420087B35C /* ACNsend.swift */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		F46FDA731C6157E00087B35C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA711C6157C40087B35C /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,11 +217,18 @@
 				F46FDA291C6015420087B35C /* ACNsend.swift in Sources */,
 				F46FDA331C6016650087B35C /* Channel.swift in Sources */,
 				F46FDA2D1C60155F0087B35C /* ChannelCell.swift in Sources */,
+				F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */,
+				F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */,
+				F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */,
 				F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
+				F46FDA751C615D6C0087B35C /* ChannelCollectionCellVC.swift in Sources */,
+				F46FDA771C616E7D0087B35C /* ChannelVCViewController.swift in Sources */,
 				F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */,
+				F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */,
 				F46FDA321C6016650087B35C /* Channel+CoreDataProperties.swift in Sources */,
 				F46FDA2B1C6015550087B35C /* CreateChannelVC.swift in Sources */,
+				F46FDA721C6157C40087B35C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +378,7 @@
 				F46FDA221C5FDC500087B35C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

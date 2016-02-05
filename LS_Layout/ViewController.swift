@@ -13,12 +13,18 @@ var dmx: [UInt8] = []
 
 class ViewController: UIViewController,
                     UITableViewDataSource,
-                    UITableViewDelegate {
+                    UITableViewDelegate,
+                    UISearchBarDelegate   {
     
     @IBOutlet weak var chanTableView: UITableView!
+ 
+    
+    var channels = [Channel]()
+    
+    
     
     let sACN = ACNsend()
-    var channels = [Channel]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,8 @@ class ViewController: UIViewController,
         
         chanTableView.delegate = self
         chanTableView.dataSource = self
+        
+      
         
         for var x = 0; x < 512; x++ {
             dmx.append(UInt8(0))
@@ -63,6 +71,8 @@ class ViewController: UIViewController,
         
     }
     
+    
+    //Table View
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("ChannelCell") as? ChannelCell {
@@ -75,6 +85,7 @@ class ViewController: UIViewController,
         
     }
     
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -84,7 +95,17 @@ class ViewController: UIViewController,
     }
 
     
+    @IBAction func unlockButPressed(sender: AnyObject) {
+        
+        for ch in channels {
+            ch.independent = false
+        }
+        chanTableView.reloadData()
+    }
+
     
+    
+
     
     
 }

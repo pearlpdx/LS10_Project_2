@@ -44,9 +44,18 @@ class CreateChannelVC: UIViewController, UITextFieldDelegate {
  
         }
         
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
            
     }
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -54,14 +63,5 @@ class CreateChannelVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
