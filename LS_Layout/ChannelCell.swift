@@ -24,11 +24,9 @@ class ChannelCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // format color button
-        imgButton.layer.cornerRadius = 9.0
-        imgButton.clipsToBounds = true
-        
         //format slider
+//        channelSlider.setMaximumTrackImage(UIImage(named: "sliderBackMax"), forState: UIControlState.Normal)
+//        channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumb_normal"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumb_active"), forState: UIControlState.Highlighted)
  
@@ -43,6 +41,7 @@ class ChannelCell: UITableViewCell {
         self.channel = channel
         channelName.text = channel.name
         butLocked.hidden = !channel.independent
+        imgButton.backgroundColor = channel.getDislayColor()
  
     }
     

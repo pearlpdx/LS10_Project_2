@@ -128,6 +128,22 @@ class ChannelVCViewController:  UIViewController,
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
+            
+            if let channelCollectionCell = sender as? ChannelCollectionCellVC{
+                
+                colorPickerVC.curChannel = channelCollectionCell.channel
+            }
+        }
+    }
+    
+
+    
+    
+    
+    
     //Picket View
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1

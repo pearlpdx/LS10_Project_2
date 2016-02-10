@@ -12,7 +12,8 @@ class ChannelCollectionCellVC: UICollectionViewCell {
     
     @IBOutlet weak var chanName: UILabel!
     
-    @IBOutlet weak var chanColor: UIView!
+    @IBOutlet weak var imgColor: UIImageView!
+  
     
     
     
@@ -31,14 +32,9 @@ class ChannelCollectionCellVC: UICollectionViewCell {
         self.channel = channel
         
         chanName.text = self.channel.name
-        chanColor.layer.cornerRadius = 15.0
-        
-        
-        
-//        nameLbl.text = self.pokemon.name.capitalizedString
-//        thumbImg.image =    UIImage(named: "\(self.pokemon.pokedexID)")
-        
-        
+       
+        imgColor.backgroundColor = channel.getDislayColor()
+ 
     }
 
     

@@ -93,6 +93,24 @@ class ViewController: UIViewController,
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return channels.count
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
+            
+           // if  let channelCell = sender as? ChannelCell {
+            
+            if let colorButton = sender as? UIButton {
+                
+                let channelCell = colorButton.superview?.superview as! ChannelCell
+          
+                colorPickerVC.curChannel = channelCell.channel
+            }
+        }
+    }
+
 
     
     @IBAction func unlockButPressed(sender: AnyObject) {
