@@ -1,5 +1,5 @@
 //
-//  ChannelVCViewController.swift
+//  CollectionFixtureVC.swift
 //  LS_Layout
 //
 //  Created by Home on 2/2/16.
@@ -9,19 +9,27 @@
 import UIKit
 import CoreData
 
-class ChannelVCViewController:  UIViewController,
+class CollectionFixtureVC:      UIViewController,
                                 UICollectionViewDelegate,
                                 UICollectionViewDataSource,
                                 UICollectionViewDelegateFlowLayout,
                                 UIPickerViewDataSource,
-                                UIPickerViewDelegate{
+                                UIPickerViewDelegate,
+                                UISearchBarDelegate {
     
     @IBOutlet weak var chanCollection: UICollectionView!
     
     @IBOutlet weak var pickWheel: UIPickerView!
-    var channels = [Channel]()
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
+    var fixtures = [Channel]()
+     var filteredFixtures = [Channel]()
     
     var steps = [String]()
+    var inSearchMode = false
+
     
     
     
@@ -31,7 +39,10 @@ class ChannelVCViewController:  UIViewController,
 
         chanCollection.delegate = self
         chanCollection.dataSource = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Search
         
+        //Temp
         pickWheel.delegate = self
         pickWheel.dataSource = self
         
@@ -56,7 +67,7 @@ class ChannelVCViewController:  UIViewController,
         
         do {
             let results = try context.executeFetchRequest(fetchRequest)
-            self.channels = results as! [Channel]
+            self.fixtures = results as! [Channel]
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -74,17 +85,17 @@ class ChannelVCViewController:  UIViewController,
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ChanCell", forIndexPath: indexPath) as? ChannelCollectionCellVC   {
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ChanCell", forIndexPath: indexPath) as? CollectionFixtureCell   {
             
-            let chan: Channel!
+            let fixture: Channel!
             
-            //            if inSearchMode {
-            //                poke = filteredPokemon[indexPath.row]
-            //            } else {
-            chan = channels[indexPath.row]
-            // }
+            if inSearchMode {
+                fixture = filteredFixtures[indexPath.row]
+            } else {
+            fixture = fixtures[indexPath.row]
+             }
             
-            cell.configureCell(chan)
+            cell.configureCell(fixture)
             return cell
             
         } else {
@@ -92,30 +103,14 @@ class ChannelVCViewController:  UIViewController,
         }
     }
     
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//        //Use a generic seque from ViewController to new View Controller
-//        // do not make the seque from the collection Cell
-//        
-//        let chan: Channel!
-//        
-//        //        if inSearchMode {
-//        //            poke = filteredPokemon[indexPath.row]
-//        //        } else {
-//        chan = channels[indexPath.row]
-//        //}
-//        
-//        // performSegueWithIdentifier("PokemonDetailVC", sender: poke)
-//    }
-    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        //        if inSearchMode {
-        //            return filteredPokemon.count
-        //        } else {
-        return channels.count
-        //}
+        if inSearchMode {
+            return filteredFixtures.count
+        } else {
+        return fixtures.count
+        }
     }
     
     
@@ -132,13 +127,33 @@ class ChannelVCViewController:  UIViewController,
         
         if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
             
-            if let channelCollectionCell = sender as? ChannelCollectionCellVC{
+            if let channelCollectionCell = sender as? CollectionFixtureCell{
                 
                 colorPickerVC.curChannel = channelCollectionCell.channel
             }
         }
     }
     
+    //Search Bar
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            chanCollection.reloadData()
+            
+        } else {
+            inSearchMode = true
+            let lower = searchBar.text!.lowercaseString
+            filteredFixtures = fixtures.filter({$0.name?.rangeOfString(lower) != nil})
+            chanCollection.reloadData()
+        }
+    }
 
     
     

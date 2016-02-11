@@ -1,5 +1,5 @@
 //
-//  CreateChannelVC.swift
+//  CreateFixtureVC.swift
 //  LS_2016
 //
 //  Created by Home on 1/29/16.
@@ -9,17 +9,18 @@
 import UIKit
 import CoreData
 
-class CreateChannelVC: UIViewController, UITextFieldDelegate {
+class CreateFixtureVC: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var channelName: UITextField!
+    @IBOutlet weak var fixtureName: UITextField!
     
-    
+    var fixtures = [Channel]()
+   
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        channelName.delegate = self;
+        fixtureName.delegate = self;
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +35,8 @@ class CreateChannelVC: UIViewController, UITextFieldDelegate {
         let context = app.managedObjectContext
         let entity = NSEntityDescription.entityForName("Channel", inManagedObjectContext: context)!
         let channel = Channel(entity: entity, insertIntoManagedObjectContext: context)
-        channel.name = channelName.text
+        channel.name = fixtureName.text
+        //channel.number = fixtures.count + 1
         context.insertObject(channel)
         
         do {

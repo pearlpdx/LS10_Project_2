@@ -1,5 +1,5 @@
 //
-//  ChannelCell.swift
+//  TableFixtureCell.swift
 //  LS_2016
 //
 //  Created by Home on 1/29/16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ChannelCell: UITableViewCell {
+class TableFixtureCell: UITableViewCell {
     
-    var channel: Channel!
+    var fixture: Channel!
     
 
     @IBOutlet weak var channelNum: UILabel!
@@ -26,7 +26,7 @@ class ChannelCell: UITableViewCell {
         
         //format slider
 //        channelSlider.setMaximumTrackImage(UIImage(named: "sliderBackMax"), forState: UIControlState.Normal)
-//        channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
+//       channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumb_normal"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumb_active"), forState: UIControlState.Highlighted)
  
@@ -38,10 +38,11 @@ class ChannelCell: UITableViewCell {
     
     
     func configureCell(channel: Channel) {
-        self.channel = channel
+        self.fixture = channel
         channelName.text = channel.name
         butLocked.hidden = !channel.independent
         imgButton.backgroundColor = channel.getDislayColor()
+       //channelNum.text = "\(channel.number)"
  
     }
     
@@ -53,7 +54,7 @@ class ChannelCell: UITableViewCell {
     }
 
     @IBAction func sliderValueChanged(sender: UISlider) {
-        self.channel.independent = true
+        self.fixture.independent = true
         butLocked.hidden = false
         
         //temp
@@ -62,7 +63,7 @@ class ChannelCell: UITableViewCell {
     
     @IBAction func lockButPressed(sender: AnyObject) {
         
-        self.channel.independent = false
+        self.fixture.independent = false
         butLocked.hidden = true
     }
     

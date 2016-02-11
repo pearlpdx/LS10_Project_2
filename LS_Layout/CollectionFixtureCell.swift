@@ -1,5 +1,5 @@
 //
-//  ChannelCollectionCellVC.swift
+// CollectionFixtureCell.swift
 //  LS_Layout
 //
 //  Created by Home on 2/2/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelCollectionCellVC: UICollectionViewCell {
+class CollectionFixtureCell: UICollectionViewCell {
     
     @IBOutlet weak var chanName: UILabel!
     

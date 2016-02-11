@@ -1,8 +1,8 @@
 //
 //  Channel+CoreDataProperties.swift
-//  LS_Layout
+//  LS10_Project
 //
-//  Created by Home on 2/1/16.
+//  Created by Home on 2/10/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

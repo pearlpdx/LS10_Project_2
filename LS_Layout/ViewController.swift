@@ -14,12 +14,17 @@ var dmx: [UInt8] = []
 class ViewController: UIViewController,
                     UITableViewDataSource,
                     UITableViewDelegate,
-                    UISearchBarDelegate   {
+                    UISearchBarDelegate {
     
     @IBOutlet weak var chanTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
  
     
-    var channels = [Channel]()
+    var fixtures = [Channel]()
+    var filteredFixtures = [Channel]()
+    
+    var inSearchMode = false
+    
     
     
     
@@ -32,6 +37,8 @@ class ViewController: UIViewController,
         
         chanTableView.delegate = self
         chanTableView.dataSource = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Search
         
       
         
@@ -64,7 +71,7 @@ class ViewController: UIViewController,
         
         do {
             let results = try context.executeFetchRequest(fetchRequest)
-            self.channels = results as! [Channel]
+            self.fixtures = results as! [Channel]
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -75,12 +82,23 @@ class ViewController: UIViewController,
     //Table View
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier("ChannelCell") as? ChannelCell {
-            let channel = channels[indexPath.row]
-            cell.configureCell(channel)
+        
+        
+//        if let cell = tableView.dequeueReusableCellWithIdentifier("FixtureCell") as? TableFixtureCell {
+        if let cell = tableView.dequeueReusableCellWithIdentifier("FixtureCell", forIndexPath: indexPath) as? TableFixtureCell {
+        
+            let fixture: Channel!
+
+            if inSearchMode {
+                fixture = filteredFixtures[indexPath.row]
+            } else{
+                fixture = fixtures[indexPath.row]
+            }
+            
+            cell.configureCell(fixture)
             return cell
         }else {
-            return ChannelCell()
+            return TableFixtureCell()
         }
         
     }
@@ -91,8 +109,36 @@ class ViewController: UIViewController,
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
+        
+        if inSearchMode {
+            return filteredFixtures.count
+        } else {
+           return fixtures.count
+        }
     }
+    
+    
+    //Search Bar
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            chanTableView.reloadData()
+            
+        } else {
+            inSearchMode = true
+            let lower = searchBar.text!.lowercaseString
+            filteredFixtures = fixtures.filter({$0.name?.rangeOfString(lower) != nil})
+            chanTableView.reloadData()
+        }
+    }
+
     
     
     
@@ -100,13 +146,13 @@ class ViewController: UIViewController,
         
         if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
             
-           // if  let channelCell = sender as? ChannelCell {
+           // if  let TableFixtureCell = sender as? TableFixtureCell{
             
             if let colorButton = sender as? UIButton {
                 
-                let channelCell = colorButton.superview?.superview as! ChannelCell
+                let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
           
-                colorPickerVC.curChannel = channelCell.channel
+                colorPickerVC.curChannel = fixtureCell.fixture
             }
         }
     }
@@ -115,8 +161,8 @@ class ViewController: UIViewController,
     
     @IBAction func unlockButPressed(sender: AnyObject) {
         
-        for ch in channels {
-            ch.independent = false
+        for fx in fixtures {
+            fx.independent = false
         }
         chanTableView.reloadData()
     }
