@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class ACNsend: NSObject {
     
     
-    let SOURCE_NAME = "LS/2016"
+    let uDIDstring = UIDevice.currentDevice().identifierForVendor!.UUIDString
     
     private var acnTimer = NSTimer()
     
@@ -21,11 +22,12 @@ class ACNsend: NSObject {
     private var _universe: UInt16!
     
     
-    
+
     
     func startTimer (dmxlevels: [UInt8], universe: UInt16) {
         self._dmxLevels = dmxlevels
         self._universe = universe
+  
         
         acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: Selector("updateDMX"), userInfo: nil, repeats: true)
         
@@ -40,21 +42,12 @@ class ACNsend: NSObject {
         
         
         // Just for a test
-        
-        if seqNum % 2 == 0 {
-            
-            for var x = 0; x < _dmxLevels.count ; x++ {
-                
-                if _dmxLevels[x] < 255 {
-                    _dmxLevels[x]++
-                } else {
-                    _dmxLevels[x] = 0
-                }
-            }
-            
+        var x = 0
+        for fix:Channel in fixtures {
+
+            _dmxLevels[x] = UInt8(fix.indLevel * 255)
+            x = x + 1
         }
-        //----------
-        
         
         
         let data:[UInt8] = buildDataGram(self._dmxLevels, optionFlag: false, universe: self._universe)
@@ -101,6 +94,23 @@ class ACNsend: NSObject {
             dataG[44 + x] = char
             x++
         }
+        
+        //CID
+
+        
+         x = 0
+        for char in uDIDstring.utf8 {
+            
+            if x <= 15 {
+            dataG[22 + x] = char
+            }
+            x++
+        }
+
+      
+        
+        
+        
         
         //Flags and Length
         let fAndL: UInt16 = UInt16(dataG.count) | 0x0700

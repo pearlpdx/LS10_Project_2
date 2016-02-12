@@ -20,7 +20,7 @@ class ViewController: UIViewController,
     @IBOutlet weak var searchBar: UISearchBar!
  
     
-    var fixtures = [Channel]()
+//    var fixtures = [Channel]()
     var filteredFixtures = [Channel]()
     
     var inSearchMode = false
@@ -29,6 +29,7 @@ class ViewController: UIViewController,
     
     
     let sACN = ACNsend()
+    let myCoreData = CoreDataHandler()
     
 
     override func viewDidLoad() {
@@ -40,12 +41,24 @@ class ViewController: UIViewController,
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Search
         
-      
+        //load user data
+        myCoreData.fetchAndSetResults()
         
+        //setup datagram and start sACN refresh
         for var x = 0; x < 512; x++ {
             dmx.append(UInt8(0))
         }
         
+        //get UDID 
+        
+        let uDID = UIDevice.currentDevice().identifierForVendor
+        
+        print(uDID)
+        
+        let uDIDstring = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        
+        print(uDIDstring)
+
         sACN.startTimer(dmx, universe: 1)
 
     }
@@ -57,34 +70,14 @@ class ViewController: UIViewController,
 //
 
     override func viewDidAppear(animated: Bool) {
-        fetchAndSetResults()
         chanTableView.reloadData()
     }
 
-    
-    
-    func fetchAndSetResults() {
-        
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Channel")
-        
-        do {
-            let results = try context.executeFetchRequest(fetchRequest)
-            self.fixtures = results as! [Channel]
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-    }
-    
-    
+
+    //TODO move to speparate file
     //Table View
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        
-//        if let cell = tableView.dequeueReusableCellWithIdentifier("FixtureCell") as? TableFixtureCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("FixtureCell", forIndexPath: indexPath) as? TableFixtureCell {
         
             let fixture: Channel!
@@ -152,7 +145,7 @@ class ViewController: UIViewController,
                 
                 let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
           
-                colorPickerVC.curChannel = fixtureCell.fixture
+                colorPickerVC.curFixture = fixtureCell.fixture
             }
         }
     }

@@ -105,18 +105,116 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49I-81-kQJ">
+                                        <rect key="frame" x="20" y="129" width="115" height="142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="Bk5-No-cVt"/>
+                                            <constraint firstAttribute="height" constant="142" id="CtK-ZF-Hv2"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="151" id="RLi-r4-Js7"/>
+                                            <constraint firstAttribute="width" constant="115" id="Syv-ns-OIh"/>
+                                            <constraint firstAttribute="width" constant="93" id="Way-iG-2Xb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="aIM-8D-jSf"/>
+                                            <constraint firstAttribute="height" constant="151" id="yj5-Bk-twe"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Bk5-No-cVt"/>
+                                                <exclude reference="RLi-r4-Js7"/>
+                                                <exclude reference="Way-iG-2Xb"/>
+                                                <exclude reference="aIM-8D-jSf"/>
+                                                <exclude reference="yj5-Bk-twe"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="dataSource" destination="B8I-wE-VDH" id="KIT-iN-HRR"/>
+                                            <outlet property="delegate" destination="B8I-wE-VDH" id="WmC-0U-5p9"/>
+                                        </connections>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bm4-Yo-S4t">
+                                        <rect key="frame" x="422" y="168" width="121" height="64"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DMX Output" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-rt-Evs">
+                                                <rect key="frame" x="0.0" y="0.0" width="121" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="129" id="X2H-B9-nV9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="X2H-B9-nV9"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-ab-yMH">
+                                                <rect key="frame" x="0.0" y="33" width="121" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 bit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR9-07-yQb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YC-KK-CPT">
+                                                        <rect key="frame" x="33" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="bitSwitchValueChanged:" destination="B8I-wE-VDH" eventType="valueChanged" id="0Ke-8Y-7n6"/>
+                                                        </connections>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 bit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGe-el-Cds">
+                                                        <rect key="frame" x="89" y="0.0" width="32" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="151" id="icp-Ry-Eqz"/>
+                                                    <constraint firstAttribute="height" constant="31" id="ixU-sl-SCd"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="icp-Ry-Eqz"/>
+                                                        <exclude reference="ixU-sl-SCd"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="151" id="ChK-jS-Z4p"/>
+                                            <constraint firstAttribute="height" constant="64" id="K1b-Wo-Yp1"/>
+                                            <constraint firstAttribute="width" constant="121" id="ab6-z3-ZXD"/>
+                                            <constraint firstAttribute="height" constant="64" id="mml-O5-Ekq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ChK-jS-Z4p"/>
+                                                <exclude reference="mml-O5-Ekq"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RR5-CW-PzY" secondAttribute="trailing" constant="20" id="9BW-Mp-vWa"/>
                                     <constraint firstItem="Ygc-fz-GNs" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="9h3-fP-Kyu"/>
+                                    <constraint firstItem="bm4-Yo-S4t" firstAttribute="top" secondItem="RR5-CW-PzY" secondAttribute="bottom" constant="52" id="CTg-8Q-BeY"/>
                                     <constraint firstItem="RR5-CW-PzY" firstAttribute="top" secondItem="Ygc-fz-GNs" secondAttribute="bottom" constant="21" id="DX7-IW-TNb"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="top" secondItem="RR5-CW-PzY" secondAttribute="bottom" constant="8" id="JG4-t4-BHd"/>
+                                    <constraint firstItem="bm4-Yo-S4t" firstAttribute="leading" secondItem="49I-81-kQJ" secondAttribute="trailing" constant="152" id="Mya-IR-yZJ"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="top" secondItem="RR5-CW-PzY" secondAttribute="bottom" constant="8" id="RT5-HZ-SE4"/>
+                                    <constraint firstAttribute="trailing" secondItem="bm4-Yo-S4t" secondAttribute="trailing" constant="20" id="RZw-TC-DMp"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="centerX" secondItem="A6I-lQ-5Xl" secondAttribute="centerX" id="a7M-vf-Ok5"/>
                                     <constraint firstItem="Ygc-fz-GNs" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="giu-zL-gAb"/>
                                     <constraint firstItem="Ygc-fz-GNs" firstAttribute="top" secondItem="A6I-lQ-5Xl" secondAttribute="top" constant="20" id="hcr-0E-OOz"/>
                                     <constraint firstItem="RR5-CW-PzY" firstAttribute="top" secondItem="Ygc-fz-GNs" secondAttribute="bottom" constant="21" id="jj5-FW-HaW"/>
                                     <constraint firstItem="RR5-CW-PzY" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="k9p-gz-pPU"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="kC4-M2-CMO"/>
                                     <constraint firstItem="RR5-CW-PzY" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="mGW-NK-XRK"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="leading" secondItem="A6I-lQ-5Xl" secondAttribute="leading" constant="20" id="seE-Cu-hfe"/>
                                     <constraint firstAttribute="trailing" secondItem="RR5-CW-PzY" secondAttribute="trailing" constant="20" id="uec-r8-uJj"/>
+                                    <constraint firstItem="49I-81-kQJ" firstAttribute="top" secondItem="RR5-CW-PzY" secondAttribute="bottom" constant="8" id="w9X-n6-LKV"/>
                                     <constraint firstItem="Ygc-fz-GNs" firstAttribute="top" secondItem="A6I-lQ-5Xl" secondAttribute="top" constant="20" id="yJw-om-cdC"/>
                                 </constraints>
                                 <variation key="default">
@@ -126,6 +224,11 @@
                                         <exclude reference="jj5-FW-HaW"/>
                                         <exclude reference="mGW-NK-XRK"/>
                                         <exclude reference="uec-r8-uJj"/>
+                                        <exclude reference="JG4-t4-BHd"/>
+                                        <exclude reference="RT5-HZ-SE4"/>
+                                        <exclude reference="a7M-vf-Ok5"/>
+                                        <exclude reference="seE-Cu-hfe"/>
+                                        <exclude reference="Mya-IR-yZJ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -148,7 +251,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bitSwitch" destination="9YC-KK-CPT" id="V2K-Sy-X5D"/>
                         <outlet property="fixtureName" destination="RR5-CW-PzY" id="Ctr-uu-XOC"/>
+                        <outlet property="pickerView" destination="49I-81-kQJ" id="jBC-oh-zLs"/>
+                        <outlet property="stylePicker" destination="49I-81-kQJ" id="0LP-De-iAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtW-iM-qur" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,7 +360,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-ON-FDd" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bX-pa-RJJ" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
+                                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2bX-pa-RJJ" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
                                                         <rect key="frame" x="491" y="15" width="61" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="UPb-WX-UBw"/>
@@ -266,7 +372,7 @@
                                                             <action selector="redTextEnd:" destination="RLy-78-Nr9" eventType="editingDidEnd" id="N39-iN-aDx"/>
                                                         </connections>
                                                     </textField>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6qm-Pm-DuP">
+                                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6qm-Pm-DuP">
                                                         <rect key="frame" x="22" y="15" width="451" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.67878741789999997" green="0.069303386780000004" blue="0.089414516890000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="thumbTintColor" red="0.67878741789999997" green="0.069303386780000004" blue="0.089414516890000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +406,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lek-wN-mUj" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="60" width="560" height="60"/>
                                                 <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IiE-y0-Pm7">
+                                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IiE-y0-Pm7">
                                                         <rect key="frame" x="22" y="15" width="451" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.0" green="0.76426174499999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="thumbTintColor" red="0.0" green="0.76470588235294112" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,7 +414,7 @@
                                                             <action selector="greenValueChanged:" destination="RLy-78-Nr9" eventType="valueChanged" id="DHE-Sg-jlC"/>
                                                         </connections>
                                                     </slider>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDg-Wz-nut" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
+                                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDg-Wz-nut" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
                                                         <rect key="frame" x="491" y="15" width="61" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="61" id="1lf-0Y-3KL"/>
@@ -346,7 +452,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-f3-2gm" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="120" width="560" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QyJ-fD-clO" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
+                                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QyJ-fD-clO" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
                                                         <rect key="frame" x="491" y="15" width="61" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="61" id="bRh-lA-8GB"/>
@@ -358,7 +464,7 @@
                                                             <action selector="blueTextEnd:" destination="RLy-78-Nr9" eventType="editingDidEnd" id="Rvo-RM-56F"/>
                                                         </connections>
                                                     </textField>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qvv-5F-F8u">
+                                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qvv-5F-F8u">
                                                         <rect key="frame" x="22" y="15" width="451" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.81852001190000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="thumbTintColor" red="0.0" green="0.0" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
@@ -392,7 +498,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezA-3A-hi0" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="180" width="560" height="60"/>
                                                 <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nlS-NX-IWh">
+                                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nlS-NX-IWh">
                                                         <rect key="frame" x="22" y="15" width="451" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.91883389260000004" green="0.7843137255" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="thumbTintColor" red="0.91764705882352937" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -400,7 +506,7 @@
                                                             <action selector="amberValueChanged:" destination="RLy-78-Nr9" eventType="valueChanged" id="fyl-tI-D39"/>
                                                         </connections>
                                                     </slider>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fiw-FL-pcR" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
+                                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fiw-FL-pcR" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
                                                         <rect key="frame" x="491" y="15" width="61" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="61" id="E7p-oz-csB"/>
@@ -438,15 +544,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SY-GC-FtO" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="240" width="560" height="60"/>
                                                 <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bJ8-fE-TF2">
-                                                        <rect key="frame" x="22" y="15" width="451" height="31"/>
-                                                        <color key="minimumTrackTintColor" red="0.14901960780000001" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <action selector="whiteValueChanged:" destination="RLy-78-Nr9" eventType="valueChanged" id="gGa-5Y-uIL"/>
-                                                        </connections>
-                                                    </slider>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0xc-lj-tSP" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
+                                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0xc-lj-tSP" customClass="MaterialTextField" customModule="LS10_Project" customModuleProvider="target">
                                                         <rect key="frame" x="491" y="15" width="61" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="61" id="0TA-ce-52M"/>
@@ -458,6 +556,14 @@
                                                             <action selector="whiteTextEnds:" destination="RLy-78-Nr9" eventType="editingDidEnd" id="IdQ-Hy-Us9"/>
                                                         </connections>
                                                     </textField>
+                                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bJ8-fE-TF2">
+                                                        <rect key="frame" x="22" y="15" width="451" height="31"/>
+                                                        <color key="minimumTrackTintColor" red="0.14901960780000001" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="whiteValueChanged:" destination="RLy-78-Nr9" eventType="valueChanged" id="gGa-5Y-uIL"/>
+                                                        </connections>
+                                                    </slider>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="0xc-lj-tSP" firstAttribute="leading" secondItem="bJ8-fE-TF2" secondAttribute="trailing" constant="23" id="0UA-ra-ILS"/>
@@ -573,7 +679,7 @@
                                             <constraint firstAttribute="height" constant="30" id="H4j-HS-2fb"/>
                                             <constraint firstAttribute="width" constant="30" id="Yjb-w8-wJ7"/>
                                         </constraints>
-                                        <state key="normal" image="unlock_white"/>
+                                        <state key="normal" image="offInd_white"/>
                                         <connections>
                                             <action selector="unlockButPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xB8-db-Fjd"/>
                                         </connections>
@@ -655,7 +761,7 @@
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-bm-JVn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="___" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-bm-JVn">
                                                     <rect key="frame" x="2" y="-8" width="40" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="6Ku-0E-yJy"/>
@@ -672,7 +778,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="glp-sW-LUa"/>
                                                         <constraint firstAttribute="height" constant="25" id="rdN-8O-QJr"/>
                                                     </constraints>
-                                                    <state key="normal" image="lock_grey"/>
+                                                    <state key="normal" image="onInd"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="glp-sW-LUa"/>
@@ -699,18 +805,6 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="W49-HS-hvI">
-                                                    <rect key="frame" x="48" y="19" width="499" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="YKJ-x1-aLS"/>
-                                                    </constraints>
-                                                    <color key="minimumTrackTintColor" red="0.67878741789999997" green="0.069303386780000004" blue="0.089414516890000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="thumbTintColor" red="0.69019607839999997" green="0.74509803919999995" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <connections>
-                                                        <action selector="sliderValueChanged:" destination="gnb-2v-oic" eventType="valueChanged" id="mnQ-rT-s1R"/>
-                                                    </connections>
-                                                </slider>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgp-bi-yo5">
                                                     <rect key="frame" x="548" y="0.0" width="45" height="45"/>
                                                     <color key="backgroundColor" red="0.91764705879999997" green="0.7843137255" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -732,6 +826,18 @@
                                                         <segue destination="RLy-78-Nr9" kind="showDetail" id="nSC-Lh-eZa"/>
                                                     </connections>
                                                 </button>
+                                                <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="W49-HS-hvI">
+                                                    <rect key="frame" x="48" y="18" width="499" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="YKJ-x1-aLS"/>
+                                                    </constraints>
+                                                    <color key="minimumTrackTintColor" red="0.67878741789999997" green="0.069303386780000004" blue="0.089414516890000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="thumbTintColor" red="0.69019607839999997" green="0.74509803919999995" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="gnb-2v-oic" eventType="valueChanged" id="mnQ-rT-s1R"/>
+                                                    </connections>
+                                                </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Bgp-bi-yo5" firstAttribute="leading" secondItem="mpl-14-vh9" secondAttribute="trailing" constant="5" id="06N-6q-oif"/>
@@ -1166,10 +1272,10 @@
         <image name="cir_solid_3x3" width="30" height="26"/>
         <image name="colorFrame" width="50" height="50"/>
         <image name="fixture" width="32" height="32"/>
-        <image name="lock_grey" width="30" height="30"/>
+        <image name="offInd_white" width="60" height="60"/>
+        <image name="onInd" width="60" height="60"/>
         <image name="play_cir" width="30" height="26"/>
         <image name="sq_open_2x2" width="30" height="26"/>
-        <image name="unlock_white" width="700" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="txj-hw-aCm"/>

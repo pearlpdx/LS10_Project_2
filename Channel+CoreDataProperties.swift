@@ -2,7 +2,7 @@
 //  Channel+CoreDataProperties.swift
 //  LS10_Project
 //
-//  Created by Home on 2/10/16.
+//  Created by Home on 2/11/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,5 +15,7 @@ import CoreData
 extension Channel {
 
     @NSManaged var name: String?
+    @NSManaged var style: String?
+    @NSManaged var dmx16bit: NSNumber?
 
 }

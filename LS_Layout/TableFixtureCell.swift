@@ -27,8 +27,8 @@ class TableFixtureCell: UITableViewCell {
         //format slider
 //        channelSlider.setMaximumTrackImage(UIImage(named: "sliderBackMax"), forState: UIControlState.Normal)
 //       channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
-        channelSlider.setThumbImage(UIImage(named: "thumb_normal"), forState: UIControlState.Normal)
-        channelSlider.setThumbImage(UIImage(named: "thumb_active"), forState: UIControlState.Highlighted)
+        channelSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
+        channelSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
  
     }
 
@@ -42,6 +42,7 @@ class TableFixtureCell: UITableViewCell {
         channelName.text = channel.name
         butLocked.hidden = !channel.independent
         imgButton.backgroundColor = channel.getDislayColor()
+        channelSlider.value = fixture.indLevel
        //channelNum.text = "\(channel.number)"
  
     }
@@ -56,6 +57,8 @@ class TableFixtureCell: UITableViewCell {
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.fixture.independent = true
         butLocked.hidden = false
+        self.fixture.indLevel = sender.value
+        
         
         //temp
         channelLevel.text = "\(Int(sender.value * 100))%"

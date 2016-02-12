@@ -13,7 +13,7 @@ class CreateFixtureVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var fixtureName: UITextField!
     
-    var fixtures = [Channel]()
+   // var fixtures = [Channel]()
    
     
 
@@ -21,6 +21,7 @@ class CreateFixtureVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         fixtureName.delegate = self;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,13 +32,17 @@ class CreateFixtureVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func createChannel(sender: AnyObject!) {
         
+      
         let app = UIApplication.sharedApplication().delegate as!  AppDelegate
         let context = app.managedObjectContext
         let entity = NSEntityDescription.entityForName("Channel", inManagedObjectContext: context)!
         let channel = Channel(entity: entity, insertIntoManagedObjectContext: context)
         channel.name = fixtureName.text
         //channel.number = fixtures.count + 1
+        channel.dmx16bit = dmxSwitchState
+        channel.style = styles[pickedRow]
         context.insertObject(channel)
+        fixtures.append(channel)
         
         do {
             try context.save()
@@ -65,5 +70,43 @@ class CreateFixtureVC: UIViewController, UITextFieldDelegate {
     }
     
     
+    //Picker view 
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var stylePicker: UIPickerView!
+    @IBOutlet weak var bitSwitch: UISwitch!
+    
+    
+    
+    
+    
+    var styles = ["Intensity", "RGB", "RGBA", "RGBW", "RGBAW", "I+RGB", "I+RGBA", "I+RGBW", "I+RGBAW"]
+    
+    var dmxSwitchState = false
+    
+    var pickedRow = 0
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return styles.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return styles[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        
+        pickedRow = row
+        
+    }
+    
+    
+    @IBAction func bitSwitchValueChanged(sender: UISwitch) {
+        dmxSwitchState = sender.on
+    }
    
 }

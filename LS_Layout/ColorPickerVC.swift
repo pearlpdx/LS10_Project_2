@@ -17,7 +17,7 @@ extension String {
 class ColorPickerVC: UIViewController, UITextFieldDelegate {
     
     
-    var curChannel:Channel?
+    var curFixture:Channel?
     
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
@@ -37,31 +37,54 @@ class ColorPickerVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initTextFields()
+        setStyle()
   
     }
     
     func initTextFields() {
         redText.delegate = self
         redText.keyboardType = UIKeyboardType.NumberPad
-        redSlider.value = (curChannel?.indRed)!
+        redSlider.value = (curFixture?.indRed)!
         
         greenText.delegate = self
         greenText.keyboardType = UIKeyboardType.NumberPad
-        greenSlider.value = (curChannel?.indGreen)!
+        greenSlider.value = (curFixture?.indGreen)!
         
         blueText.delegate = self
         blueText.keyboardType = UIKeyboardType.NumberPad
-        blueSlider.value = (curChannel?.indBlue)!
+        blueSlider.value = (curFixture?.indBlue)!
         
         amberText.delegate = self
         amberText.keyboardType = UIKeyboardType.NumberPad
-        amberSlider.value = (curChannel?.indAmber)!
+        amberSlider.value = (curFixture?.indAmber)!
         
         whiteText.delegate = self
         whiteText.keyboardType = UIKeyboardType.NumberPad
-        whiteSlider.value = (curChannel?.indWhite)!
+        whiteSlider.value = (curFixture?.indWhite)!
         
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
+    }
+    
+    func setStyle() {
+        
+        if curFixture?.style  != "Intensity" {
+            redText.hidden = false
+            redSlider.hidden = false
+            greenText.hidden = false
+            greenSlider.hidden = false
+            blueText.hidden = false
+            blueSlider.hidden = false
+        }
+        
+        if curFixture?.style!.containsCharactersIn("A") == true {
+            amberText.hidden = false
+            amberSlider.hidden = false
+        }
+        
+        if curFixture?.style!.containsCharactersIn("W") == true {
+            whiteText.hidden = false
+            whiteSlider.hidden = false
+        }
     }
     
     
@@ -118,7 +141,7 @@ class ColorPickerVC: UIViewController, UITextFieldDelegate {
     func sliderValueChanged(slider: UISlider, textbox: UITextField) {
         textbox.text = "\(Int(slider.value * 255))"
         view.endEditing(true)
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     func textEnds(textbox: UITextField, slider: UISlider) {
@@ -137,27 +160,27 @@ class ColorPickerVC: UIViewController, UITextFieldDelegate {
     
     //Sliders
     @IBAction func redVauleChanged(sender: AnyObject) {
-        curChannel?.indRed = redSlider.value
+        curFixture?.indRed = redSlider.value
         sliderValueChanged(redSlider, textbox: redText)
     }
     
     @IBAction func greenValueChanged(sender: AnyObject) {
-        curChannel?.indGreen = greenSlider.value
+        curFixture?.indGreen = greenSlider.value
         sliderValueChanged(greenSlider, textbox: greenText)
     }
     
     @IBAction func blueValueChanged(sender: AnyObject) {
-        curChannel?.indBlue = blueSlider.value
+        curFixture?.indBlue = blueSlider.value
         sliderValueChanged(blueSlider, textbox: blueText)
     }
     
     @IBAction func amberValueChanged(sender: AnyObject) {
-        curChannel?.indAmber = amberSlider.value
+        curFixture?.indAmber = amberSlider.value
         sliderValueChanged(amberSlider, textbox: amberText!)
     }
     
     @IBAction func whiteValueChanged(sender: AnyObject) {
-        curChannel?.indWhite = whiteSlider.value
+        curFixture?.indWhite = whiteSlider.value
         sliderValueChanged(whiteSlider, textbox: whiteText)
     }
     
@@ -165,32 +188,32 @@ class ColorPickerVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func redTextEnd(sender: AnyObject) {
         textEnds(redText, slider: redSlider)
-        curChannel?.indRed = redSlider.value
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        curFixture?.indRed = redSlider.value
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     @IBAction func greenTextEnd(sender: AnyObject) {
         textEnds(greenText, slider: greenSlider)
-        curChannel?.indGreen = greenSlider.value
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        curFixture?.indGreen = greenSlider.value
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     @IBAction func blueTextEnd(sender: AnyObject) {
         textEnds(blueText, slider: blueSlider)
-        curChannel?.indBlue = blueSlider.value
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        curFixture?.indBlue = blueSlider.value
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     @IBAction func amberTextEnd(sender: AnyObject) {
         textEnds(amberText, slider: amberSlider)
-        curChannel?.indAmber = amberSlider.value
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        curFixture?.indAmber = amberSlider.value
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     @IBAction func whiteTextEnds(sender: AnyObject) {
         textEnds(whiteText, slider: whiteSlider)
-        curChannel?.indWhite = whiteSlider.value
-        colorPreview.backgroundColor = curChannel?.getDislayColor()
+        curFixture?.indWhite = whiteSlider.value
+        colorPreview.backgroundColor = curFixture?.getDislayColor()
     }
     
     @IBAction func updatePressed(sender: AnyObject) {

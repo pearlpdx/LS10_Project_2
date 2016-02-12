@@ -14,6 +14,12 @@ import UIKit
 
 class Channel: NSManagedObject {
     
+    //Make these CoreData Properties
+    
+    //var style = "Intensity"
+   // var dmx16bit = false
+    
+    
     var independent = false
     
 
@@ -23,6 +29,8 @@ class Channel: NSManagedObject {
     var indBlue:Float = 0.0
     var indAmber:Float = 0.0
     var indWhite:Float = 0.0
+    
+    var indLevel:Float = 0.0
     
     
     var _displayColor: UIColor = UIColor.whiteColor()

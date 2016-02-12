@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let SOURCE_NAME = "The LS-10 Project"
+
 let SHADOW_COLOR: CGFloat = 157.0 / 255.0
 
 //Convert RGBAW to RGB
