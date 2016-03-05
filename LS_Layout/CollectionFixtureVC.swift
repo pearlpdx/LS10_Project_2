@@ -24,7 +24,6 @@ class CollectionFixtureVC:      UIViewController,
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-//    var fixtures = [Channel]()
     var filteredFixtures = [Channel]()
     
     var steps = [String]()
@@ -56,31 +55,6 @@ class CollectionFixtureVC:      UIViewController,
      //   fetchAndSetResults()
         chanCollection.reloadData()
     }
-    
-    
-//    
-//    func fetchAndSetResults() {
-//        
-//        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let context = app.managedObjectContext
-//        let fetchRequest = NSFetchRequest(entityName: "Channel")
-//        
-//        do {
-//            let results = try context.executeFetchRequest(fetchRequest)
-//            self.fixtures = results as! [Channel]
-//        } catch let err as NSError {
-//            print(err.debugDescription)
-//        }
-//        
-//    }
-//
-    
-    
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
     
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

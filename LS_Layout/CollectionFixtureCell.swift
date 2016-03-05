@@ -36,6 +36,4 @@ class CollectionFixtureCell: UICollectionViewCell {
         imgColor.backgroundColor = channel.getDislayColor()
  
     }
-
-    
 }
