@@ -36,17 +36,18 @@ class Channel: NSManagedObject {
     var _displayColor: UIColor = UIColor.whiteColor()
     
     func getDislayColor() -> UIColor {
-        
-        var color: UIColor
-        
-        color = UIColor(colorLiteralRed: (indRed * RGB_MULT) + (indAmber * AMBER_AND_WHITE) + (indWhite * AMBER_AND_WHITE),
+     
+        return  UIColor(colorLiteralRed: (indRed * RGB_MULT) + (indAmber * AMBER_AND_WHITE) + (indWhite * AMBER_AND_WHITE),
             green: (indGreen * RGB_MULT) + (indAmber * AMBER_AND_WHITE) + (indWhite * AMBER_AND_WHITE),
             blue: (indBlue * RGB_MULT) + (indWhite * AMBER_AND_WHITE),
             alpha: 1.0)
         //print("\((indRed * 0.5) + (indAmber * 0.25) + (indWhite * 0.25)) \((indGreen * 0.5) + (indAmber * 0.25) + (indWhite * 0.25))  \((indBlue * 0.5) + (indWhite * 0.25))")
         
-        return color
-        
+    
+    }
+    
+    func getRGBColor() ->UIColor {
+        return UIColor(colorLiteralRed: indRed, green: indGreen, blue: indBlue, alpha: 1.0)
     }
     
     //        var curLevel = 0
