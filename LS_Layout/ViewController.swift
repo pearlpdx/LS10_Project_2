@@ -11,14 +11,24 @@ import  CoreData
 
 var dmx: [UInt8] = []
 
+//TODO Move to Core Data
+var categories = ["First Beam", "Second Beam", "First Electric", "Second Electric", "Cyc"]
+
+
 class ViewController: UIViewController,
                     UITableViewDataSource,
                     UITableViewDelegate,
                     UISearchBarDelegate {
     
     @IBOutlet weak var chanTableView: UITableView!
+    
     @IBOutlet weak var searchBar: UISearchBar!
  
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var addButton: UIButton!
+    
+    @IBOutlet weak var indOffButton: UIButton!
     
 //    var fixtures = [Channel]()
     var filteredFixtures = [Channel]()
@@ -74,7 +84,6 @@ class ViewController: UIViewController,
     }
 
 
-    //TODO move to speparate file
     //Table View
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -131,27 +140,34 @@ class ViewController: UIViewController,
             chanTableView.reloadData()
         }
     }
-
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
+    // Override to support editing the table view.
+     func chanTableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
             
-           // if  let TableFixtureCell = sender as? TableFixtureCell{
+            fixtures.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            if let colorButton = sender as? UIButton {
-                
-                let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
-          
-                colorPickerVC.curFixture = fixtureCell.fixture
-            }
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+         //TODO  Save to CoreData  ************************
     }
 
-
+   
+   
+    // Override to support rearranging the table view.
+      func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let fx = fixtures[fromIndexPath.row]
+        fixtures.removeAtIndex(fromIndexPath.row)
+        fixtures.insert(fx, atIndex: toIndexPath.row)
+  //TODO  Save to CoreData  ************************
+    }
     
+   
+  //Actions
     @IBAction func unlockButPressed(sender: AnyObject) {
         
         for fx in fixtures {
@@ -161,6 +177,35 @@ class ViewController: UIViewController,
     }
 
     
+    @IBAction func eidtButtonPessed(sender: AnyObject) {
+        
+         chanTableView.editing = !chanTableView.editing
+        if chanTableView.editing == true {
+            editButton.setTitle("DONE", forState: UIControlState.Normal)
+            addButton.hidden = false
+            indOffButton.hidden = true
+        } else {
+            editButton.setTitle("EDIT", forState: UIControlState.Normal)
+            addButton.hidden = true
+            indOffButton.hidden = false
+        }
+    }
+    
+   //Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
+            
+            // if  let TableFixtureCell = sender as? TableFixtureCell{
+            
+            if let colorButton = sender as? UIButton {
+                
+                let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
+                
+                colorPickerVC.curFixture = fixtureCell.fixture
+            }
+        }
+    }
     
 
     

@@ -35,6 +35,14 @@ class Channel: NSManagedObject {
     
     var _displayColor: UIColor = UIColor.whiteColor()
     
+//    func SaveAll() {
+//        do {
+//            try self.managedObjectContext!.save()
+//        } catch {
+//            fatalError("Failure to save context: \(error)")
+//        }
+//    }
+    
     func getDislayColor() -> UIColor {
      
         return  UIColor(colorLiteralRed: (indRed * RGB_MULT) + (indAmber * AMBER_AND_WHITE) + (indWhite * AMBER_AND_WHITE),

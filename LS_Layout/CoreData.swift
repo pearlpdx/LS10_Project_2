@@ -28,9 +28,6 @@ class CoreDataHandler: NSObject {
         }
         
     }
-  
-    
-       
-}
+  }
 
 

@@ -29,6 +29,9 @@ class TableFixtureCell: UITableViewCell {
 //       channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
+        imgButton.layer.cornerRadius = 10
+        imgButton.layer.borderWidth = 2
+        //imgButton.layer.borderColor = UIColor.blackColor()
  
     }
 

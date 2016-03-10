@@ -76,6 +76,23 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         
         
         override func viewDidAppear(animated: Bool) {
+            
+            if curFixture.style == "Intensity" {
+                redSlider.hidden = true
+                greenSlider.hidden = true
+                blueSlider.hidden = true
+                amberSlider.hidden = true
+                whiteSlider.hidden = true
+            }
+            
+            amberSlider.hidden = true
+            whiteSlider.hidden = true
+            if curFixture.style?.containsCharactersIn("A") == nil {
+                amberSlider.hidden = false
+            }
+            if curFixture.style?.containsCharactersIn("W") == nil {
+                whiteSlider.hidden = false
+            }
    
 //            if curColor != nil {
 //                displayRGB(curColor!)        //Preset Color Here ***************
