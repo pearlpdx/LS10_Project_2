@@ -40,6 +40,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         @IBOutlet weak var blueSlider: UISlider!
         @IBOutlet weak var amberSlider: UISlider!
         @IBOutlet weak var whiteSlider: UISlider!
+    @IBOutlet weak var wheelView: UIView!
         
         var colorWheel: ISColorWheel!
         var curColor: UIColor?
@@ -68,6 +69,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
 //            brightnessSlider.value = 1.0            //Preset Int Here
 //            
             colorWheel.currentColor()
+   
             self.view!.addSubview(colorWheel)
             self.wellView2.layer.borderColor = UIColor.blackColor().CGColor
             self.wellView2.layer.borderWidth = 2.0

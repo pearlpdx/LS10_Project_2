@@ -24,13 +24,13 @@ class Channel: NSManagedObject {
     
 
     
-    var indRed:Float = 0.0
-    var indGreen:Float = 0.0
-    var indBlue:Float = 0.0
-    var indAmber:Float = 0.0
-    var indWhite:Float = 0.0
+    var indRed:Float = 1.0
+    var indGreen:Float = 1.0
+    var indBlue:Float = 1.0
+    var indAmber:Float = 1.0
+    var indWhite:Float = 1.0
     
-    var indLevel:Float = 0.0
+    var indLevel:Float = 1.0
     
     
     var _displayColor: UIColor = UIColor.whiteColor()
