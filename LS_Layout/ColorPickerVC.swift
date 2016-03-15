@@ -24,6 +24,8 @@ extension String {
     }
 }
 
+//    var _curFixture: Channel!
+
 class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
         @IBOutlet weak var wellView2: UIView!
@@ -40,13 +42,23 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         @IBOutlet weak var blueSlider: UISlider!
         @IBOutlet weak var amberSlider: UISlider!
         @IBOutlet weak var whiteSlider: UISlider!
-    @IBOutlet weak var wheelView: UIView!
+      //  @IBOutlet weak var wheelView: UIView!
         
         var colorWheel: ISColorWheel!
         var curColor: UIColor?
         var arrayForBool : NSMutableArray = NSMutableArray()
     
         var curFixture: Channel!
+    
+//    var curFixtur: Channel {
+//        get{
+//            return _curFixture
+//        }
+//        set{
+//            _curFixture = newValue
+//        }
+//        
+//    }
     
     
         

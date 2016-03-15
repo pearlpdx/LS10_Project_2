@@ -44,9 +44,17 @@ class TableFixtureCell: UITableViewCell {
         self.fixture = channel
         channelName.text = channel.name
         butLocked.hidden = !channel.independent
-        imgButton.backgroundColor = channel.getDislayColor()
         channelSlider.value = fixture.indLevel
-       //channelNum.text = "\(channel.number)"
+        
+        if channel.style == "Intensity" {
+            imgButton.hidden = true
+        }   else {
+            imgButton.hidden = false
+            imgButton.backgroundColor = channel.getDislayColor()
+        }
+       channelNum.text = channel.number
+//        channelNum.text = "123"
+
  
     }
     

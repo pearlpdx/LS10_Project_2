@@ -12,7 +12,7 @@ class FixtureTypeTableViewController: UITableViewController {
     
      var styles = ["Intensity", "RGB", "RGBA", "RGBW", "RGBAW", "I+RGB", "I+RGBA", "I+RGBW", "I+RGBAW"]
     var selStyle = ""
-//    
+   
 //    var selectedCell: UITableViewCell? {
 //        willSet {
 //        selectedCell?.accessoryType = .None
@@ -22,6 +22,8 @@ class FixtureTypeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       self.navigationItem.title = "FIXTURE TYPE"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -59,9 +61,7 @@ class FixtureTypeTableViewController: UITableViewController {
 //    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return "Choose the Fixture Style"
 //    }
-    
-
-    
+        
     override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         let cell = self.tableView.cellForRowAtIndexPath(indexPath)
         selStyle = (cell?.textLabel?.text)!
@@ -120,8 +120,10 @@ class FixtureTypeTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destVC = segue.destinationViewController as? CreateFixtureTableViewController
-        destVC?.fixtureStyle = selStyle
+        
+        let navVC = segue.destinationViewController as! UINavigationController
+        let destVC = navVC.viewControllers.first as! CreateFixtureTableViewController  
+        destVC.fixtureStyle = selStyle
     }
 
 }

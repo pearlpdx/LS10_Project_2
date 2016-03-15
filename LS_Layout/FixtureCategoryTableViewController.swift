@@ -11,18 +11,12 @@ import UIKit
 //var categories = ["First Beam", "Second Beam", "First Electric", "Second Electric", "Cyc"]
 
 class FixtureCategoryTableViewController: UITableViewController {
-    
+   
+        var selCategory = ""
     
     @IBOutlet weak var insertTextBox: UITextField!
     
-    var selCategory = ""
-    
-
-    @IBOutlet weak var editButton: UIButton!
-    
-    
     @IBOutlet weak var insertView: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +27,9 @@ class FixtureCategoryTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.navigationItem.title = "FIXTURE GROUP"
      
     }
 
@@ -41,6 +37,8 @@ class FixtureCategoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -53,7 +51,6 @@ class FixtureCategoryTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return categories.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath)
@@ -69,7 +66,19 @@ class FixtureCategoryTableViewController: UITableViewController {
     selCategory = (cell?.textLabel?.text)!
     }
 
-    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        
+        if editing {
+              tableView.setEditing((editing), animated: true)
+            insertView.hidden = false
+        }else {
+              tableView.setEditing((editing), animated: false)
+            insertView.hidden = true
+        }
+        
+      
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -111,18 +120,18 @@ class FixtureCategoryTableViewController: UITableViewController {
     }
     */
 
-    @IBAction func editButtonPressed(sender: AnyObject) {
-        
-        tableView.editing = !tableView.editing
-        insertView.hidden = !tableView.editing
-        if tableView.editing == true {
-            editButton.setTitle("DONE", forState: UIControlState.Normal)
-           
-        } else {
-            editButton.setTitle("EDIT", forState: UIControlState.Normal)
-        }
-    }
-    
+//    @IBAction func editButtonPressed(sender: AnyObject) {
+//        
+//        tableView.editing = !tableView.editing
+//        insertView.hidden = !tableView.editing
+////        if tableView.editing == true {
+////            editButton.setTitle("DONE", forState: UIControlState.Normal)
+////           
+////        } else {
+////            editButton.setTitle("EDIT", forState: UIControlState.Normal)
+////        }
+//    }
+//    
     
     @IBAction func insertButtonPress(sender: AnyObject) {
         
@@ -134,8 +143,10 @@ class FixtureCategoryTableViewController: UITableViewController {
 
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destVC = segue.destinationViewController as? CreateFixtureTableViewController
-        destVC?.fixtureCategory = selCategory
+        
+        let navVC = segue.destinationViewController as! UINavigationController
+        let destVC = navVC.viewControllers.first as! CreateFixtureTableViewController
+        destVC.fixtureCategory = selCategory
     }
 
 }

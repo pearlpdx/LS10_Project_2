@@ -26,7 +26,6 @@
 		F46FDA191C5FDC4D0087B35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA181C5FDC4D0087B35C /* Assets.xcassets */; };
 		F46FDA1C1C5FDC4F0087B35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA1A1C5FDC4F0087B35C /* LaunchScreen.storyboard */; };
 		F46FDA291C6015420087B35C /* ACNsend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA281C6015420087B35C /* ACNsend.swift */; };
-		F46FDA2B1C6015550087B35C /* CreateFixtureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2A1C6015540087B35C /* CreateFixtureVC.swift */; };
 		F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */; };
 		F46FDA331C6016650087B35C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA311C6016650087B35C /* Channel.swift */; };
 		F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6A1C61535E0087B35C /* MaterialView.swift */; };
@@ -65,7 +64,6 @@
 		F46FDA1B1C5FDC4F0087B35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46FDA1D1C5FDC500087B35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46FDA281C6015420087B35C /* ACNsend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNsend.swift; sourceTree = "<group>"; };
-		F46FDA2A1C6015540087B35C /* CreateFixtureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFixtureVC.swift; sourceTree = "<group>"; };
 		F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFixtureCell.swift; sourceTree = "<group>"; };
 		F46FDA311C6016650087B35C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = ../Channel.swift; sourceTree = "<group>"; };
 		F46FDA6A1C61535E0087B35C /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
@@ -99,6 +97,27 @@
 				37C4DDD9CCF0D40A50D5019C /* Pods-LS10_Project.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		333A553A1C9497BE00692414 /* ColorP Picker */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDAB41C6416400087B35C /* ColorPickerVC.swift */,
+				33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */,
+				33EDE4F01C8B54C600EEA3EA /* GelTableViewHeaderCell.swift */,
+				33EDE4EF1C8B54C600EEA3EA /* GelTableViewCell.swift */,
+			);
+			name = "ColorP Picker";
+			sourceTree = "<group>";
+		};
+		333A553B1C9497D300692414 /* Create Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				33EDE5171C8DF6E400EEA3EA /* CreateFixtureTableViewController.swift */,
+				33EDE5191C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift */,
+				33EDE51B1C8F8DE400EEA3EA /* FixtureCategoryTableViewController.swift */,
+			);
+			name = "Create Fixture";
 			sourceTree = "<group>";
 		};
 		33EDE4EC1C8B546E00EEA3EA /* Support */ = {
@@ -145,18 +164,12 @@
 		F46FDA251C6014F50087B35C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				333A553B1C9497D300692414 /* Create Fixture */,
+				333A553A1C9497BE00692414 /* ColorP Picker */,
 				F46FDA101C5FDC460087B35C /* ViewController.swift */,
 				F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */,
 				F46FDA741C615D6C0087B35C /* CollectionFixtureCell.swift */,
 				F46FDA761C616E7D0087B35C /* CollectionFixtureVC.swift */,
-				F46FDA2A1C6015540087B35C /* CreateFixtureVC.swift */,
-				F46FDAB41C6416400087B35C /* ColorPickerVC.swift */,
-				33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */,
-				33EDE4F01C8B54C600EEA3EA /* GelTableViewHeaderCell.swift */,
-				33EDE4EF1C8B54C600EEA3EA /* GelTableViewCell.swift */,
-				33EDE5171C8DF6E400EEA3EA /* CreateFixtureTableViewController.swift */,
-				33EDE5191C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift */,
-				33EDE51B1C8F8DE400EEA3EA /* FixtureCategoryTableViewController.swift */,
 			);
 			name = Controller;
 			path = LS_Layout;
@@ -359,7 +372,6 @@
 				33EDE4F31C8B54C600EEA3EA /* GelTableViewHeaderCell.swift in Sources */,
 				F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */,
 				F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */,
-				F46FDA2B1C6015550087B35C /* CreateFixtureVC.swift in Sources */,
 				33EDE4F41C8B54C600EEA3EA /* LSColor.swift in Sources */,
 				F46FDA721C6157C40087B35C /* Constants.swift in Sources */,
 				33EDE51A1C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift in Sources */,
