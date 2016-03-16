@@ -38,6 +38,12 @@
 		F46FDB261C696A950087B35C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB251C696A950087B35C /* StringUtils.swift */; };
 		F46FDB2A1C6D07E90087B35C /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB291C6D07E90087B35C /* CoreData.swift */; };
 		F46FDB2C1C6D69C30087B35C /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */; };
+		F4C61B0F1C98BF2E00BA29DE /* CueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */; };
+		F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B141C98C15300BA29DE /* CueVC.swift */; };
+		F4C61B171C98C32C00BA29DE /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B161C98C32C00BA29DE /* Cue.swift */; };
+		F4E4EAE81C99E16C001D0705 /* SubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAE71C99E16C001D0705 /* SubVC.swift */; };
+		F4E4EAEA1C99E185001D0705 /* SubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */; };
+		F4E4EAEC1C99E278001D0705 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAEB1C99E278001D0705 /* Sub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +82,12 @@
 		F46FDB251C696A950087B35C /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		F46FDB291C6D07E90087B35C /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Channel+CoreDataProperties.swift"; path = "../Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueTableViewCell.swift; sourceTree = "<group>"; };
+		F4C61B141C98C15300BA29DE /* CueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueVC.swift; sourceTree = "<group>"; };
+		F4C61B161C98C32C00BA29DE /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
+		F4E4EAE71C99E16C001D0705 /* SubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubVC.swift; sourceTree = "<group>"; };
+		F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTableViewCell.swift; sourceTree = "<group>"; };
+		F4E4EAEB1C99E278001D0705 /* Sub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,10 +176,11 @@
 		F46FDA251C6014F50087B35C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4E4EAE61C99E0E4001D0705 /* Subs */,
+				F4E4EAE51C99E0C6001D0705 /* Fixtures */,
+				F4C61B071C98BD8D00BA29DE /* Cues */,
 				333A553B1C9497D300692414 /* Create Fixture */,
 				333A553A1C9497BE00692414 /* ColorP Picker */,
-				F46FDA101C5FDC460087B35C /* ViewController.swift */,
-				F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */,
 				F46FDA741C615D6C0087B35C /* CollectionFixtureCell.swift */,
 				F46FDA761C616E7D0087B35C /* CollectionFixtureVC.swift */,
 			);
@@ -193,9 +206,11 @@
 				F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */,
 				F46FDA311C6016650087B35C /* Channel.swift */,
 				F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */,
+				F4C61B161C98C32C00BA29DE /* Cue.swift */,
 				33EDE4EA1C8B53E400EEA3EA /* GelRGB.swift */,
 				F46FDB291C6D07E90087B35C /* CoreData.swift */,
 				33EDE4F11C8B54C600EEA3EA /* LSColor.swift */,
+				F4E4EAEB1C99E278001D0705 /* Sub.swift */,
 			);
 			name = Model;
 			path = LS_Layout;
@@ -222,6 +237,33 @@
 			);
 			name = Util;
 			path = LS_Layout;
+			sourceTree = "<group>";
+		};
+		F4C61B071C98BD8D00BA29DE /* Cues */ = {
+			isa = PBXGroup;
+			children = (
+				F4C61B141C98C15300BA29DE /* CueVC.swift */,
+				F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */,
+			);
+			name = Cues;
+			sourceTree = "<group>";
+		};
+		F4E4EAE51C99E0C6001D0705 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA101C5FDC460087B35C /* ViewController.swift */,
+				F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */,
+			);
+			name = Fixtures;
+			sourceTree = "<group>";
+		};
+		F4E4EAE61C99E0E4001D0705 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4E4EAE71C99E16C001D0705 /* SubVC.swift */,
+				F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */,
+			);
+			name = Subs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,13 +399,19 @@
 				33EDE4EB1C8B53E400EEA3EA /* GelRGB.swift in Sources */,
 				F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */,
 				F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */,
+				F4C61B0F1C98BF2E00BA29DE /* CueTableViewCell.swift in Sources */,
+				F4E4EAE81C99E16C001D0705 /* SubVC.swift in Sources */,
+				F4C61B171C98C32C00BA29DE /* Cue.swift in Sources */,
 				F46FDB261C696A950087B35C /* StringUtils.swift in Sources */,
 				F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */,
 				33EDE5181C8DF6E500EEA3EA /* CreateFixtureTableViewController.swift in Sources */,
+				F4E4EAEC1C99E278001D0705 /* Sub.swift in Sources */,
 				F46FDB2C1C6D69C30087B35C /* Channel+CoreDataProperties.swift in Sources */,
+				F4E4EAEA1C99E185001D0705 /* SubTableViewCell.swift in Sources */,
 				F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */,
 				F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */,
 				33EDE4E81C8B53BE00EEA3EA /* csv.swift in Sources */,
+				F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */,
 				F46FDA751C615D6C0087B35C /* CollectionFixtureCell.swift in Sources */,

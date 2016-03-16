@@ -11,6 +11,7 @@ import CoreData
 
 var _fixtureStyle = "Intensity"
 var _fixtureCategory = ""
+var fixtureNameString = ""
 
 
 class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegate {
@@ -47,6 +48,8 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
         
         styleLbl.text = "\(fixtureStyle)"
         catLbl.text = "\(fixtureCategory)"
+        fixtureName.text = fixtureNameString
+        
 
 //         Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
@@ -89,6 +92,8 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
         context.insertObject(channel)
         fixtures.append(channel)
         
+        fixtureNameString = ""
+        
         do {
             try context.save()
         } catch {
@@ -109,6 +114,12 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
             }
             return i + 1
         }
+    }
+    
+    
+    
+    @IBAction func fixtureSetupEndEdit(sender: AnyObject) {
+        fixtureNameString = fixtureName.text!
     }
     
     

@@ -24,7 +24,7 @@ extension String {
     }
 }
 
-//    var _curFixture: Channel!
+     var _curFixture: Channel!
 
 class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
@@ -48,22 +48,31 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         var curColor: UIColor?
         var arrayForBool : NSMutableArray = NSMutableArray()
     
-        var curFixture: Channel!
+       // var curFixture: Channel!
     
-//    var curFixtur: Channel {
-//        get{
-//            return _curFixture
-//        }
-//        set{
-//            _curFixture = newValue
-//        }
-//        
-//    }
+    var curFixture: Channel {
+        get{
+            return _curFixture
+        }
+        set{
+            _curFixture = newValue
+        }
+        
+    }
     
     
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            if curColor != nil {
+                if let myColor = curColor?.coreImageColor {
+                    curFixture.indRed = Float(myColor.red)
+                    curFixture.indGreen = Float(myColor.green)
+                    curFixture.indBlue = Float(myColor.blue)
+                }
+                
+            }
             
             brightnessSlider.value = curFixture.indLevel
             redSlider.value = curFixture.indRed

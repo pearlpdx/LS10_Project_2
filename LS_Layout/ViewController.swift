@@ -59,15 +59,15 @@ class ViewController: UIViewController,
             dmx.append(UInt8(0))
         }
         
-        //get UDID 
-        
-        let uDID = UIDevice.currentDevice().identifierForVendor
-        
-        print(uDID)
-        
-        let uDIDstring = UIDevice.currentDevice().identifierForVendor!.UUIDString
-        
-        print(uDIDstring)
+//        //get UDID 
+//        
+//        let uDID = UIDevice.currentDevice().identifierForVendor
+//        
+//        print(uDID)
+//        
+//        let uDIDstring = UIDevice.currentDevice().identifierForVendor!.UUIDString
+//        
+//        print(uDIDstring)
 
         sACN.startTimer(dmx, universe: 1)
 
@@ -136,7 +136,8 @@ class ViewController: UIViewController,
         } else {
             inSearchMode = true
             let lower = searchBar.text!.lowercaseString
-            filteredFixtures = fixtures.filter({$0.name?.rangeOfString(lower) != nil})
+            filteredFixtures = fixtures.filter({$0.name?.lowercaseString.rangeOfString(lower) != nil
+                || $0.number?.lowercaseString.rangeOfString(lower) != nil})
             chanTableView.reloadData()
         }
     }
@@ -200,7 +201,7 @@ class ViewController: UIViewController,
             
             if let colorButton = sender as? UIButton {
                 
-                let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
+                let fixtureCell = colorButton.superview?.superview?.superview as! TableFixtureCell
                 
                 colorPickerVC.curFixture = fixtureCell.fixture
             }

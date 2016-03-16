@@ -12,6 +12,7 @@ class TableFixtureCell: UITableViewCell {
     
     var fixture: Channel!
     
+    @IBOutlet weak var fixtureCellView: UIView!
 
     @IBOutlet weak var channelNum: UILabel!
     @IBOutlet weak var channelSlider: UISlider!
@@ -24,20 +25,17 @@ class TableFixtureCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //format slider
-//        channelSlider.setMaximumTrackImage(UIImage(named: "sliderBackMax"), forState: UIControlState.Normal)
-//       channelSlider.setMinimumTrackImage(UIImage(named: "sliderBackMin"), forState: UIControlState.Normal)
+        //format slider and imgButton
         channelSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
         imgButton.layer.cornerRadius = 10
         imgButton.layer.borderWidth = 2
-        //imgButton.layer.borderColor = UIColor.blackColor()
- 
+        fixtureCellView.layer.cornerRadius = 5
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-            }
+//    override func setSelected(selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//            }
     
     
     func configureCell(channel: Channel) {
@@ -45,6 +43,7 @@ class TableFixtureCell: UITableViewCell {
         channelName.text = channel.name
         butLocked.hidden = !channel.independent
         channelSlider.value = fixture.indLevel
+        channelLevel.text = "\(Int(fixture.indLevel * 100))%"
         
         if channel.style == "Intensity" {
             imgButton.hidden = true
@@ -53,12 +52,7 @@ class TableFixtureCell: UITableViewCell {
             imgButton.backgroundColor = channel.getDislayColor()
         }
        channelNum.text = channel.number
-//        channelNum.text = "123"
-
- 
     }
-    
-    
     
     
     @IBAction func imgButtonPressed(sender: AnyObject) {
@@ -70,7 +64,6 @@ class TableFixtureCell: UITableViewCell {
         butLocked.hidden = false
         self.fixture.indLevel = sender.value
         
-        
         //temp
         channelLevel.text = "\(Int(sender.value * 100))%"
     }
@@ -80,7 +73,4 @@ class TableFixtureCell: UITableViewCell {
         self.fixture.independent = false
         butLocked.hidden = true
     }
-    
-    
-    
 }
