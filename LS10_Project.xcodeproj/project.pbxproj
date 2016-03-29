@@ -19,6 +19,11 @@
 		33EDE51A1C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE5191C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift */; };
 		33EDE51C1C8F8DE500EEA3EA /* FixtureCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE51B1C8F8DE400EEA3EA /* FixtureCategoryTableViewController.swift */; };
 		3673E6AC53E58D1B5F7B7532 /* Pods_LS10_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57C2BA039F87B8D05B2C7ED /* Pods_LS10_Project.framework */; };
+		F439A0641CA4A5C300DA85AC /* FixtureHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */; };
+		F439A0EA1CAB2B5B00DA85AC /* SubSetupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */; };
+		F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */; };
+		F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */; };
+		F439A0F21CAB337500DA85AC /* SubMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EE1CAB337500DA85AC /* SubMaster.swift */; };
 		F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */; };
 		F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA101C5FDC460087B35C /* ViewController.swift */; };
 		F46FDA141C5FDC490087B35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA121C5FDC490087B35C /* Main.storyboard */; };
@@ -37,7 +42,6 @@
 		F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDAB41C6416400087B35C /* ColorPickerVC.swift */; };
 		F46FDB261C696A950087B35C /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB251C696A950087B35C /* StringUtils.swift */; };
 		F46FDB2A1C6D07E90087B35C /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB291C6D07E90087B35C /* CoreData.swift */; };
-		F46FDB2C1C6D69C30087B35C /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */; };
 		F4C61B0F1C98BF2E00BA29DE /* CueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */; };
 		F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B141C98C15300BA29DE /* CueVC.swift */; };
 		F4C61B171C98C32C00BA29DE /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B161C98C32C00BA29DE /* Cue.swift */; };
@@ -61,6 +65,11 @@
 		37C4DDD9CCF0D40A50D5019C /* Pods-LS10_Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS10_Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-LS10_Project/Pods-LS10_Project.release.xcconfig"; sourceTree = "<group>"; };
 		B57C2BA039F87B8D05B2C7ED /* Pods_LS10_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LS10_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D6BD2CCBD95F4E26E33C0D /* Pods-LS10_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS10_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LS10_Project/Pods-LS10_Project.debug.xcconfig"; sourceTree = "<group>"; };
+		F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureHeaderTVCell.swift; sourceTree = "<group>"; };
+		F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSetupTVC.swift; sourceTree = "<group>"; };
+		F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMaster+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F439A0EE1CAB337500DA85AC /* SubMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMaster.swift; sourceTree = "<group>"; };
 		F46FDA0B1C5FDC440087B35C /* LS10_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS10_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46FDA101C5FDC460087B35C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +90,6 @@
 		F46FDAB41C6416400087B35C /* ColorPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerVC.swift; sourceTree = "<group>"; };
 		F46FDB251C696A950087B35C /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		F46FDB291C6D07E90087B35C /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Channel+CoreDataProperties.swift"; path = "../Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueTableViewCell.swift; sourceTree = "<group>"; };
 		F4C61B141C98C15300BA29DE /* CueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueVC.swift; sourceTree = "<group>"; };
 		F4C61B161C98C32C00BA29DE /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
@@ -148,6 +156,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F439A0621CA463C500DA85AC /* Fixture Collection */ = {
+			isa = PBXGroup;
+			children = (
+				F46FDA761C616E7D0087B35C /* CollectionFixtureVC.swift */,
+				F46FDA741C615D6C0087B35C /* CollectionFixtureCell.swift */,
+			);
+			name = "Fixture Collection";
+			sourceTree = "<group>";
+		};
 		F46FDA021C5FDC430087B35C = {
 			isa = PBXGroup;
 			children = (
@@ -177,12 +194,11 @@
 			isa = PBXGroup;
 			children = (
 				F4E4EAE61C99E0E4001D0705 /* Subs */,
-				F4E4EAE51C99E0C6001D0705 /* Fixtures */,
+				F4E4EAE51C99E0C6001D0705 /* Fixtures Table */,
+				F439A0621CA463C500DA85AC /* Fixture Collection */,
 				F4C61B071C98BD8D00BA29DE /* Cues */,
 				333A553B1C9497D300692414 /* Create Fixture */,
 				333A553A1C9497BE00692414 /* ColorP Picker */,
-				F46FDA741C615D6C0087B35C /* CollectionFixtureCell.swift */,
-				F46FDA761C616E7D0087B35C /* CollectionFixtureVC.swift */,
 			);
 			name = Controller;
 			path = LS_Layout;
@@ -203,9 +219,11 @@
 		F46FDA271C60150E0087B35C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */,
+				F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */,
+				F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */,
 				F46FDA311C6016650087B35C /* Channel.swift */,
-				F46FDB2B1C6D69C30087B35C /* Channel+CoreDataProperties.swift */,
+				F439A0EE1CAB337500DA85AC /* SubMaster.swift */,
+				F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */,
 				F4C61B161C98C32C00BA29DE /* Cue.swift */,
 				33EDE4EA1C8B53E400EEA3EA /* GelRGB.swift */,
 				F46FDB291C6D07E90087B35C /* CoreData.swift */,
@@ -248,13 +266,14 @@
 			name = Cues;
 			sourceTree = "<group>";
 		};
-		F4E4EAE51C99E0C6001D0705 /* Fixtures */ = {
+		F4E4EAE51C99E0C6001D0705 /* Fixtures Table */ = {
 			isa = PBXGroup;
 			children = (
 				F46FDA101C5FDC460087B35C /* ViewController.swift */,
 				F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */,
+				F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */,
 			);
-			name = Fixtures;
+			name = "Fixtures Table";
 			sourceTree = "<group>";
 		};
 		F4E4EAE61C99E0E4001D0705 /* Subs */ = {
@@ -262,6 +281,7 @@
 			children = (
 				F4E4EAE71C99E16C001D0705 /* SubVC.swift */,
 				F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */,
+				F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */,
 			);
 			name = Subs;
 			sourceTree = "<group>";
@@ -302,7 +322,7 @@
 				TargetAttributes = {
 					F46FDA0A1C5FDC440087B35C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = HF6B889BA4;
+						DevelopmentTeam = 6M5A8YF467;
 					};
 				};
 			};
@@ -397,6 +417,7 @@
 				33EDE4F21C8B54C600EEA3EA /* GelTableViewCell.swift in Sources */,
 				F46FDB2A1C6D07E90087B35C /* CoreData.swift in Sources */,
 				33EDE4EB1C8B53E400EEA3EA /* GelRGB.swift in Sources */,
+				F439A0641CA4A5C300DA85AC /* FixtureHeaderTVCell.swift in Sources */,
 				F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */,
 				F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */,
 				F4C61B0F1C98BF2E00BA29DE /* CueTableViewCell.swift in Sources */,
@@ -404,17 +425,20 @@
 				F4C61B171C98C32C00BA29DE /* Cue.swift in Sources */,
 				F46FDB261C696A950087B35C /* StringUtils.swift in Sources */,
 				F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */,
+				F439A0F21CAB337500DA85AC /* SubMaster.swift in Sources */,
 				33EDE5181C8DF6E500EEA3EA /* CreateFixtureTableViewController.swift in Sources */,
 				F4E4EAEC1C99E278001D0705 /* Sub.swift in Sources */,
-				F46FDB2C1C6D69C30087B35C /* Channel+CoreDataProperties.swift in Sources */,
 				F4E4EAEA1C99E185001D0705 /* SubTableViewCell.swift in Sources */,
 				F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */,
 				F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */,
 				33EDE4E81C8B53BE00EEA3EA /* csv.swift in Sources */,
 				F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */,
+				F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */,
+				F439A0EA1CAB2B5B00DA85AC /* SubSetupTVC.swift in Sources */,
 				F46FDA751C615D6C0087B35C /* CollectionFixtureCell.swift in Sources */,
+				F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */,
 				F46FDA771C616E7D0087B35C /* CollectionFixtureVC.swift in Sources */,
 				33EDE4E91C8B53BE00EEA3EA /* Extensions.swift in Sources */,
 				33EDE4F31C8B54C600EEA3EA /* GelTableViewHeaderCell.swift in Sources */,

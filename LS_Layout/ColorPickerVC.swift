@@ -81,6 +81,15 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
             amberSlider.value = curFixture.indAmber
             whiteSlider.value = curFixture.indWhite
             
+            brightnessLbl.text = "\(Int(curFixture.indLevel * 100))%"
+            redLbl.text = "\(Int(curFixture.indRed * 255))"
+            greenLbl.text = "\(Int(curFixture.indGreen * 255))"
+            blueLbl.text = "\(Int(curFixture.indBlue * 255))"
+            amberLbl.text = "\(Int(curFixture.indAmber * 255))"
+            whiteLbl.text = "\(Int(curFixture.indWhite * 255))"
+            
+            
+            
             let size: CGSize = self.view.bounds.size
             let wheelSize: CGSize = CGSizeMake(size.width * 0.9, size.width * 0.9)
             self.colorWheel = ISColorWheel(frame: CGRectMake(size.width / 2 - wheelSize.width / 2, size.height * 0.1, wheelSize.width, wheelSize.height))
@@ -90,37 +99,31 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
 //            brightnessSlider.value = 1.0            //Preset Int Here
 //            
             colorWheel.currentColor()
+        
    
             self.view!.addSubview(colorWheel)
             self.wellView2.layer.borderColor = UIColor.blackColor().CGColor
             self.wellView2.layer.borderWidth = 2.0
             self.wellView2.layer.cornerRadius = 15
         }
-        
-        
+    
+    
         override func viewDidAppear(animated: Bool) {
             
-            if curFixture.style == "Intensity" {
-                redSlider.hidden = true
-                greenSlider.hidden = true
-                blueSlider.hidden = true
-                amberSlider.hidden = true
-                whiteSlider.hidden = true
-            }
-            
             amberSlider.hidden = true
+            amberLbl.hidden = true
             whiteSlider.hidden = true
-            if curFixture.style?.containsCharactersIn("A") == nil {
-                amberSlider.hidden = false
-            }
-            if curFixture.style?.containsCharactersIn("W") == nil {
-                whiteSlider.hidden = false
-            }
-   
-//            if curColor != nil {
-//                displayRGB(curColor!)        //Preset Color Here ***************
-//            }
+            whiteLbl.hidden = true
             
+            if curFixture.style == "RGBA" || curFixture.style == "I+RGBA" || curFixture.style == "RGBAW" || curFixture == "I+RGBAW" {
+                amberSlider.hidden = false
+                amberLbl.hidden = false
+            }
+            
+            if curFixture.style == "RGBW" || curFixture.style == "I+RGBW" || curFixture.style == "RGBAW" || curFixture == "I+RGBAW" {
+                whiteSlider.hidden = false
+                whiteLbl.hidden = false
+            }
             updateColorWheel()
         }
         

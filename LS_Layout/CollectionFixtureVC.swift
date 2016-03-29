@@ -45,7 +45,7 @@ class CollectionFixtureVC:      UIViewController,
         pickWheel.delegate = self
         pickWheel.dataSource = self
         
-        for var x = 0; x <= 100; x++ {
+        for x in 0...100 {
             steps.append("\(x)")
         }
     }

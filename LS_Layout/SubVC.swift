@@ -16,6 +16,8 @@ class SubVC: UIViewController,
   
     
     @IBOutlet weak var subTableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     var subs = [Sub]()
 
@@ -28,8 +30,8 @@ class SubVC: UIViewController,
         subTableView.dataSource = self
         
         //Dummy cues for test  *****************************
-        for var x = 0; x <= 25; ++x {
-            let sub = Sub(number: Float(x + 1), name: "This is submaster number: \(x + 1)")
+        for x in 1...25 {
+            let sub = Sub(number: Float(x), name: "This is submaster number: \(x)")
             subs.append(sub)
         }
 
@@ -69,6 +71,17 @@ class SubVC: UIViewController,
         
         return subs.count    }
     
+    @IBAction func editButtonPressed(sender: AnyObject) {
+       subTableView.editing = !subTableView.editing
+        if subTableView.editing == true {
+            addButton.hidden = false
+           editButton.setTitle("DONE", forState: UIControlState.Normal)
+        } else {
+            addButton.hidden = true
+            editButton.setTitle("EDIT", forState: UIControlState.Normal)
+        }
+    
+    }
 
 
     /*

@@ -30,8 +30,9 @@ class CueVC: UIViewController,
         cuetableView.dataSource = self
         
         //Dummy cues for test  *****************************
-        for var x = 0; x <= 25; ++x {
-            let cue = Cue(number: Float(x + 1), name: "This is cue number: \(x + 1)")
+       //for var x = 0; x <= 25; x += 1
+        for x in 1...25 {
+            let cue = Cue(number: Float(x), name: "This is cue number: \(x)")
             cues.append(cue)
         }
     }

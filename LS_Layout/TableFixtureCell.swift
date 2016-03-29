@@ -11,25 +11,28 @@ import UIKit
 class TableFixtureCell: UITableViewCell {
     
     var fixture: Channel!
+    weak var tableVC: ViewController?
+    
     
     @IBOutlet weak var fixtureCellView: UIView!
 
     @IBOutlet weak var channelNum: UILabel!
     @IBOutlet weak var channelSlider: UISlider!
     @IBOutlet weak var channelName: UILabel!
-    @IBOutlet weak var imgButton: UIButton!
     @IBOutlet weak var channelLevel: UILabel!
+    @IBOutlet weak var colorView: UIView!
     
     @IBOutlet weak var butLocked: UIButton!
+    @IBOutlet weak var colorButtonOverlayed: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //format slider and imgButton
+        //format slider and current color View
         channelSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
         channelSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
-        imgButton.layer.cornerRadius = 10
-        imgButton.layer.borderWidth = 2
+        colorView.layer.cornerRadius = 10
+        colorView.layer.borderWidth = 2
         fixtureCellView.layer.cornerRadius = 5
     }
 
@@ -46,31 +49,39 @@ class TableFixtureCell: UITableViewCell {
         channelLevel.text = "\(Int(fixture.indLevel * 100))%"
         
         if channel.style == "Intensity" {
-            imgButton.hidden = true
+            colorView.hidden = true
+            colorButtonOverlayed.enabled = false
         }   else {
-            imgButton.hidden = false
-            imgButton.backgroundColor = channel.getDislayColor()
+            colorView.hidden = false
+            colorButtonOverlayed.enabled = true
+            colorView.backgroundColor = channel.getDislayColor()
         }
        channelNum.text = channel.number
     }
     
     
-    @IBAction func imgButtonPressed(sender: AnyObject) {
-        //open color dialog
+    @IBAction func colorButOverlayPressed(sender: AnyObject) {
+        self.fixture.independent = true
+        butLocked.hidden = false
+        tableVC?.indOffButton.hidden = false
     }
-
+  
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.fixture.independent = true
         butLocked.hidden = false
         self.fixture.indLevel = sender.value
+        tableVC?.indOffButton.hidden = false
+
         
         //temp
         channelLevel.text = "\(Int(sender.value * 100))%"
     }
     
+    //IndButton Presses
     @IBAction func lockButPressed(sender: AnyObject) {
         
         self.fixture.independent = false
         butLocked.hidden = true
+        tableVC?.checkIndOff()
     }
 }

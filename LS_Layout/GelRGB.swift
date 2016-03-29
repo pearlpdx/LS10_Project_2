@@ -23,16 +23,11 @@ class GelRGB {
     
     init (number: String, name: String, red: Float, green: Float, blue: Float) {
         
-//        self.index = index
-//        self.mfg = mfg
         self.number = number
         self.name = name
         self.red = red
         self.green = green
         self.blue = blue
-        
-        
-        
     }
     
 
@@ -41,7 +36,7 @@ class GelRGB {
 
 class GelSection {
     
-     var mfg: String!
+    var mfg: String!
     var gelRGBs: [GelRGB]!
     
     init (mfg: String, gels: [GelRGB] ) {

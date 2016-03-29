@@ -32,8 +32,8 @@ class MatchGelVC: UIViewController,
         gelTableView.dataSource = self
         gelSearchBar.delegate = self
         gelSearchBar.returnKeyType = UIReturnKeyType.Search
-        //self.gelTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "gelCell")
-
+        
+        self.hideKeyboardWhenTappedAround()
         
          parseGelsCSV()
     }
@@ -91,7 +91,6 @@ class MatchGelVC: UIViewController,
             print(err.debugDescription)
         }
     }
-
 
     
     
@@ -166,7 +165,7 @@ class MatchGelVC: UIViewController,
 //                let  headerView = tableView.dequeueReusableCellWithIdentifier("gelHeaderCell") as! GelTableViewHeaderCell
 //           headerView.configureCell(gelSectons[section])
         
-        let headerTapped = UITapGestureRecognizer (target: self, action:"sectionHeaderTapped:")
+        let headerTapped = UITapGestureRecognizer (target: self, action:#selector(MatchGelVC.sectionHeaderTapped(_:)))
         headerView .addGestureRecognizer(headerTapped)
         
         return headerView

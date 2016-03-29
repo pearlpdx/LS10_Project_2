@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="Channel" representedClassName=".Channel" syncable="YES">
         <attribute name="dmx16bit" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="SubMaster" representedClassName=".SubMaster" syncable="YES">
+        <attribute name="exclude" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="indOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noColor" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Channel" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="Channel" positionX="-252" positionY="-135" width="128" height="118"/>
+        <element name="SubMaster" positionX="0" positionY="36" width="128" height="133"/>
     </elements>
 </model>

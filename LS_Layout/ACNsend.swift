@@ -29,7 +29,7 @@ class ACNsend: NSObject {
         self._universe = universe
   
         
-        acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: Selector("updateDMX"), userInfo: nil, repeats: true)
+        acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: #selector(ACNsend.updateDMX), userInfo: nil, repeats: true)
         
         NSRunLoop.currentRunLoop().addTimer(acnTimer, forMode: NSRunLoopCommonModes)
     }
@@ -92,7 +92,7 @@ class ACNsend: NSObject {
         for char in SOURCE_NAME.utf8 {
             
             dataG[44 + x] = char
-            x++
+            x += 1
         }
         
         //CID
@@ -104,7 +104,7 @@ class ACNsend: NSObject {
             if x <= 15 {
             dataG[22 + x] = char
             }
-            x++
+            x += 1
         }
 
       
@@ -133,7 +133,7 @@ class ACNsend: NSObject {
         dataG[123] = UInt8(((dmxLevels.count + 1) >> 8) & 0xff)
         dataG[124] = UInt8((dmxLevels.count + 1) & 0xff)
         
-        seqNum++
+        seqNum += 1
         
         return dataG
     }
