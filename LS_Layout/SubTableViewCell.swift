@@ -30,10 +30,10 @@ class SubTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(sub: Sub) {
+    func configureCell(sub: SubMaster) {
         
-        subNameLbl.text = "SubMaster: \(Int(sub.number)) \n\(sub.name)"
-        subDetailLbl.text = "Fade Time:  5 seconds"
+        subNameLbl.text = "SubMaster: \(sub.number) \n\(sub.name!)"
+        subDetailLbl.text = "Fade: \(sub.time.fadeString)"
         subSlider.value = 0.0
         
     }

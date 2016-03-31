@@ -18,6 +18,8 @@ extension Double {
     
 }
 
+
+
 // Dismiss Keyboard
 //  add this code to any VC
 // self.hideKeyboardWhenTappedAround()
@@ -33,3 +35,14 @@ extension UIViewController {
     }
 }
 
+extension Int32 {
+    
+    var fadeString : String {
+        var st = ""
+                if (self / 600) != 0 {
+                    st = "\(self / 600) min "
+                }
+                st += ("\((self % 600) / 10).\((self % 60) % 10) sec")
+        return st
+    }
+}

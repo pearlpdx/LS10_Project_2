@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import CoreData
 
+
 var fixtures = [Channel]()
+var subMasters = [SubMaster]()
 
 class CoreDataHandler: NSObject {
     
@@ -28,6 +30,25 @@ class CoreDataHandler: NSObject {
         }
         
     }
+    
+    
+    func subFetchAndSetResults() {
+        
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "SubMaster")
+        
+        do {
+            let results = try context.executeFetchRequest(fetchRequest)
+            subMasters = results as! [SubMaster]
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+    }
+
+    
+    
   }
 
 

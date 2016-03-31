@@ -19,8 +19,6 @@ class SubVC: UIViewController,
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
-    var subs = [Sub]()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +26,16 @@ class SubVC: UIViewController,
         
         subTableView.delegate = self
         subTableView.dataSource = self
+
         
-        //Dummy cues for test  *****************************
-        for x in 1...25 {
-            let sub = Sub(number: Float(x), name: "This is submaster number: \(x)")
-            subs.append(sub)
-        }
-
-
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        subTableView.editing = false
+        setEditMode()
+        subTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +50,8 @@ class SubVC: UIViewController,
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("SubTableViewCell", forIndexPath: indexPath) as? SubTableViewCell {
             
-            let sub: Sub!
-            sub = subs[indexPath.row]
+            let sub: SubMaster!
+            sub = subMasters[indexPath.row]
             
             cell.configureCell(sub)
             return cell
@@ -69,18 +68,23 @@ class SubVC: UIViewController,
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return subs.count    }
+        return subMasters.count    }
     
     @IBAction func editButtonPressed(sender: AnyObject) {
        subTableView.editing = !subTableView.editing
+        setEditMode()
+        
+    }
+    
+    func setEditMode() {
         if subTableView.editing == true {
             addButton.hidden = false
-           editButton.setTitle("DONE", forState: UIControlState.Normal)
+            editButton.setTitle("DONE", forState: UIControlState.Normal)
         } else {
             addButton.hidden = true
             editButton.setTitle("EDIT", forState: UIControlState.Normal)
         }
-    
+       
     }
 
 

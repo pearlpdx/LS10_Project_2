@@ -27,21 +27,12 @@ class Channel: NSManagedObject {
     var indRed:Float = 1.0
     var indGreen:Float = 1.0
     var indBlue:Float = 1.0
-    var indAmber:Float = 1.0
-    var indWhite:Float = 1.0
+    var indAmber:Float = 0.0
+    var indWhite:Float = 0.0
     
-    var indLevel:Float = 1.0
-    
+    var indLevel:Float = 0.0
     
     var _displayColor: UIColor = UIColor.whiteColor()
-    
-//    func SaveAll() {
-//        do {
-//            try self.managedObjectContext!.save()
-//        } catch {
-//            fatalError("Failure to save context: \(error)")
-//        }
-//    }
     
     func getDislayColor() -> UIColor {
      
@@ -58,31 +49,7 @@ class Channel: NSManagedObject {
         return UIColor(colorLiteralRed: indRed, green: indGreen, blue: indBlue, alpha: 1.0)
     }
     
-    //        var curLevel = 0
-    //        var newLevel = 0
-    //        var oldLevel = 0
-    //
-    //        var selected = false
-    //        var independent = false
-    //
-    //
-    //        func updateLevel() {
-    //
-    //        }
-    
-    
-    
-    
-    
     
     // Insert code here to add functionality to your managed object subclass
     
-    
-    
-    
-    
-    
-    
-
-
 }

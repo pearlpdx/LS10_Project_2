@@ -11,12 +11,11 @@
         <attribute name="exclude" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="indOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="noColor" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="time" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
         <element name="Channel" positionX="-252" positionY="-135" width="128" height="118"/>
-        <element name="SubMaster" positionX="0" positionY="36" width="128" height="133"/>
+        <element name="SubMaster" positionX="0" positionY="36" width="128" height="118"/>
     </elements>
 </model>

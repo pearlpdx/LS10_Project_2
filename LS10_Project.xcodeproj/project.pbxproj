@@ -24,6 +24,7 @@
 		F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */; };
 		F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */; };
 		F439A0F21CAB337500DA85AC /* SubMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EE1CAB337500DA85AC /* SubMaster.swift */; };
+		F439A0F41CAB4BE900DA85AC /* TimePickerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */; };
 		F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */; };
 		F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA101C5FDC460087B35C /* ViewController.swift */; };
 		F46FDA141C5FDC490087B35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA121C5FDC490087B35C /* Main.storyboard */; };
@@ -47,7 +48,6 @@
 		F4C61B171C98C32C00BA29DE /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C61B161C98C32C00BA29DE /* Cue.swift */; };
 		F4E4EAE81C99E16C001D0705 /* SubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAE71C99E16C001D0705 /* SubVC.swift */; };
 		F4E4EAEA1C99E185001D0705 /* SubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */; };
-		F4E4EAEC1C99E278001D0705 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4EAEB1C99E278001D0705 /* Sub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +70,7 @@
 		F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMaster+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F439A0EE1CAB337500DA85AC /* SubMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMaster.swift; sourceTree = "<group>"; };
+		F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerTVC.swift; sourceTree = "<group>"; };
 		F46FDA0B1C5FDC440087B35C /* LS10_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS10_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46FDA101C5FDC460087B35C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		F4C61B161C98C32C00BA29DE /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
 		F4E4EAE71C99E16C001D0705 /* SubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubVC.swift; sourceTree = "<group>"; };
 		F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTableViewCell.swift; sourceTree = "<group>"; };
-		F4E4EAEB1C99E278001D0705 /* Sub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +136,7 @@
 				33EDE5171C8DF6E400EEA3EA /* CreateFixtureTableViewController.swift */,
 				33EDE5191C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift */,
 				33EDE51B1C8F8DE400EEA3EA /* FixtureCategoryTableViewController.swift */,
+				333A553A1C9497BE00692414 /* ColorP Picker */,
 			);
 			name = "Create Fixture";
 			sourceTree = "<group>";
@@ -193,12 +194,10 @@
 		F46FDA251C6014F50087B35C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F4E4EAE61C99E0E4001D0705 /* Subs */,
 				F4E4EAE51C99E0C6001D0705 /* Fixtures Table */,
-				F439A0621CA463C500DA85AC /* Fixture Collection */,
 				F4C61B071C98BD8D00BA29DE /* Cues */,
-				333A553B1C9497D300692414 /* Create Fixture */,
-				333A553A1C9497BE00692414 /* ColorP Picker */,
+				F4E4EAE61C99E0E4001D0705 /* Subs */,
+				F439A0621CA463C500DA85AC /* Fixture Collection */,
 			);
 			name = Controller;
 			path = LS_Layout;
@@ -228,7 +227,6 @@
 				33EDE4EA1C8B53E400EEA3EA /* GelRGB.swift */,
 				F46FDB291C6D07E90087B35C /* CoreData.swift */,
 				33EDE4F11C8B54C600EEA3EA /* LSColor.swift */,
-				F4E4EAEB1C99E278001D0705 /* Sub.swift */,
 			);
 			name = Model;
 			path = LS_Layout;
@@ -272,6 +270,7 @@
 				F46FDA101C5FDC460087B35C /* ViewController.swift */,
 				F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */,
 				F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */,
+				333A553B1C9497D300692414 /* Create Fixture */,
 			);
 			name = "Fixtures Table";
 			sourceTree = "<group>";
@@ -282,6 +281,7 @@
 				F4E4EAE71C99E16C001D0705 /* SubVC.swift */,
 				F4E4EAE91C99E185001D0705 /* SubTableViewCell.swift */,
 				F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */,
+				F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */,
 			);
 			name = Subs;
 			sourceTree = "<group>";
@@ -427,12 +427,12 @@
 				F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */,
 				F439A0F21CAB337500DA85AC /* SubMaster.swift in Sources */,
 				33EDE5181C8DF6E500EEA3EA /* CreateFixtureTableViewController.swift in Sources */,
-				F4E4EAEC1C99E278001D0705 /* Sub.swift in Sources */,
 				F4E4EAEA1C99E185001D0705 /* SubTableViewCell.swift in Sources */,
 				F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */,
 				F46FDA171C5FDC4C0087B35C /* LS_Layout.xcdatamodeld in Sources */,
 				33EDE4E81C8B53BE00EEA3EA /* csv.swift in Sources */,
 				F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */,
+				F439A0F41CAB4BE900DA85AC /* TimePickerTVC.swift in Sources */,
 				F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */,
