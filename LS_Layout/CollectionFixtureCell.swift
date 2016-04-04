@@ -10,14 +10,14 @@ import UIKit
 
 class CollectionFixtureCell: UICollectionViewCell {
     
-    @IBOutlet weak var chanName: UILabel!
+    @IBOutlet weak var fixtureName: UILabel!
     
     @IBOutlet weak var imgColor: UIImageView!
   
     
     
     
-    var channel: Channel!
+    var fixture: Fixture!
     
     required init?(coder aDecoder: NSCoder) {
         
@@ -27,13 +27,13 @@ class CollectionFixtureCell: UICollectionViewCell {
         
     }
     
-    func configureCell(channel: Channel) {
+    func configureCell(fixture: Fixture) {
         
-        self.channel = channel
+        self.fixture = fixture
         
-        chanName.text = self.channel.name
+        fixtureName.text = self.fixture.name
        
-        imgColor.backgroundColor = channel.getDislayColor()
+        imgColor.backgroundColor = fixture.getDislayColor()
  
     }
 }

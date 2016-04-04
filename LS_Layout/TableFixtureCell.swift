@@ -10,16 +10,16 @@ import UIKit
 
 class TableFixtureCell: UITableViewCell {
     
-    var fixture: Channel!
+    var fixture: Fixture!
     weak var tableVC: ViewController?
     
     
     @IBOutlet weak var fixtureCellView: UIView!
 
-    @IBOutlet weak var channelNum: UILabel!
-    @IBOutlet weak var channelSlider: UISlider!
-    @IBOutlet weak var channelName: UILabel!
-    @IBOutlet weak var channelLevel: UILabel!
+    @IBOutlet weak var fixtureNum: UILabel!
+    @IBOutlet weak var fixtureSlider: UISlider!
+    @IBOutlet weak var fixtureName: UILabel!
+    @IBOutlet weak var fixtureLevel: UILabel!
     @IBOutlet weak var colorView: UIView!
     
     @IBOutlet weak var butLocked: UIButton!
@@ -29,8 +29,8 @@ class TableFixtureCell: UITableViewCell {
         super.awakeFromNib()
         
         //format slider and current color View
-        channelSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
-        channelSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
+        fixtureSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
+        fixtureSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
         colorView.layer.cornerRadius = 10
         colorView.layer.borderWidth = 2
         fixtureCellView.layer.cornerRadius = 5
@@ -41,12 +41,12 @@ class TableFixtureCell: UITableViewCell {
 //            }
     
     
-    func configureCell(channel: Channel) {
+    func configureCell(channel: Fixture) {
         self.fixture = channel
-        channelName.text = channel.name
+        fixtureName.text = channel.name
         butLocked.hidden = !channel.independent
-        channelSlider.value = fixture.indLevel
-        channelLevel.text = "\(Int(fixture.indLevel * 100))%"
+        fixtureSlider.value = fixture.indLevel
+        fixtureLevel.text = "\(Int(fixture.indLevel * 100))%"
         
         if channel.style == "Intensity" {
             colorView.hidden = true
@@ -56,10 +56,10 @@ class TableFixtureCell: UITableViewCell {
             colorButtonOverlayed.enabled = true
             colorView.backgroundColor = channel.getDislayColor()
         }
-       channelNum.text = channel.number
+       fixtureNum.text = channel.number
         
         //dynamic level
-         channelSlider.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
+        // channelSlider.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
 //        var lev = 0.0
 //        lev.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
     }
@@ -79,7 +79,7 @@ class TableFixtureCell: UITableViewCell {
 
         
         //temp
-        channelLevel.text = "\(Int(sender.value * 100))%"
+        fixtureLevel.text = "\(Int(sender.value * 100))%"
     }
     
     //IndButton Presses

@@ -57,7 +57,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
 //
 //    }
     
-    var curFixture: Channel?
+    var curFixture: Fixture?
         
         override func viewDidLoad() {
             super.viewDidLoad()

@@ -1,8 +1,8 @@
 //
-//  Channel+CoreDataProperties.swift
+//  Fixture+CoreDataProperties.swift
 //  LS10_Project
 //
-//  Created by Home on 3/30/16.
+//  Created by Gordon Pearlman on 4/4/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,7 +12,7 @@
 import Foundation
 import CoreData
 
-extension Channel {
+extension Fixture {
 
     @NSManaged var dmx16bit: Bool
     @NSManaged var group: String?

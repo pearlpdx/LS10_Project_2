@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 
-var fixtures = [Channel]()
+var fixtures = [Fixture]()
 var subMasters = [SubMaster]()
 var groups = [Group]()
 
@@ -21,11 +21,11 @@ class CoreDataHandler: NSObject {
         
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Channel")
+        let fetchRequest = NSFetchRequest(entityName: "Fixture")
         
         do {
             let results = try context.executeFetchRequest(fetchRequest)
-            fixtures = results as! [Channel]
+            fixtures = results as! [Fixture]
         } catch let err as NSError {
             print(err.debugDescription)
         }

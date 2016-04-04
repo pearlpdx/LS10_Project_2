@@ -17,14 +17,14 @@ class CollectionFixtureVC:      UIViewController,
                                 UIPickerViewDelegate,
                                 UISearchBarDelegate {
     
-    @IBOutlet weak var chanCollection: UICollectionView!
+    @IBOutlet weak var fixtureCollection: UICollectionView!
     
     @IBOutlet weak var pickWheel: UIPickerView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var filteredFixtures = [Channel]()
+    var filteredFixtures = [Fixture]()
     
     var steps = [String]()
     var inSearchMode = false
@@ -36,8 +36,8 @@ class CollectionFixtureVC:      UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chanCollection.delegate = self
-        chanCollection.dataSource = self
+        fixtureCollection.delegate = self
+        fixtureCollection.dataSource = self
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Search
         
@@ -53,7 +53,7 @@ class CollectionFixtureVC:      UIViewController,
     
     override func viewDidAppear(animated: Bool) {
      //   fetchAndSetResults()
-        chanCollection.reloadData()
+        fixtureCollection.reloadData()
     }
     
 
@@ -61,7 +61,7 @@ class CollectionFixtureVC:      UIViewController,
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ChanCell", forIndexPath: indexPath) as? CollectionFixtureCell   {
             
-            let fixture: Channel!
+            let fixture: Fixture!
             
             if inSearchMode {
                 fixture = filteredFixtures[indexPath.row]
@@ -103,7 +103,7 @@ class CollectionFixtureVC:      UIViewController,
             
             if let channelCollectionCell = sender as? CollectionFixtureCell{
                 
-                colorPickerVC.curFixture = channelCollectionCell.channel
+                colorPickerVC.curFixture = channelCollectionCell.fixture
             }
         }
     }
@@ -119,13 +119,13 @@ class CollectionFixtureVC:      UIViewController,
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false
             view.endEditing(true)
-            chanCollection.reloadData()
+            fixtureCollection.reloadData()
             
         } else {
             inSearchMode = true
             let lower = searchBar.text!.lowercaseString
             filteredFixtures = fixtures.filter({$0.name?.rangeOfString(lower) != nil})
-            chanCollection.reloadData()
+            fixtureCollection.reloadData()
         }
     }
 

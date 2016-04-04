@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
-    <entity name="Channel" representedClassName=".Channel" syncable="YES">
+    <entity name="Fixture" representedClassName=".Fixture" syncable="YES">
         <attribute name="dmx16bit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,8 +19,8 @@
         <attribute name="time" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Channel" positionX="-252" positionY="-135" width="128" height="118"/>
-        <element name="SubMaster" positionX="0" positionY="36" width="128" height="118"/>
+        <element name="Fixture" positionX="-252" positionY="-135" width="128" height="120"/>
         <element name="Group" positionX="-126" positionY="-9" width="128" height="75"/>
+        <element name="SubMaster" positionX="0" positionY="36" width="128" height="118"/>
     </elements>
 </model>

@@ -71,10 +71,11 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.
 //    }
-
-    // MARK: - Table view data source       
-    @IBAction func createChannel(sender: AnyObject!) {
-        
+    
+    
+     // MARK: - Table view data source
+    
+    @IBAction func saveFixturePressed(sender: AnyObject) {
         
         let numOfFix = Int(numOfFixture.text!)
         
@@ -82,24 +83,24 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
      
             let app = UIApplication.sharedApplication().delegate as!  AppDelegate
             let context = app.managedObjectContext
-            let entity = NSEntityDescription.entityForName("Channel", inManagedObjectContext: context)!
-            let channel = Channel(entity: entity, insertIntoManagedObjectContext: context)
-            channel.name = fixtureName.text
-            channel.dmx16bit = dmxSwitchState
-            channel.style = fixtureStyle
-            channel.group = fixtureCategory
-            channel.indRed = 1.0
-            channel.indGreen = 1.0
-            channel.indBlue = 1.0
-            channel.indLevel = 0.0
-            channel.indAmber = 0.0
-            channel.indWhite = 0.0
+            let entity = NSEntityDescription.entityForName("Fixture", inManagedObjectContext: context)!
+            let fixture = Fixture(entity: entity, insertIntoManagedObjectContext: context)
+            fixture.name = fixtureName.text
+            fixture.dmx16bit = dmxSwitchState
+            fixture.style = fixtureStyle
+            fixture.group = fixtureCategory
+            fixture.indRed = 1.0
+            fixture.indGreen = 1.0
+            fixture.indBlue = 1.0
+            fixture.indLevel = 0.0
+            fixture.indAmber = 0.0
+            fixture.indWhite = 0.0
             
             let ii = findNextFixtureNumber()
-            channel.number = "\(ii)"
+            fixture.number = "\(ii)"
             
-            context.insertObject(channel)
-            fixtures.append(channel)
+            context.insertObject(fixture)
+            fixtures.append(fixture)
             
             fixtureNameString = ""
             

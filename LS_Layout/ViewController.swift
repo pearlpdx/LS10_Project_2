@@ -21,14 +21,14 @@ class ViewController: UIViewController,
                     UITableViewDelegate,
                     UISearchBarDelegate {
 
-    @IBOutlet weak var chanTableView: UITableView!
+    @IBOutlet weak var fixTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var indOffButton: UIButton!
     @IBOutlet weak var groupButton: UIButton!
     
-    var filteredFixtures = [Channel]()
+    var filteredFixtures = [Fixture]()
     var grpSel = [GroupSection]()
     var inSearchMode = false
     
@@ -49,9 +49,9 @@ class ViewController: UIViewController,
         super.viewDidLoad()
         
         
-        chanTableView.delegate = self
-        chanTableView.dataSource = self
-        chanTableView.remembersLastFocusedIndexPath = true
+        fixTableView.delegate = self
+        fixTableView.dataSource = self
+        fixTableView.remembersLastFocusedIndexPath = true
 
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Search
@@ -83,12 +83,12 @@ class ViewController: UIViewController,
             groupButton.setImage(UIImage(named: "Sections"), forState: UIControlState.Normal)
             
         }
-        chanTableView.reloadData()
+        fixTableView.reloadData()
         
         if displayLast == true {
             displayLast = false
             // Stay in Edit Mode
-            chanTableView.editing = true
+            fixTableView.editing = true
             isEditMode()
             scrollToLastRow()
         }
@@ -113,7 +113,7 @@ class ViewController: UIViewController,
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("FixtureCell", forIndexPath: indexPath) as? TableFixtureCell {
             
-            let fixture: Channel!
+            let fixture: Fixture!
             
             if inGroupMode {
                 fixture = grpSel[indexPath.section].fixtures[indexPath.row]
@@ -190,12 +190,12 @@ class ViewController: UIViewController,
     
     func scrollToLastRow() {
         let indexPath = NSIndexPath(forRow: fixtures.count - 1, inSection: 0)
-        chanTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+        fixTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
     }
    
     //disable slide to delete
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        if (chanTableView.editing)
+        if (fixTableView.editing)
         {
             return UITableViewCellEditingStyle.Delete;
         }
@@ -264,7 +264,7 @@ class ViewController: UIViewController,
             if inGroupMode  {
                 setGroupMode()
             }
-            chanTableView.reloadData()
+            fixTableView.reloadData()
             
         } else {
             inSearchMode = true
@@ -277,14 +277,14 @@ class ViewController: UIViewController,
             if inGroupMode {
                 setGroupMode()
             }
-            chanTableView.reloadData()
+            fixTableView.reloadData()
         }
         
     }
     
 //Functions
     func isEditMode() {
-        if chanTableView.editing == true {
+        if fixTableView.editing == true {
             editButton.setTitle("DONE", forState: UIControlState.Normal)
             addButton.hidden = false
             indOffButton.hidden = true
@@ -309,7 +309,7 @@ class ViewController: UIViewController,
     }
     
     func setGroupMode() {
-        var groupFixtures = [Channel]()
+        var groupFixtures = [Fixture]()
         var useFixtures = fixtures
         grpSel = [GroupSection]()
         if inSearchMode == true {
@@ -347,13 +347,13 @@ class ViewController: UIViewController,
             fx.independent = false
         }
         indOffButton.hidden = true
-        chanTableView.reloadData()
+        fixTableView.reloadData()
     }
 
     
     @IBAction func eidtButtonPessed(sender: AnyObject) {
         
-        chanTableView.editing = !chanTableView.editing
+        fixTableView.editing = !fixTableView.editing
         isEditMode()
            }
     
@@ -364,12 +364,12 @@ class ViewController: UIViewController,
             editButton.hidden = true
             groupButton.setImage(UIImage(named: "Sections"), forState: UIControlState.Normal)
             setGroupMode()
-            chanTableView.reloadData()
+            fixTableView.reloadData()
           
         } else {
             editButton.hidden = false
              groupButton.setImage(UIImage(named: "noSections"), forState: UIControlState.Normal)
-             chanTableView.reloadData()
+             fixTableView.reloadData()
         }
     }
     
@@ -394,9 +394,9 @@ class ViewController: UIViewController,
 class GroupSection {
     
     var group: String!
-    var fixtures: [Channel]!
+    var fixtures: [Fixture]!
     
-    init (group: String, fixtures: [Channel] ) {
+    init (group: String, fixtures: [Fixture] ) {
         
         self.group = group
         self.fixtures = fixtures

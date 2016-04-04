@@ -282,7 +282,7 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <state key="normal" title="SAVE FIXTURE"/>
                                                     <connections>
-                                                        <action selector="createChannel:" destination="cSq-Lb-8A0" eventType="touchUpInside" id="YTi-9Q-66F"/>
+                                                        <action selector="saveFixturePressed:" destination="cSq-Lb-8A0" eventType="touchUpInside" id="xP0-bC-UrD"/>
                                                         <segue destination="Efi-YE-2sb" kind="showDetail" id="8RN-6V-KGM"/>
                                                     </connections>
                                                 </button>
@@ -727,14 +727,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.69019607839999997" green="0.74509803919999995" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="ChannelLevel" destination="mpl-14-vh9" id="Oow-rQ-NI6"/>
                                             <outlet property="butLocked" destination="RD3-yd-zzj" id="Mxf-aj-uGd"/>
-                                            <outlet property="channelName" destination="cjA-hs-2Yw" id="t83-yh-aaR"/>
-                                            <outlet property="channelNum" destination="fe4-bm-JVn" id="HpU-m0-FX0"/>
-                                            <outlet property="channelSlider" destination="W49-HS-hvI" id="lRt-gq-uW3"/>
                                             <outlet property="colorButtonOverlayed" destination="McK-aF-n56" id="SLK-Pv-58g"/>
                                             <outlet property="colorView" destination="lM3-15-NKI" id="F3s-Ho-aH3"/>
                                             <outlet property="fixtureCellView" destination="4Fc-yT-Je7" id="8Ey-Cb-VCg"/>
+                                            <outlet property="fixtureLevel" destination="mpl-14-vh9" id="Bd0-Ci-GoO"/>
+                                            <outlet property="fixtureName" destination="cjA-hs-2Yw" id="Csq-h6-FM6"/>
+                                            <outlet property="fixtureNum" destination="fe4-bm-JVn" id="FmY-4K-gfd"/>
+                                            <outlet property="fixtureSlider" destination="W49-HS-hvI" id="PAI-Jt-GV1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FixtureHeaderTVCell" rowHeight="37" id="Y9W-3c-GA1" customClass="FixtureHeaderTVCell" customModule="LS10_Project" customModuleProvider="target">
@@ -810,8 +810,8 @@
                     <tabBarItem key="tabBarItem" title="Fixtures" image="bar_solid_4" id="Idl-Pt-4Hv"/>
                     <connections>
                         <outlet property="addButton" destination="qG2-MW-giO" id="GzT-4T-BRc"/>
-                        <outlet property="chanTableView" destination="s5n-iq-fIT" id="T20-vp-NIC"/>
                         <outlet property="editButton" destination="WT0-HF-1TJ" id="lZq-CQ-1VK"/>
+                        <outlet property="fixTableView" destination="s5n-iq-fIT" id="Dr6-Jy-M9i"/>
                         <outlet property="groupButton" destination="wdm-77-sxP" id="VFH-KP-UQt"/>
                         <outlet property="indOffButton" destination="Ud5-37-fA5" id="zoK-AB-8te"/>
                         <outlet property="searchBar" destination="ziH-zz-IeY" id="T0G-uT-1y8"/>
@@ -1559,7 +1559,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="chanName" destination="330-Q2-afx" id="noy-nP-tOG"/>
+                                            <outlet property="fixtureName" destination="330-Q2-afx" id="d3u-Cs-yaL"/>
                                             <outlet property="imgColor" destination="xdH-JK-sYH" id="0ow-2O-Ao7"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1595,7 +1595,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Grid" image="cir_solid_3x3" id="MVF-V1-cI3"/>
                     <connections>
-                        <outlet property="chanCollection" destination="11D-C6-cgK" id="sVZ-cc-Sik"/>
+                        <outlet property="fixtureCollection" destination="11D-C6-cgK" id="3pe-UX-YQK"/>
                         <outlet property="pickWheel" destination="OB6-l6-f3u" id="Z2s-iA-3zI"/>
                         <outlet property="searchBar" destination="nmb-EJ-tFH" id="Rfg-gs-lsn"/>
                     </connections>
@@ -2198,8 +2198,8 @@
         <image name="subUP" width="30" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9zA-Io-bzT"/>
         <segue reference="BWQ-Uf-Rrb"/>
-        <segue reference="qZM-bK-Xei"/>
+        <segue reference="9zA-Io-bzT"/>
+        <segue reference="RyL-hN-ph3"/>
     </inferredMetricsTieBreakers>
 </document>

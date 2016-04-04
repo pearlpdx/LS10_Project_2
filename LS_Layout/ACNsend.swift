@@ -42,7 +42,7 @@ class ACNsend: NSObject {
         
         // Just for a test
         var x = 0
-        for fix:Channel in fixtures {
+        for fix:Fixture in fixtures {
 
             _dmxLevels[x] = UInt8(fix.indLevel * 255)
             x = x + 1

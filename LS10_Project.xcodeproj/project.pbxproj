@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3374C3131CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */; };
+		3374C3141CB2E37B0096E6E3 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3121CB2E37B0096E6E3 /* Fixture.swift */; };
 		33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */; };
 		33E908F31CB07B8500637B50 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F11CB07B8500637B50 /* Group.swift */; };
 		33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */; };
@@ -23,7 +25,6 @@
 		3673E6AC53E58D1B5F7B7532 /* Pods_LS10_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57C2BA039F87B8D05B2C7ED /* Pods_LS10_Project.framework */; };
 		F439A0641CA4A5C300DA85AC /* FixtureHeaderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */; };
 		F439A0EA1CAB2B5B00DA85AC /* SubSetupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */; };
-		F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */; };
 		F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */; };
 		F439A0F21CAB337500DA85AC /* SubMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0EE1CAB337500DA85AC /* SubMaster.swift */; };
 		F439A0F41CAB4BE900DA85AC /* TimePickerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */; };
@@ -35,7 +36,6 @@
 		F46FDA1C1C5FDC4F0087B35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46FDA1A1C5FDC4F0087B35C /* LaunchScreen.storyboard */; };
 		F46FDA291C6015420087B35C /* ACNsend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA281C6015420087B35C /* ACNsend.swift */; };
 		F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */; };
-		F46FDA331C6016650087B35C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA311C6016650087B35C /* Channel.swift */; };
 		F46FDA6B1C61535E0087B35C /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6A1C61535E0087B35C /* MaterialView.swift */; };
 		F46FDA6D1C61536F0087B35C /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6C1C61536F0087B35C /* MaterialButton.swift */; };
 		F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FDA6E1C61537B0087B35C /* MaterialTextField.swift */; };
@@ -53,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fixture+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3374C3121CB2E37B0096E6E3 /* Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		33E908F11CB07B8500637B50 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchGelVC.swift; sourceTree = "<group>"; };
@@ -71,7 +73,6 @@
 		D4D6BD2CCBD95F4E26E33C0D /* Pods-LS10_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LS10_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LS10_Project/Pods-LS10_Project.debug.xcconfig"; sourceTree = "<group>"; };
 		F439A0631CA4A5C300DA85AC /* FixtureHeaderTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureHeaderTVCell.swift; sourceTree = "<group>"; };
 		F439A0E91CAB2B5B00DA85AC /* SubSetupTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSetupTVC.swift; sourceTree = "<group>"; };
-		F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMaster+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F439A0EE1CAB337500DA85AC /* SubMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMaster.swift; sourceTree = "<group>"; };
 		F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerTVC.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		F46FDA1D1C5FDC500087B35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46FDA281C6015420087B35C /* ACNsend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACNsend.swift; sourceTree = "<group>"; };
 		F46FDA2C1C60155F0087B35C /* TableFixtureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFixtureCell.swift; sourceTree = "<group>"; };
-		F46FDA311C6016650087B35C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = ../Channel.swift; sourceTree = "<group>"; };
 		F46FDA6A1C61535E0087B35C /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		F46FDA6C1C61536F0087B35C /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		F46FDA6E1C61537B0087B35C /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
@@ -222,11 +222,11 @@
 		F46FDA271C60150E0087B35C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */,
+				3374C3121CB2E37B0096E6E3 /* Fixture.swift */,
 				33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */,
 				33E908F11CB07B8500637B50 /* Group.swift */,
-				F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */,
 				F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */,
-				F46FDA311C6016650087B35C /* Channel.swift */,
 				F439A0EE1CAB337500DA85AC /* SubMaster.swift */,
 				F46FDA151C5FDC4C0087B35C /* LS_Layout.xcdatamodeld */,
 				F4C61B161C98C32C00BA29DE /* Cue.swift */,
@@ -418,11 +418,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F46FDA291C6015420087B35C /* ACNsend.swift in Sources */,
-				F46FDA331C6016650087B35C /* Channel.swift in Sources */,
 				33EDE51C1C8F8DE500EEA3EA /* FixtureCategoryTableViewController.swift in Sources */,
 				33EDE4F21C8B54C600EEA3EA /* GelTableViewCell.swift in Sources */,
 				F46FDB2A1C6D07E90087B35C /* CoreData.swift in Sources */,
 				33EDE4EB1C8B53E400EEA3EA /* GelRGB.swift in Sources */,
+				3374C3141CB2E37B0096E6E3 /* Fixture.swift in Sources */,
 				F439A0641CA4A5C300DA85AC /* FixtureHeaderTVCell.swift in Sources */,
 				F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */,
 				F46FDA6F1C61537B0087B35C /* MaterialTextField.swift in Sources */,
@@ -445,7 +445,6 @@
 				33E908F31CB07B8500637B50 /* Group.swift in Sources */,
 				F439A0EA1CAB2B5B00DA85AC /* SubSetupTVC.swift in Sources */,
 				F46FDA751C615D6C0087B35C /* CollectionFixtureCell.swift in Sources */,
-				F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */,
 				F46FDA771C616E7D0087B35C /* CollectionFixtureVC.swift in Sources */,
 				33EDE4E91C8B53BE00EEA3EA /* Extensions.swift in Sources */,
 				33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */,
@@ -453,6 +452,7 @@
 				F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */,
 				F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */,
 				33EDE4F41C8B54C600EEA3EA /* LSColor.swift in Sources */,
+				3374C3131CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift in Sources */,
 				F46FDA721C6157C40087B35C /* Constants.swift in Sources */,
 				33EDE51A1C8E0CAF00EEA3EA /* FixtureTypeTableViewController.swift in Sources */,
 			);
