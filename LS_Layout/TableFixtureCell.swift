@@ -57,6 +57,11 @@ class TableFixtureCell: UITableViewCell {
             colorView.backgroundColor = channel.getDislayColor()
         }
        channelNum.text = channel.number
+        
+        //dynamic level
+         channelSlider.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
+//        var lev = 0.0
+//        lev.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
     }
     
     

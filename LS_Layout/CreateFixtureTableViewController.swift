@@ -46,6 +46,7 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+     //   hideKeyboardWhenTappedAround()
         fixtureName.delegate = self;
         
         styleLbl.text = "\(fixtureStyle)"

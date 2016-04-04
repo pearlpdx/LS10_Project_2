@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */; };
+		33E908F31CB07B8500637B50 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F11CB07B8500637B50 /* Group.swift */; };
 		33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */; };
 		33EDE4E81C8B53BE00EEA3EA /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE4E61C8B53BE00EEA3EA /* csv.swift */; };
 		33EDE4E91C8B53BE00EEA3EA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EDE4E71C8B53BE00EEA3EA /* Extensions.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		33E908F11CB07B8500637B50 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		33EDE4E41C8B538000EEA3EA /* MatchGelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchGelVC.swift; sourceTree = "<group>"; };
 		33EDE4E61C8B53BE00EEA3EA /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		33EDE4E71C8B53BE00EEA3EA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 		F46FDA271C60150E0087B35C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */,
+				33E908F11CB07B8500637B50 /* Group.swift */,
 				F439A0EB1CAB337400DA85AC /* Channel+CoreDataProperties.swift */,
 				F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */,
 				F46FDA311C6016650087B35C /* Channel.swift */,
@@ -322,7 +328,7 @@
 				TargetAttributes = {
 					F46FDA0A1C5FDC440087B35C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 6M5A8YF467;
+						DevelopmentTeam = XLQK485ENN;
 					};
 				};
 			};
@@ -436,11 +442,13 @@
 				F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */,
+				33E908F31CB07B8500637B50 /* Group.swift in Sources */,
 				F439A0EA1CAB2B5B00DA85AC /* SubSetupTVC.swift in Sources */,
 				F46FDA751C615D6C0087B35C /* CollectionFixtureCell.swift in Sources */,
 				F439A0EF1CAB337500DA85AC /* Channel+CoreDataProperties.swift in Sources */,
 				F46FDA771C616E7D0087B35C /* CollectionFixtureVC.swift in Sources */,
 				33EDE4E91C8B53BE00EEA3EA /* Extensions.swift in Sources */,
+				33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */,
 				33EDE4F31C8B54C600EEA3EA /* GelTableViewHeaderCell.swift in Sources */,
 				F46FDA0F1C5FDC450087B35C /* AppDelegate.swift in Sources */,
 				F46FDAB51C6416400087B35C /* ColorPickerVC.swift in Sources */,

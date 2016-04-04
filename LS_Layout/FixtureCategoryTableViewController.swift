@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-//var categories = ["First Beam", "Second Beam", "First Electric", "Second Electric", "Cyc"]
 
 class FixtureCategoryTableViewController: UITableViewController {
    
         var selCategory = ""
+    
     
     @IBOutlet weak var insertTextBox: UITextField!
     
@@ -39,6 +40,7 @@ class FixtureCategoryTableViewController: UITableViewController {
     }
     
     
+    
 
     // MARK: - Table view data source
 
@@ -49,12 +51,12 @@ class FixtureCategoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categories.count
+        return groups.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath)
-        cell.textLabel?.text = categories[indexPath.row]
+        cell.textLabel?.text = groups[indexPath.row].name
         // Configure the cell...
 
         return cell
@@ -93,8 +95,32 @@ class FixtureCategoryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            categories.removeAtIndex(indexPath.row)
+            
+            groups.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            
+            //Remove from CoreData
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            let fetchRequest = NSFetchRequest(entityName: "Group")
+            
+            do {
+                let results = try context.executeFetchRequest(fetchRequest)
+                let group = results[indexPath.row] as! NSManagedObject
+                context.deleteObject(group)
+                
+                do {
+                    try context.save()
+                } catch {
+                    let saveError = error as NSError
+                    print(saveError)
+                }
+                
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -105,9 +131,11 @@ class FixtureCategoryTableViewController: UITableViewController {
     
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        let st = categories[fromIndexPath.row]
-        categories.removeAtIndex(fromIndexPath.row)
-        categories.insert(st, atIndex: toIndexPath.row)
+        let st = groups[fromIndexPath.row]
+        groups.removeAtIndex(fromIndexPath.row)
+        groups.insert(st, atIndex: toIndexPath.row)
+        
+        // TODO  Make this happen in CoreData
 
     }
     
@@ -131,13 +159,31 @@ class FixtureCategoryTableViewController: UITableViewController {
 ////            editButton.setTitle("EDIT", forState: UIControlState.Normal)
 ////        }
 //    }
-//    
+//
     
     @IBAction func insertButtonPress(sender: AnyObject) {
         
         if insertTextBox.text != "" || insertTextBox.text != nil {
-            categories.append(insertTextBox.text!)
-            tableView.reloadData()
+            
+            let app = UIApplication.sharedApplication().delegate as!  AppDelegate
+            let context = app.managedObjectContext
+            let entity = NSEntityDescription.entityForName("Group", inManagedObjectContext: context)!
+            let group = Group(entity: entity, insertIntoManagedObjectContext: context)
+            group.name = insertTextBox.text
+           
+            
+            context.insertObject(group)
+            groups.append(group)
+            
+            fixtureNameString = ""
+            
+            do {
+                try context.save()
+            } catch {
+                print("Could not save")
+            }
+
+           tableView.reloadData()
         }
     }
 

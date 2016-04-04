@@ -28,8 +28,7 @@ class ACNsend: NSObject {
         self._dmxLevels = dmxlevels
         self._universe = universe
   
-        
-        acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: #selector(ACNsend.updateDMX), userInfo: nil, repeats: true)
+        acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: #selector (ACNsend.updateDMX), userInfo: nil, repeats: true)
         
         NSRunLoop.currentRunLoop().addTimer(acnTimer, forMode: NSRunLoopCommonModes)
     }

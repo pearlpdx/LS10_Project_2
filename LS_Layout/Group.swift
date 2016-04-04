@@ -1,8 +1,8 @@
 //
-//  SubMaster.swift
+//  Group.swift
 //  LS10_Project
 //
-//  Created by Home on 3/29/16.
+//  Created by Gordon Pearlman on 4/2/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class SubMaster: NSManagedObject {
+class Group: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

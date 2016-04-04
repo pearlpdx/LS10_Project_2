@@ -15,13 +15,6 @@ class FixtureTypeTableViewController: UITableViewController {
     var numOfChans = [1, 3, 4, 4, 5, 4, 5, 5, 6]
     var selStyle = ""
    
-//    var selectedCell: UITableViewCell? {
-//        willSet {
-//        selectedCell?.accessoryType = .None
-//        newValue?.accessoryType = .Checkmark
-//    }
-//}
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

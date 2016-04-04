@@ -7,6 +7,10 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Group" representedClassName=".Group" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="SubMaster" representedClassName=".SubMaster" syncable="YES">
         <attribute name="exclude" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="indOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -17,5 +21,6 @@
     <elements>
         <element name="Channel" positionX="-252" positionY="-135" width="128" height="118"/>
         <element name="SubMaster" positionX="0" positionY="36" width="128" height="118"/>
+        <element name="Group" positionX="-126" positionY="-9" width="128" height="75"/>
     </elements>
 </model>

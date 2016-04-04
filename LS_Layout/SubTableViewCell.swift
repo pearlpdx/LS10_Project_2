@@ -39,7 +39,8 @@ class SubTableViewCell: UITableViewCell {
     }
 
     @IBAction func subButPressed(sender: AnyObject) {
-        
+
+        print("sub button pressed")
         
     }
 

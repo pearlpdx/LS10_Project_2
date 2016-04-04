@@ -11,7 +11,7 @@ import CoreData
 
 var _curTime: Int32 = -1
 
-class SubSetupTVC: UITableViewController {
+class SubSetupTVC: UITableViewController, UITextFieldDelegate  {
     
     var curTime: Int32 {
         get{
@@ -31,12 +31,12 @@ class SubSetupTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self;
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,24 +52,19 @@ class SubSetupTVC: UITableViewController {
         st += ("\((curTime % 600) / 10).\((curTime % 60) % 10) sec")
             fadeTimeDetail.text = st
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 //
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
 //    }
 
+    
     @IBAction func saveButtonPressed(sender: AnyObject) {
         
         let app = UIApplication.sharedApplication().delegate as!  AppDelegate

@@ -13,6 +13,7 @@ import CoreData
 
 var fixtures = [Channel]()
 var subMasters = [SubMaster]()
+var groups = [Group]()
 
 class CoreDataHandler: NSObject {
     
@@ -48,6 +49,21 @@ class CoreDataHandler: NSObject {
     }
 
     
+    
+    func groupFetchAndSetResults() {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Group")
+        
+        do {
+            let results = try context.executeFetchRequest(fetchRequest)
+            groups = results as! [Group]
+            
+        }catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+
     
   }
 

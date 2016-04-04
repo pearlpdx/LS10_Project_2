@@ -29,6 +29,7 @@ class TimePickerTVC: UITableViewController,UIPickerViewDelegate, UIPickerViewDat
         timePickerView.delegate = self
         timePickerView.dataSource = self
         
+        //build picker
         for x in 0...59 {
             sec.append("\(x) sec")
         }
@@ -77,12 +78,12 @@ class TimePickerTVC: UITableViewController,UIPickerViewDelegate, UIPickerViewDat
         }
         return tenth[row]
     }
-    
+    //todo:  
  
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
     
     
     
@@ -90,7 +91,6 @@ class TimePickerTVC: UITableViewController,UIPickerViewDelegate, UIPickerViewDat
         var val = timePickerView.selectedRowInComponent(0) * 600
         val += timePickerView.selectedRowInComponent(1) * 10
         val += timePickerView.selectedRowInComponent(2)
-        print("\(val)")
         return Int32(val & 0xFFFF)
     }
 

@@ -11,9 +11,6 @@ import Foundation
 
 class GelRGB {
     
-    
-//    var index: String!
-//    var mfg: String!
     var number: String!
     var name: String!
     var red: Float!
@@ -29,8 +26,6 @@ class GelRGB {
         self.green = green
         self.blue = blue
     }
-    
-
 }
 
 

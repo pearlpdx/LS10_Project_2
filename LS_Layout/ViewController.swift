@@ -11,8 +11,6 @@ import  CoreData
 
 var dmx: [UInt8] = []
 
-//TODO Move to Core Data
-var categories = ["First Beam", "Second Beam", "First Electric", "Second Electric", "Cyc"]
 
 var _diplayLast = false
  var inGroupMode = false
@@ -22,7 +20,7 @@ class ViewController: UIViewController,
                     UITableViewDataSource,
                     UITableViewDelegate,
                     UISearchBarDelegate {
-    
+
     @IBOutlet weak var chanTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var editButton: UIButton!
@@ -33,7 +31,6 @@ class ViewController: UIViewController,
     var filteredFixtures = [Channel]()
     var grpSel = [GroupSection]()
     var inSearchMode = false
-//    var inGroupMode = false
     
     var displayLast: Bool {
         get {
@@ -59,12 +56,14 @@ class ViewController: UIViewController,
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Search
         
+        
         //load user data
         myCoreData.fetchAndSetResults()
         myCoreData.subFetchAndSetResults()
+        myCoreData.groupFetchAndSetResults()
         
         //dismiss keyboard
-        self.hideKeyboardWhenTappedAround()
+       // self.hideKeyboardWhenTappedAround()
     
 //*******TEMP***********  setup datagram and start sACN refresh
         for _ in 0...511 {
@@ -96,7 +95,11 @@ class ViewController: UIViewController,
         checkIndOff()
     }
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
 
     //    override func didReceiveMemoryWarning() {
     //        super.didReceiveMemoryWarning()
@@ -123,6 +126,7 @@ class ViewController: UIViewController,
                 }
             }
             cell.configureCell(fixture)
+            //allow callback to VC
             cell.tableVC = self
             return cell
             
@@ -188,31 +192,62 @@ class ViewController: UIViewController,
         let indexPath = NSIndexPath(forRow: fixtures.count - 1, inSection: 0)
         chanTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
     }
+   
+    //disable slide to delete
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if (chanTableView.editing)
+        {
+            return UITableViewCellEditingStyle.Delete;
+        }
+        
+        return UITableViewCellEditingStyle.None;
+    }
     
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
     
     // Override to support editing the table view.
-    func chanTableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
             fixtures.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
+            
+            //Remove from CoreData
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            let fetchRequest = NSFetchRequest(entityName: "Channel")
+            
+            do {
+                let results = try context.executeFetchRequest(fetchRequest)
+                let fix = results[indexPath.row] as! NSManagedObject
+                context.deleteObject(fix)
+                
+                do {
+                    try context.save()
+                } catch {
+                    let saveError = error as NSError
+                    print(saveError)
+                }
+            
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-        //TODO  Save to CoreData  ************************
     }
-    
-    
-    
+   
     // Override to support rearranging the table view.
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        let fx = fixtures[fromIndexPath.row]
-        fixtures.removeAtIndex(fromIndexPath.row)
-        fixtures.insert(fx, atIndex: toIndexPath.row)
-        //TODO  Save to CoreData  ************************
-    }
-
+//    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+//        let fx = fixtures[fromIndexPath.row]
+//        fixtures.removeAtIndex(fromIndexPath.row)
+//        fixtures.insert(fx, atIndex: toIndexPath.row)
+//    }
+//
     
     
 //Search Bar
@@ -281,10 +316,10 @@ class ViewController: UIViewController,
             useFixtures = filteredFixtures
         }
         
-        for grp in categories {
-            groupFixtures = useFixtures.filter({$0.group == grp})
+        for grp in groups {
+            groupFixtures = useFixtures.filter({$0.group == grp.name})
             if groupFixtures.count != 0 {
-                let groupSel = GroupSection(group: grp, fixtures: groupFixtures)
+                let groupSel = GroupSection(group: grp.name!, fixtures: groupFixtures)
                 grpSel.append(groupSel)
             }
         }

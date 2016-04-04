@@ -9,14 +9,11 @@
 import UIKit
 import iOS_color_wheel
 
-
-
 extension UIColor {
     var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
     }
 }
-
 
 extension String {
     var floatValue: Float {
@@ -24,7 +21,7 @@ extension String {
     }
 }
 
-     var _curFixture: Channel!
+   //  var _curFixture: Channel!
 
 class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
@@ -50,43 +47,69 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
        // var curFixture: Channel!
     
-    var curFixture: Channel {
-        get{
-            return _curFixture
-        }
-        set{
-            _curFixture = newValue
-        }
-        
-    }
+//    var curFixture: Channel {
+//        get{
+//            return _curFixture
+//        }
+//        set{
+//            _curFixture = newValue
+//        }
+//
+//    }
     
-    
+    var curFixture: Channel?
         
         override func viewDidLoad() {
             super.viewDidLoad()
             
+//            if curColor != nil {
+//                if let myColor = curColor?.coreImageColor {
+//                    curFixture.indRed = Float(myColor.red)
+//                    curFixture.indGreen = Float(myColor.green)
+//                    curFixture.indBlue = Float(myColor.blue)
+//                }
+//                
+//            }
+//            
+//            brightnessSlider.value = curFixture.indLevel
+//            redSlider.value = curFixture.indRed
+//            greenSlider.value = curFixture.indGreen
+//            blueSlider.value = curFixture.indBlue
+//            amberSlider.value = curFixture.indAmber
+//            whiteSlider.value = curFixture.indWhite
+//            
+//            brightnessLbl.text = "\(Int(curFixture.indLevel * 100))%"
+//            redLbl.text = "\(Int(curFixture.indRed * 255))"
+//            greenLbl.text = "\(Int(curFixture.indGreen * 255))"
+//            blueLbl.text = "\(Int(curFixture.indBlue * 255))"
+//            amberLbl.text = "\(Int(curFixture.indAmber * 255))"
+//            whiteLbl.text = "\(Int(curFixture.indWhite * 255))"
+//            
+ 
             if curColor != nil {
                 if let myColor = curColor?.coreImageColor {
-                    curFixture.indRed = Float(myColor.red)
-                    curFixture.indGreen = Float(myColor.green)
-                    curFixture.indBlue = Float(myColor.blue)
+                    curFixture?.indRed = Float(myColor.red)
+                    curFixture?.indGreen = Float(myColor.green)
+                    curFixture?.indBlue = Float(myColor.blue)
                 }
                 
             }
             
-            brightnessSlider.value = curFixture.indLevel
-            redSlider.value = curFixture.indRed
-            greenSlider.value = curFixture.indGreen
-            blueSlider.value = curFixture.indBlue
-            amberSlider.value = curFixture.indAmber
-            whiteSlider.value = curFixture.indWhite
+            brightnessSlider.value = (curFixture?.indLevel)!
+            redSlider.value = (curFixture?.indRed)!
+            greenSlider.value = (curFixture?.indGreen)!
+            blueSlider.value = (curFixture?.indBlue)!
+            amberSlider.value = (curFixture?.indAmber)!
+            whiteSlider.value = (curFixture?.indWhite)!
             
-            brightnessLbl.text = "\(Int(curFixture.indLevel * 100))%"
-            redLbl.text = "\(Int(curFixture.indRed * 255))"
-            greenLbl.text = "\(Int(curFixture.indGreen * 255))"
-            blueLbl.text = "\(Int(curFixture.indBlue * 255))"
-            amberLbl.text = "\(Int(curFixture.indAmber * 255))"
-            whiteLbl.text = "\(Int(curFixture.indWhite * 255))"
+            brightnessLbl.text = "\(Int((curFixture?.indLevel)! * 100))%"
+            redLbl.text = "\(Int((curFixture?.indRed)! * 255))"
+            greenLbl.text = "\(Int((curFixture?.indGreen)! * 255))"
+            blueLbl.text = "\(Int((curFixture?.indBlue)! * 255))"
+            amberLbl.text = "\(Int((curFixture?.indAmber)! * 255))"
+            whiteLbl.text = "\(Int((curFixture?.indWhite)! * 255))"
+            
+
             
             
             
@@ -115,12 +138,12 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
             whiteSlider.hidden = true
             whiteLbl.hidden = true
             
-            if curFixture.style == "RGBA" || curFixture.style == "I+RGBA" || curFixture.style == "RGBAW" || curFixture == "I+RGBAW" {
+            if curFixture?.style == "RGBA" || curFixture!.style == "I+RGBA" || curFixture!.style == "RGBAW" || curFixture == "I+RGBAW" {
                 amberSlider.hidden = false
                 amberLbl.hidden = false
             }
             
-            if curFixture.style == "RGBW" || curFixture.style == "I+RGBW" || curFixture.style == "RGBAW" || curFixture == "I+RGBAW" {
+            if curFixture?.style == "RGBW" || curFixture!.style == "I+RGBW" || curFixture!.style == "RGBAW" || curFixture == "I+RGBAW" {
                 whiteSlider.hidden = false
                 whiteLbl.hidden = false
             }
@@ -143,9 +166,9 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
                 redSlider.value = Float(myCIColor.red)
                 greenSlider.value = Float(myCIColor.green)
                 blueSlider.value = Float(myCIColor.blue)
-                curFixture.indRed = Float(myCIColor.red)
-                curFixture.indGreen = Float(myCIColor.green)
-                curFixture.indBlue = Float(myCIColor.blue)
+                curFixture!.indRed = Float(myCIColor.red)
+                curFixture!.indGreen = Float(myCIColor.green)
+                curFixture!.indBlue = Float(myCIColor.blue)
             }
         }
         
@@ -164,7 +187,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         //Actions
         @IBAction func brightnessValueChaged(sender: UISlider) {
             colorWheel.brightness = sender.value
-            curFixture.indLevel = sender.value
+            curFixture!.indLevel = sender.value
             wellView2.backgroundColor = colorWheel.currentColor()
             brightnessLbl.text = "\(Int(sender.value * 100))%"
             // displayRGB((colorWheel.currentColor()))
@@ -190,12 +213,12 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         
         @IBAction func amberSliderValueChanged(sender: AnyObject) {
             amberLbl.text = "\(Int(amberSlider.value * 255))"
-            curFixture.indAmber = sender.value
+            curFixture!.indAmber = sender.value
         }
         
         @IBAction func whiteSliderValueChanged(sender: AnyObject) {
             whiteLbl.text = "\(Int(whiteSlider.value * 255))"
-            curFixture.indWhite = sender.value
+            curFixture!.indWhite = sender.value
         }
         
         
