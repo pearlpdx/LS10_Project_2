@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+var y = 0
+
 class ACNsend: NSObject {
     
     
@@ -46,7 +48,21 @@ class ACNsend: NSObject {
 
             _dmxLevels[x] = UInt8(fix.indLevel * 255)
             x = x + 1
+            
+            // test final level
+            fix.finalLevel = fix.finalLevel + 0.0005
+            if fix.finalLevel > 1.0 {
+                fix.finalLevel = 0.0
+            }
         }
+        
+        //refresh display 10 (40/4) a second
+        y = y + 1
+        if y == 3 {
+            y = 0
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil, userInfo: nil)
+        }
+        
         
         
         let data:[UInt8] = buildDataGram(self._dmxLevels, optionFlag: false, universe: self._universe)

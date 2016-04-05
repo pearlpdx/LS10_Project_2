@@ -24,6 +24,15 @@ class Fixture: NSManagedObject {
     
     var indLevel:Float = 0.0
     
+    var finalLevel:Float = 0.0 //{
+        
+//        didSet {
+//            
+//            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil, userInfo: nil)        
+//           
+//        }
+//    }
+    
     var _displayColor: UIColor = UIColor.whiteColor()
     
     func getDislayColor() -> UIColor {

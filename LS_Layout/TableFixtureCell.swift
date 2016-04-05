@@ -41,29 +41,53 @@ class TableFixtureCell: UITableViewCell {
 //            }
     
     
-    func configureCell(channel: Fixture) {
-        self.fixture = channel
-        fixtureName.text = channel.name
-        butLocked.hidden = !channel.independent
-        fixtureSlider.value = fixture.indLevel
-        fixtureLevel.text = "\(Int(fixture.indLevel * 100))%"
+    func configureCell(fixture: Fixture) {
+        self.fixture = fixture
         
-        if channel.style == "Intensity" {
+        //setup notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
+        
+        fixtureName.text = fixture.name
+        fixtureNum.text = fixture.number
+        butLocked.hidden = !fixture.independent
+        
+        if fixture.independent != true {
+            fixtureSlider.setValue(fixture.finalLevel, animated: true)
+            fixtureLevel.text = "\(Int(fixture.finalLevel * 100))%"
+        }
+        
+        if fixture.style == "Intensity" {
             colorView.hidden = true
             colorButtonOverlayed.enabled = false
         }   else {
             colorView.hidden = false
             colorButtonOverlayed.enabled = true
-            colorView.backgroundColor = channel.getDislayColor()
+            colorView.backgroundColor = fixture.getDislayColor()
         }
-       fixtureNum.text = channel.number
         
-        //dynamic level
-        // channelSlider.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
-//        var lev = 0.0
-//        lev.addTarget(self, action: Selector("SliderAction:"), forControlEvents: .ValueChanged)
+        // Todo: disable cell when editting
+//        if tableVC?.editing == true {
+//            fixtureSlider.enabled = false
+//            colorButtonOverlayed.enabled = false
+//        } else {
+//            fixtureSlider.enabled = true
+//            colorButtonOverlayed.enabled = true
+//        }
+        
+        
     }
     
+    //called by notification from update timer
+    func refreshTable(notification: NSNotification) {
+        if self.fixture.independent != true {
+            fixtureSlider.setValue(fixture.finalLevel, animated: true)
+            fixtureLevel.text = "\(Int(fixture.finalLevel * 100))%"
+            if colorView.hidden == false {
+                colorView.backgroundColor = self.fixture.getDislayColor()
+            }
+        }
+    }
+   
     
     @IBAction func colorButOverlayPressed(sender: AnyObject) {
         self.fixture.independent = true
@@ -71,12 +95,12 @@ class TableFixtureCell: UITableViewCell {
         tableVC?.indOffButton.hidden = false
     }
   
+    
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.fixture.independent = true
         butLocked.hidden = false
         self.fixture.indLevel = sender.value
         tableVC?.indOffButton.hidden = false
-
         
         //temp
         fixtureLevel.text = "\(Int(sender.value * 100))%"

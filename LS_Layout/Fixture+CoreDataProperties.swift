@@ -19,5 +19,6 @@ extension Fixture {
     @NSManaged var name: String?
     @NSManaged var number: String?
     @NSManaged var style: String?
+    @NSManaged var relationship: FixtureCue?
 
 }

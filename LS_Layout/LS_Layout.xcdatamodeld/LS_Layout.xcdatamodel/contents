@@ -7,6 +7,17 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="FixtureCue" representedClassName=".FixtureCue" syncable="YES">
+        <attribute name="amberlevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blueLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cueNumber" attributeType="String" syncable="YES"/>
+        <attribute name="fixNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="greenLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="intensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="redLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="whiteLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMaster" inverseName="relationship" inverseEntity="SubMaster" syncable="YES"/>
+    </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,10 +28,12 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureCue" inverseName="relationship" inverseEntity="FixtureCue" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Fixture" positionX="-252" positionY="-135" width="128" height="120"/>
-        <element name="Group" positionX="-126" positionY="-9" width="128" height="75"/>
-        <element name="SubMaster" positionX="0" positionY="36" width="128" height="118"/>
+        <element name="Fixture" positionX="-369" positionY="-243" width="128" height="28"/>
+        <element name="Group" positionX="-369" positionY="33" width="128" height="75"/>
+        <element name="SubMaster" positionX="-27" positionY="-36" width="128" height="28"/>
+        <element name="FixtureCue" positionX="-171" positionY="-252" width="128" height="28"/>
     </elements>
 </model>

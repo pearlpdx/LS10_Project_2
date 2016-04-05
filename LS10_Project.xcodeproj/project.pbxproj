@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332162641CB32026005651CD /* FixtureCue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332162621CB32026005651CD /* FixtureCue+CoreDataProperties.swift */; };
+		332162651CB32026005651CD /* FixtureCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332162631CB32026005651CD /* FixtureCue.swift */; };
 		3374C3131CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */; };
 		3374C3141CB2E37B0096E6E3 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3121CB2E37B0096E6E3 /* Fixture.swift */; };
 		33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		332162621CB32026005651CD /* FixtureCue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureCue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		332162631CB32026005651CD /* FixtureCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureCue.swift; sourceTree = "<group>"; };
 		3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fixture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3374C3121CB2E37B0096E6E3 /* Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 		F46FDA271C60150E0087B35C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				332162621CB32026005651CD /* FixtureCue+CoreDataProperties.swift */,
+				332162631CB32026005651CD /* FixtureCue.swift */,
 				3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */,
 				3374C3121CB2E37B0096E6E3 /* Fixture.swift */,
 				33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */,
@@ -422,6 +428,7 @@
 				33EDE4F21C8B54C600EEA3EA /* GelTableViewCell.swift in Sources */,
 				F46FDB2A1C6D07E90087B35C /* CoreData.swift in Sources */,
 				33EDE4EB1C8B53E400EEA3EA /* GelRGB.swift in Sources */,
+				332162641CB32026005651CD /* FixtureCue+CoreDataProperties.swift in Sources */,
 				3374C3141CB2E37B0096E6E3 /* Fixture.swift in Sources */,
 				F439A0641CA4A5C300DA85AC /* FixtureHeaderTVCell.swift in Sources */,
 				F46FDA2D1C60155F0087B35C /* TableFixtureCell.swift in Sources */,
@@ -439,6 +446,7 @@
 				33EDE4E81C8B53BE00EEA3EA /* csv.swift in Sources */,
 				F4C61B151C98C15300BA29DE /* CueVC.swift in Sources */,
 				F439A0F41CAB4BE900DA85AC /* TimePickerTVC.swift in Sources */,
+				332162651CB32026005651CD /* FixtureCue.swift in Sources */,
 				F439A0F11CAB337500DA85AC /* SubMaster+CoreDataProperties.swift in Sources */,
 				F46FDA111C5FDC460087B35C /* ViewController.swift in Sources */,
 				33EDE4E51C8B538000EEA3EA /* MatchGelVC.swift in Sources */,
