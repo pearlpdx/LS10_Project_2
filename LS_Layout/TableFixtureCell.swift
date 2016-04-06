@@ -44,8 +44,8 @@ class TableFixtureCell: UITableViewCell {
     func configureCell(fixture: Fixture) {
         self.fixture = fixture
         
-        //setup notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
+        //setup notification  (move to tableview -- reload data
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
         
         fixtureName.text = fixture.name
         fixtureNum.text = fixture.number
@@ -77,16 +77,16 @@ class TableFixtureCell: UITableViewCell {
         
     }
     
-    //called by notification from update timer
-    func refreshTable(notification: NSNotification) {
-        if self.fixture.independent != true {
-            fixtureSlider.setValue(fixture.finalLevel, animated: true)
-            fixtureLevel.text = "\(Int(fixture.finalLevel * 100))%"
-            if colorView.hidden == false {
-                colorView.backgroundColor = self.fixture.getDislayColor()
-            }
-        }
-    }
+//    //called by notification from update timer
+//    func refreshTable(notification: NSNotification) {
+//        if self.fixture.independent != true {
+//            fixtureSlider.setValue(fixture.finalLevel, animated: true)
+//            fixtureLevel.text = "\(Int(fixture.finalLevel * 100))%"
+//            if colorView.hidden == false {
+//                colorView.backgroundColor = self.fixture.getDislayColor()
+//            }
+//        }
+//    }
    
     
     @IBAction func colorButOverlayPressed(sender: AnyObject) {

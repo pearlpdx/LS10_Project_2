@@ -29,8 +29,10 @@ class ACNsend: NSObject {
     func startTimer (dmxlevels: [UInt8], universe: UInt16) {
         self._dmxLevels = dmxlevels
         self._universe = universe
+        
+        let interval:NSTimeInterval = 1.0 / (Double(REFRESH_PER_10TH) * 10)
   
-        acnTimer = NSTimer(timeInterval: 0.025, target: self, selector: #selector (ACNsend.updateDMX), userInfo: nil, repeats: true)
+        acnTimer = NSTimer(timeInterval: interval, target: self, selector: #selector (ACNsend.updateDMX), userInfo: nil, repeats: true)
         
         NSRunLoop.currentRunLoop().addTimer(acnTimer, forMode: NSRunLoopCommonModes)
     }
@@ -56,6 +58,11 @@ class ACNsend: NSObject {
             }
         }
         
+        //Refresh SubMasters
+        for sub in subMasters {
+            sub.timerTick()
+        }
+        
         //refresh display 10 (40/4) a second
         y = y + 1
         if y == 3 {
@@ -64,7 +71,7 @@ class ACNsend: NSObject {
         }
         
         
-        
+      // Send sACN datagram
         let data:[UInt8] = buildDataGram(self._dmxLevels, optionFlag: false, universe: self._universe)
         
         udpSend(data, address: INADDR, port: PORT)

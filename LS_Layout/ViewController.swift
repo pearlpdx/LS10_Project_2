@@ -48,6 +48,7 @@ class ViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
         
         fixTableView.delegate = self
         fixTableView.dataSource = self
@@ -75,6 +76,9 @@ class ViewController: UIViewController,
 
     }
 
+    func refreshTable(notification: NSNotification) {
+        fixTableView.reloadData()
+    }
 
     override func viewDidAppear(animated: Bool) {
         if inGroupMode {

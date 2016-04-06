@@ -24,13 +24,13 @@ class SubVC: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         subTableView.delegate = self
         subTableView.dataSource = self
 
         
         // Do any additional setup after loading the view.
     }
+    
     
     
     override func viewDidAppear(animated: Bool) {
@@ -134,7 +134,10 @@ class SubVC: UIViewController,
         })
         
         let add = UIAlertAction(title: "A New SubMaster", style: .Default, handler: { (action) -> Void in
-            print("Add Button Pressed")
+//            print("Add Button Pressed")
+            self.performSegueWithIdentifier("SubSegue", sender: nil)
+            
+            
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
         })
@@ -164,10 +167,10 @@ class SubVC: UIViewController,
     
     func setEditMode() {
         if subTableView.editing == true {
-            addButton.hidden = false
+
             editButton.setTitle("DONE", forState: UIControlState.Normal)
         } else {
-            addButton.hidden = true
+
             editButton.setTitle("EDIT", forState: UIControlState.Normal)
         }
        

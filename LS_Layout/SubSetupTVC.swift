@@ -11,7 +11,10 @@ import CoreData
 
 var _curTime: Int32 = -1
 
-class SubSetupTVC: UITableViewController, UITextFieldDelegate  {
+class SubSetupTVC: UITableViewController,
+                    UITextFieldDelegate,
+                    UIImagePickerControllerDelegate,
+                    UINavigationControllerDelegate {
     
     var curTime: Int32 {
         get{
@@ -21,18 +24,23 @@ class SubSetupTVC: UITableViewController, UITextFieldDelegate  {
             _curTime = newValue
         }
     }
-    
+ 
+    var imagePicker: UIImagePickerController!
+
    
     
     
     @IBOutlet weak var fadeTimeDetail: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
-    
+    @IBOutlet weak var prevImage: UIImageView!
+    @IBOutlet weak var imageCell: UITableViewCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self;
-        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -57,12 +65,23 @@ class SubSetupTVC: UITableViewController, UITextFieldDelegate  {
         self.view.endEditing(true)
         return false
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        prevImage.image = image
+    }
+
 
 //
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.
 //    }
+
+    @IBAction func imageButtonPressed(sender: AnyObject) {
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
 
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
@@ -73,15 +92,21 @@ class SubSetupTVC: UITableViewController, UITextFieldDelegate  {
         let sub = SubMaster(entity: entity, insertIntoManagedObjectContext: context)
         
         sub.number = findNextSubNumber()
-       
         sub.name = nameTextField.text
-        
         sub.time = Int32(curTime)
+        
+        if let img = prevImage.image {
+           sub.setMovieImage(img)
+        }
+        
+//        if prevImage != nil {
+//            sub.setMovieImage(prevImage.image)
+//        }
         
         context.insertObject(sub)
         subMasters.append(sub)
         
-        fixtureNameString = ""
+     //   fixtureNameString = ""
         
         do {
             try context.save()

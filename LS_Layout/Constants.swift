@@ -19,5 +19,10 @@ let AMBER_OR_WHITE:Float = 0.4
 let AMBER_AND_WHITE:Float = 0.2
 
 
+//Timer
+
+let REFRESH_PER_10TH:Int32 = 4   //refresh per 10th of a secound
+
+
 
 

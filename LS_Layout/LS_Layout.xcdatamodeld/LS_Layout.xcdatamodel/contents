@@ -24,6 +24,7 @@
     </entity>
     <entity name="SubMaster" representedClassName=".SubMaster" syncable="YES">
         <attribute name="exclude" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="indOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -32,8 +33,8 @@
     </entity>
     <elements>
         <element name="Fixture" positionX="-369" positionY="-243" width="128" height="28"/>
-        <element name="Group" positionX="-369" positionY="33" width="128" height="75"/>
-        <element name="SubMaster" positionX="-27" positionY="-36" width="128" height="28"/>
         <element name="FixtureCue" positionX="-171" positionY="-252" width="128" height="28"/>
+        <element name="Group" positionX="-369" positionY="33" width="128" height="75"/>
+        <element name="SubMaster" positionX="-27" positionY="-36" width="128" height="150"/>
     </elements>
 </model>

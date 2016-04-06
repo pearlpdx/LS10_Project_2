@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		332162641CB32026005651CD /* FixtureCue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332162621CB32026005651CD /* FixtureCue+CoreDataProperties.swift */; };
 		332162651CB32026005651CD /* FixtureCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332162631CB32026005651CD /* FixtureCue.swift */; };
+		332162681CB425B8005651CD /* Fixture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332162661CB425B8005651CD /* Fixture.storyboard */; };
+		3321626A1CB42645005651CD /* SubMaster.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332162691CB42645005651CD /* SubMaster.storyboard */; };
+		3321626D1CB427E7005651CD /* Color.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3321626B1CB427E7005651CD /* Color.storyboard */; };
 		3374C3131CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */; };
 		3374C3141CB2E37B0096E6E3 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3374C3121CB2E37B0096E6E3 /* Fixture.swift */; };
 		33E908F21CB07B8500637B50 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */; };
@@ -57,6 +60,9 @@
 /* Begin PBXFileReference section */
 		332162621CB32026005651CD /* FixtureCue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureCue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		332162631CB32026005651CD /* FixtureCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureCue.swift; sourceTree = "<group>"; };
+		332162671CB425B8005651CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LS_Layout/Base.lproj/Fixture.storyboard; sourceTree = "<group>"; };
+		332162691CB42645005651CD /* SubMaster.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubMaster.storyboard; sourceTree = "<group>"; };
+		3321626C1CB427E7005651CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LS_Layout/Base.lproj/Color.storyboard; sourceTree = "<group>"; };
 		3374C3111CB2E37B0096E6E3 /* Fixture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fixture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3374C3121CB2E37B0096E6E3 /* Fixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		33E908F01CB07B8500637B50 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -178,13 +184,16 @@
 			isa = PBXGroup;
 			children = (
 				F46FDA121C5FDC490087B35C /* Main.storyboard */,
+				3321626B1CB427E7005651CD /* Color.storyboard */,
+				332162691CB42645005651CD /* SubMaster.storyboard */,
+				332162661CB425B8005651CD /* Fixture.storyboard */,
 				F46FDA1A1C5FDC4F0087B35C /* LaunchScreen.storyboard */,
 				F46FDA271C60150E0087B35C /* Model */,
 				F46FDA261C6015060087B35C /* Views */,
 				F46FDA251C6014F50087B35C /* Controller */,
+				F46FDA341C60262C0087B35C /* Background */,
 				F46FDA731C6157E00087B35C /* Util */,
 				33EDE4EC1C8B546E00EEA3EA /* Support */,
-				F46FDA341C60262C0087B35C /* Background */,
 				F46FDA0C1C5FDC440087B35C /* Products */,
 				B36778A158321B1774CBAC69 /* Frameworks */,
 				318F7EEFDEB98113AD59993F /* Pods */,
@@ -361,10 +370,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332162681CB425B8005651CD /* Fixture.storyboard in Resources */,
 				F46FDA1C1C5FDC4F0087B35C /* LaunchScreen.storyboard in Resources */,
+				3321626D1CB427E7005651CD /* Color.storyboard in Resources */,
 				F46FDA191C5FDC4D0087B35C /* Assets.xcassets in Resources */,
 				33EDE4EE1C8B549800EEA3EA /* gels2rgb.csv in Resources */,
 				F46FDA141C5FDC490087B35C /* Main.storyboard in Resources */,
+				3321626A1CB42645005651CD /* SubMaster.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +481,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		332162661CB425B8005651CD /* Fixture.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				332162671CB425B8005651CD /* Base */,
+			);
+			name = Fixture.storyboard;
+			sourceTree = "<group>";
+		};
+		3321626B1CB427E7005651CD /* Color.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3321626C1CB427E7005651CD /* Base */,
+			);
+			name = Color.storyboard;
+			sourceTree = "<group>";
+		};
 		F46FDA121C5FDC490087B35C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

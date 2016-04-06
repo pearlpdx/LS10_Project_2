@@ -38,11 +38,28 @@ extension UIViewController {
 extension Int32 {
     
     var fadeString : String {
-        var st = ""
-                if (self / 600) != 0 {
-                    st = "\(self / 600) min "
-                }
-                st += ("\((self % 600) / 10).\((self % 60) % 10) sec")
+    
+        var st = "\(self / 600):"
+        let mod = (self % 600) / 10
+        let sec = String(format: "%02d", mod)
+        st += sec
+        let tenth = (self % 60) % 10
+        if tenth != 0 {
+           st += ".\(tenth)"
+        }
         return st
     }
 }
+
+
+extension Int32 {
+    
+    var shortFadeString : String {
+        var st = "\(self / 600):"
+        let mod = (self % 600) / 10
+        let sec = String(format: "%02d", mod)
+        st += sec
+        return st
+    }
+}
+
