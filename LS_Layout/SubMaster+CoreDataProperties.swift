@@ -2,7 +2,7 @@
 //  SubMaster+CoreDataProperties.swift
 //  LS10_Project
 //
-//  Created by Gordon Pearlman on 4/6/16.
+//  Created by Home on 4/12/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,11 +15,11 @@ import CoreData
 extension SubMaster {
 
     @NSManaged var exclude: Bool
+    @NSManaged var image: NSData?
     @NSManaged var indOnly: Bool
     @NSManaged var name: String?
     @NSManaged var number: Int16
     @NSManaged var time: Int32
-    @NSManaged var image: NSData?
-    @NSManaged var relationship: FixtureCue?
+    @NSManaged var fixtureStores: NSSet?
 
 }

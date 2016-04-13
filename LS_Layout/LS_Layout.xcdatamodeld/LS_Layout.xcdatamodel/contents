@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="ChannelStore" representedClassName=".ChannelStore" syncable="YES">
+        <attribute name="icbf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toFixtureStore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureStore" inverseName="toChannelStore" inverseEntity="FixtureStore" syncable="YES"/>
+    </entity>
+    <entity name="Cue" representedClassName=".Cue" syncable="YES">
+        <attribute name="delayTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="downTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="linkCue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="namex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberx" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="uptime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="waitTimex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Fixture" representedClassName=".Fixture" syncable="YES">
         <attribute name="dmx16bit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" attributeType="String" syncable="YES"/>
+        <attribute name="style" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="FixtureCue" representedClassName=".FixtureCue" syncable="YES">
         <attribute name="amberlevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -16,25 +32,32 @@
         <attribute name="intensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="redLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="whiteLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMaster" inverseName="relationship" inverseEntity="SubMaster" syncable="YES"/>
+    </entity>
+    <entity name="FixtureStore" representedClassName=".FixtureStore" syncable="YES">
+        <attribute name="fixtureNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="toChannelStore" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChannelStore" inverseName="toFixtureStore" inverseEntity="ChannelStore" syncable="YES"/>
+        <relationship name="toSubMaster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMaster" inverseName="fixtureStores" inverseEntity="SubMaster" syncable="YES"/>
     </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SubMaster" representedClassName=".SubMaster" syncable="YES">
-        <attribute name="exclude" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="exclude" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="indOnly" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureCue" inverseName="relationship" inverseEntity="FixtureCue" syncable="YES"/>
+        <relationship name="fixtureStores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FixtureStore" inverseName="toSubMaster" inverseEntity="FixtureStore" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Fixture" positionX="-369" positionY="-243" width="128" height="28"/>
-        <element name="FixtureCue" positionX="-171" positionY="-252" width="128" height="28"/>
-        <element name="Group" positionX="-369" positionY="33" width="128" height="75"/>
-        <element name="SubMaster" positionX="-27" positionY="-36" width="128" height="150"/>
+        <element name="Cue" positionX="-360" positionY="-361" width="128" height="163"/>
+        <element name="Fixture" positionX="-360" positionY="-135" width="128" height="118"/>
+        <element name="FixtureCue" positionX="115" positionY="243" width="128" height="163"/>
+        <element name="FixtureStore" positionX="-81" positionY="110" width="128" height="88"/>
+        <element name="Group" positionX="-369" positionY="279" width="128" height="73"/>
+        <element name="SubMaster" positionX="-369" positionY="86" width="128" height="148"/>
+        <element name="ChannelStore" positionX="106" positionY="104" width="128" height="103"/>
     </elements>
 </model>

@@ -27,7 +27,7 @@ class SubTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         subViewCell.layer.cornerRadius = 5
-        subImage.layer.borderWidth = 2
+       // subImage.layer.borderWidth = 2
         subSlider.setThumbImage(UIImage(named: "sliderTick"), forState: UIControlState.Normal)
         
     }
@@ -99,6 +99,12 @@ class SubTableViewCell: UITableViewCell {
         sub.runState = runStates.goingDown
     }
     
+    @IBAction func dimButtonPressed(sender: AnyObject) {
+        sub.runState = runStates.off
+    }
     
+    @IBAction func brightButtonPressed(sender: AnyObject) {
+        sub.runState = runStates.full
+    }
 }
    

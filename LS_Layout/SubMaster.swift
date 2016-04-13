@@ -22,6 +22,8 @@ enum runStates {
 
 
 class SubMaster: NSManagedObject {
+    
+    var fixStores = [FixtureStore]()
 
     var runningTime:Int32 = 0             //expressed as 10ths * REFRESH_PER_10TH
     
@@ -32,7 +34,15 @@ class SubMaster: NSManagedObject {
         
         switch runState {
             
-        case runStates.off, runStates.full, runStates.halted :
+        case runStates.off:
+            runningTime = 0
+            break
+            
+        case runStates.full:
+            runningTime = time * REFRESH_PER_10TH
+            break
+            
+        case runStates.halted:
             //do nothing
             break
             

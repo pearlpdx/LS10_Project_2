@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let myCoreData = CoreDataHandler()
+        myCoreData.fetchAndSetResults()
+        myCoreData.subFetchAndSetResults()
+        myCoreData.groupFetchAndSetResults()
         // Override point for customization after application launch.
         return true
     }

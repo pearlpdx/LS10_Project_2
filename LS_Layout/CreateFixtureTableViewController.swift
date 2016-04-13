@@ -89,12 +89,23 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
             fixture.dmx16bit = dmxSwitchState
             fixture.style = fixtureStyle
             fixture.group = fixtureCategory
-            fixture.indRed = 1.0
-            fixture.indGreen = 1.0
-            fixture.indBlue = 1.0
+            
+            //TODO: REMOVE WHEN READY
+          //  fixture.indRed = 1.0
+//            fixture.indGreen = 1.0
+//            fixture.indBlue = 1.0
             fixture.indLevel = 0.0
-            fixture.indAmber = 0.0
-            fixture.indWhite = 0.0
+//            fixture.indAmber = 0.0
+//            fixture.indWhite = 0.0
+            //_______________________
+            
+            fixture.setUpChannels()
+            fixture.getChanByName("R")?.finalLevel = 1.0
+            fixture.getChanByName("G")?.finalLevel = 1.0
+            fixture.getChanByName("B")?.finalLevel = 1.0
+            fixture.getChanByName("A")?.finalLevel = 0.0
+            fixture.getChanByName("W")?.finalLevel = 0.0
+            
             
             let ii = findNextFixtureNumber()
             fixture.number = "\(ii)"

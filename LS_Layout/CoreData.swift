@@ -29,7 +29,9 @@ class CoreDataHandler: NSObject {
         } catch let err as NSError {
             print(err.debugDescription)
         }
-        
+        for fix in fixtures {
+            fix .setUpChannels()
+        }
     }
     
     

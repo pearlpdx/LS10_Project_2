@@ -45,17 +45,23 @@ class ACNsend: NSObject {
         
         
         // Just for a test
-        var x = 0
-        for fix:Fixture in fixtures {
-
-            _dmxLevels[x] = UInt8(fix.indLevel * 255)
-            x = x + 1
-            
-            // test final level
-            fix.finalLevel = fix.finalLevel + 0.0005
-            if fix.finalLevel > 1.0 {
-                fix.finalLevel = 0.0
-            }
+//        var x = 0
+//        for fix:Fixture in fixtures {
+//
+//            _dmxLevels[x] = UInt8(fix.indLevel * 255)
+//            x = x + 1
+//            
+//            // test final level
+//            fix.finalLevel = fix.finalLevel + 0.0005
+//            if fix.finalLevel > 1.0 {
+//                fix.finalLevel = 0.0
+//            }
+//        }
+        
+        //Refresh Fixture (they refresh channels)
+        
+        for fix in fixtures {
+            fix.timerTick()
         }
         
         //Refresh SubMasters

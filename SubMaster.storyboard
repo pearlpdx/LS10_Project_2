@@ -178,12 +178,12 @@
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="xHd-lf-JEk"/>
                                                             <exclude reference="tEJ-yy-BdH"/>
+                                                            <exclude reference="xHd-lf-JEk"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-EU-OLc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-EU-OLc">
                                                     <rect key="frame" x="465" y="4" width="80" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="2IQ-yU-OGB"/>

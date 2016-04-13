@@ -2,7 +2,7 @@
 //  Fixture+CoreDataProperties.swift
 //  LS10_Project
 //
-//  Created by Gordon Pearlman on 4/4/16.
+//  Created by Home on 4/12/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,6 +19,6 @@ extension Fixture {
     @NSManaged var name: String?
     @NSManaged var number: String?
     @NSManaged var style: String?
-    @NSManaged var relationship: FixtureCue?
+    @NSManaged var fixtureStores: NSSet?
 
 }

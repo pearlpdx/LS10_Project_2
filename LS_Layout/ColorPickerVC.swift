@@ -61,53 +61,62 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-//            if curColor != nil {
-//                if let myColor = curColor?.coreImageColor {
-//                    curFixture.indRed = Float(myColor.red)
-//                    curFixture.indGreen = Float(myColor.green)
-//                    curFixture.indBlue = Float(myColor.blue)
-//                }
-//                
-//            }
-//            
-//            brightnessSlider.value = curFixture.indLevel
-//            redSlider.value = curFixture.indRed
-//            greenSlider.value = curFixture.indGreen
-//            blueSlider.value = curFixture.indBlue
-//            amberSlider.value = curFixture.indAmber
-//            whiteSlider.value = curFixture.indWhite
-//            
-//            brightnessLbl.text = "\(Int(curFixture.indLevel * 100))%"
-//            redLbl.text = "\(Int(curFixture.indRed * 255))"
-//            greenLbl.text = "\(Int(curFixture.indGreen * 255))"
-//            blueLbl.text = "\(Int(curFixture.indBlue * 255))"
-//            amberLbl.text = "\(Int(curFixture.indAmber * 255))"
-//            whiteLbl.text = "\(Int(curFixture.indWhite * 255))"
-//            
  
             if curColor != nil {
                 if let myColor = curColor?.coreImageColor {
-                    curFixture?.indRed = Float(myColor.red)
-                    curFixture?.indGreen = Float(myColor.green)
-                    curFixture?.indBlue = Float(myColor.blue)
+                  //  curFixture?.indRed = Float(myColor.red)
+                    curFixture?.getChanByName("R")?.indLevel = Float(myColor.red)
+                     curFixture?.getChanByName("G")?.indLevel = Float(myColor.green)
+                     curFixture?.getChanByName("B")?.indLevel = Float(myColor.blue)
+//                    curFixture?.indGreen = Float(myColor.green)
+//                    curFixture?.indBlue = Float(myColor.blue)
                 }
                 
             }
             
+            var indAmber = curFixture?.getChanByName("A")?.indLevel
+            if indAmber == nil {
+                indAmber = 0.0
+            }
+            var indWhite = curFixture?.getChanByName("W")?.indLevel
+            if indWhite == nil {
+                indWhite = 0.0
+            }
+            
+
+            
             brightnessSlider.value = (curFixture?.indLevel)!
-            redSlider.value = (curFixture?.indRed)!
-            greenSlider.value = (curFixture?.indGreen)!
-            blueSlider.value = (curFixture?.indBlue)!
-            amberSlider.value = (curFixture?.indAmber)!
-            whiteSlider.value = (curFixture?.indWhite)!
+          //  redSlider.value = (curFixture?.indRed)!
+
+            redSlider.value = (curFixture?.getChanByName("R")?.indLevel)!
+            greenSlider.value = (curFixture?.getChanByName("G")?.indLevel)!
+            blueSlider.value = (curFixture?.getChanByName("B")?.indLevel)!
+            
+            amberSlider.value = (indAmber)!
+            whiteSlider.value = (indWhite)!
+           
+//            greenSlider.value = (curFixture?.indGreen)!
+//            blueSlider.value = (curFixture?.indBlue)!
+//            amberSlider.value = (curFixture?.indAmber)!
+//            whiteSlider.value = (curFixture?.indWhite)!
             
             brightnessLbl.text = "\(Int((curFixture?.indLevel)! * 100))%"
-            redLbl.text = "\(Int((curFixture?.indRed)! * 255))"
-            greenLbl.text = "\(Int((curFixture?.indGreen)! * 255))"
-            blueLbl.text = "\(Int((curFixture?.indBlue)! * 255))"
-            amberLbl.text = "\(Int((curFixture?.indAmber)! * 255))"
-            whiteLbl.text = "\(Int((curFixture?.indWhite)! * 255))"
+            redLbl.text = "\(Int((curFixture?.getChanByName("R")?.indLevel)! * 255))"
+            greenLbl.text = "\(Int((curFixture?.getChanByName("G")?.indLevel)! * 255))"
+            blueLbl.text = "\(Int((curFixture?.getChanByName("B")?.indLevel)! * 255))"
+          
+            amberLbl.text = "\(Int((indAmber)! * 255))"
+            whiteLbl.text = "\(Int((indWhite)! * 255))"
+          
+            
+            
+
+           
+           // redLbl.text = "\(Int((curFixture?.indRed)! * 255))"
+//            greenLbl.text = "\(Int((curFixture?.indGreen)! * 255))"
+//            blueLbl.text = "\(Int((curFixture?.indBlue)! * 255))"
+//            amberLbl.text = "\(Int((curFixture?.indAmber)! * 255))"
+//            whiteLbl.text = "\(Int((curFixture?.indWhite)! * 255))"
             
 
             
@@ -166,9 +175,14 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
                 redSlider.value = Float(myCIColor.red)
                 greenSlider.value = Float(myCIColor.green)
                 blueSlider.value = Float(myCIColor.blue)
-                curFixture!.indRed = Float(myCIColor.red)
-                curFixture!.indGreen = Float(myCIColor.green)
-                curFixture!.indBlue = Float(myCIColor.blue)
+
+                curFixture?.getChanByName("R")?.indLevel = Float(myCIColor.red)
+                curFixture?.getChanByName("G")?.indLevel = Float(myCIColor.green)
+                curFixture?.getChanByName("B")?.indLevel = Float(myCIColor.blue)
+
+                //curFixture!.indRed = Float(myCIColor.red)
+//                curFixture!.indGreen = Float(myCIColor.green)
+//                curFixture!.indBlue = Float(myCIColor.blue)
             }
         }
         
@@ -213,12 +227,14 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         
         @IBAction func amberSliderValueChanged(sender: AnyObject) {
             amberLbl.text = "\(Int(amberSlider.value * 255))"
-            curFixture!.indAmber = sender.value
+            curFixture?.getChanByName("A")?.indLevel = sender.value
+           // curFixture!.indAmber = sender.value
         }
         
         @IBAction func whiteSliderValueChanged(sender: AnyObject) {
             whiteLbl.text = "\(Int(whiteSlider.value * 255))"
-            curFixture!.indWhite = sender.value
+            curFixture?.getChanByName("W")?.indLevel = sender.value
+            //curFixture!.indWhite = sender.value
         }
         
         

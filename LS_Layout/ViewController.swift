@@ -59,9 +59,9 @@ class ViewController: UIViewController,
         
         
         //load user data
-        myCoreData.fetchAndSetResults()
-        myCoreData.subFetchAndSetResults()
-        myCoreData.groupFetchAndSetResults()
+// xxxx       myCoreData.fetchAndSetResults()
+//        myCoreData.subFetchAndSetResults()
+//        myCoreData.groupFetchAndSetResults()
         
         //dismiss keyboard
        // self.hideKeyboardWhenTappedAround()

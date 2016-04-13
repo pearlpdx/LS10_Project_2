@@ -99,9 +99,25 @@ class SubSetupTVC: UITableViewController,
            sub.setMovieImage(img)
         }
         
-//        if prevImage != nil {
-//            sub.setMovieImage(prevImage.image)
-//        }
+        
+        for fix in fixtures {
+            let fixEntity = NSEntityDescription.entityForName("FixtureStore", inManagedObjectContext: context)!
+            let fixStore = FixtureStore(entity: fixEntity, insertIntoManagedObjectContext: context)
+       
+            sub.setValue(NSSet(object: fixStore), forKey: "fixtureStores")        
+            context.insertObject(fixStore)
+          //  sub.fixtureStores.append(fixStore)
+            
+        
+        
+        }
+        
+        
+        
+        
+        
+        
+        
         
         context.insertObject(sub)
         subMasters.append(sub)
