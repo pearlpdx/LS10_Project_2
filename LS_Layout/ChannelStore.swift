@@ -11,6 +11,9 @@ import CoreData
 
 
 class ChannelStore: NSManagedObject {
+    
+    var calLevel:Float = 0.0
+
 
 // Insert code here to add functionality to your managed object subclass
 

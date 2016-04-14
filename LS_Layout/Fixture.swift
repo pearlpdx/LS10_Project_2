@@ -24,11 +24,11 @@ class Fixture: NSManagedObject {
    // var indAmber:Float = 0.0
    // var indWhite:Float = 0.0
     
-    var indLevel:Float = 0.0
-    
-    var finalLevel:Float = 0.0
-    
-    var finalRecordLevel:Float = 0.0
+//    var indLevel:Float = 0.0
+//    
+//    var finalLevel:Float = 0.0
+//    
+//    var finalRecordLevel:Float = 0.0
 
     var _displayColor: UIColor = UIColor.whiteColor()
     
@@ -37,45 +37,43 @@ class Fixture: NSManagedObject {
     
     func setUpChannels() {
         
-        print("\(style)")
-        
         if style == "Intensity" {
-            let chan = Channel(name: "I", icbf: "I")
+            let chan = Channel(name: "I", icbf: "I", parentFixture: self)
             channels.append(chan)
             
         }else {
             if style?.rangeOfString("I") != nil {
-                var chan = Channel(name: "I", icbf: "I")
+                var chan = Channel(name: "I", icbf: "I", parentFixture: self)
                 channels.append(chan)
-                chan = Channel(name: "R", icbf: "C")
+                chan = Channel(name: "R", icbf: "C", parentFixture: self)
                 channels.append(chan)
-                chan = Channel(name: "G", icbf: "C")
+                chan = Channel(name: "G", icbf: "C", parentFixture: self)
                 channels.append(chan)
-                chan = Channel(name: "B", icbf: "C")
+                chan = Channel(name: "B", icbf: "C", parentFixture: self)
                 channels.append(chan)
                 if style?.rangeOfString("A") != nil {
-                    chan = Channel(name: "A", icbf: "C")
+                    chan = Channel(name: "A", icbf: "C", parentFixture: self)
                     channels.append(chan)
                 }
                 if style?.rangeOfString("W") != nil {
-                    chan = Channel(name: "W", icbf: "C")
+                    chan = Channel(name: "W", icbf: "C", parentFixture: self)
                     channels.append(chan)
                 }
                 
                 
             }else {
-                var chan = Channel(name: "R", icbf: "c")
+                var chan = Channel(name: "R", icbf: "c", parentFixture: self)
                 channels.append(chan)
-                chan = Channel(name: "G", icbf: "c")
+                chan = Channel(name: "G", icbf: "c", parentFixture: self)
                 channels.append(chan)
-                chan = Channel(name: "B", icbf: "c")
+                chan = Channel(name: "B", icbf: "c", parentFixture: self)
                 channels.append(chan)
                 if style?.rangeOfString("A") != nil {
-                    chan = Channel(name: "A", icbf: "c")
+                    chan = Channel(name: "A", icbf: "c", parentFixture: self)
                     channels.append(chan)
                 }
                 if style?.rangeOfString("W") != nil {
-                    chan = Channel(name: "W", icbf: "c")
+                    chan = Channel(name: "W", icbf: "c", parentFixture: self)
                     channels.append(chan)
                 }
                 

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="ChannelStore" representedClassName=".ChannelStore" syncable="YES">
+        <attribute name="chanNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fixtureNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="icbf" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toFixtureStore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureStore" inverseName="toChannelStore" inverseEntity="FixtureStore" syncable="YES"/>
+        <attribute name="subNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="toFixtureStore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureStore" inverseName="toChannelStores" inverseEntity="FixtureStore" syncable="YES"/>
     </entity>
     <entity name="Cue" representedClassName=".Cue" syncable="YES">
         <attribute name="delayTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -34,8 +37,9 @@
         <attribute name="whiteLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="FixtureStore" representedClassName=".FixtureStore" syncable="YES">
-        <attribute name="fixtureNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="toChannelStore" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChannelStore" inverseName="toFixtureStore" inverseEntity="ChannelStore" syncable="YES"/>
+        <attribute name="fixtureNumber" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="subNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="toChannelStores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChannelStore" inverseName="toFixtureStore" inverseEntity="ChannelStore" syncable="YES"/>
         <relationship name="toSubMaster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMaster" inverseName="fixtureStores" inverseEntity="SubMaster" syncable="YES"/>
     </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES">
@@ -52,12 +56,12 @@
         <relationship name="fixtureStores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FixtureStore" inverseName="toSubMaster" inverseEntity="FixtureStore" syncable="YES"/>
     </entity>
     <elements>
+        <element name="ChannelStore" positionX="124" positionY="90" width="128" height="148"/>
         <element name="Cue" positionX="-360" positionY="-361" width="128" height="163"/>
         <element name="Fixture" positionX="-360" positionY="-135" width="128" height="118"/>
-        <element name="FixtureCue" positionX="115" positionY="243" width="128" height="163"/>
-        <element name="FixtureStore" positionX="-81" positionY="110" width="128" height="88"/>
+        <element name="FixtureCue" positionX="-126" positionY="243" width="128" height="163"/>
+        <element name="FixtureStore" positionX="-81" positionY="63" width="128" height="103"/>
         <element name="Group" positionX="-369" positionY="279" width="128" height="73"/>
-        <element name="SubMaster" positionX="-369" positionY="86" width="128" height="148"/>
-        <element name="ChannelStore" positionX="106" positionY="104" width="128" height="103"/>
+        <element name="SubMaster" positionX="-353" positionY="45" width="128" height="148"/>
     </elements>
 </model>

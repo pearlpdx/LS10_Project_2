@@ -94,12 +94,13 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
           //  fixture.indRed = 1.0
 //            fixture.indGreen = 1.0
 //            fixture.indBlue = 1.0
-            fixture.indLevel = 0.0
+            //fixture.indLevel = 0.0
 //            fixture.indAmber = 0.0
 //            fixture.indWhite = 0.0
             //_______________________
             
             fixture.setUpChannels()
+            fixture.getChanByName("I")?.finalLevel = 0.0
             fixture.getChanByName("R")?.finalLevel = 1.0
             fixture.getChanByName("G")?.finalLevel = 1.0
             fixture.getChanByName("B")?.finalLevel = 1.0

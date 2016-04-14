@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         myCoreData.fetchAndSetResults()
         myCoreData.subFetchAndSetResults()
         myCoreData.groupFetchAndSetResults()
+        
+        
+        //todo Remove these
+        myCoreData.fixFetchAndSetResults()
+        myCoreData.chanFetchAndSetResults()
         // Override point for customization after application launch.
         return true
     }

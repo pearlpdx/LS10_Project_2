@@ -66,13 +66,13 @@ class SubTableViewCell: UITableViewCell {
             haltButton.hidden = false
             break
             
-        case runStates.off:
+        case runStates.off, runStates.goZero:
             upButton.hidden = false
             downButton.hidden = true
             haltButton.hidden = true
             break
             
-        case runStates.full:
+        case runStates.full, runStates.goFull:
             upButton.hidden = true
             downButton.hidden = false
             haltButton.hidden = true
@@ -83,6 +83,7 @@ class SubTableViewCell: UITableViewCell {
             downButton.hidden = false
             haltButton.hidden = true
             break
+            
         }
         
     }
@@ -100,11 +101,11 @@ class SubTableViewCell: UITableViewCell {
     }
     
     @IBAction func dimButtonPressed(sender: AnyObject) {
-        sub.runState = runStates.off
+        sub.runState = runStates.goZero
     }
     
     @IBAction func brightButtonPressed(sender: AnyObject) {
-        sub.runState = runStates.full
+        sub.runState = runStates.goFull
     }
 }
    

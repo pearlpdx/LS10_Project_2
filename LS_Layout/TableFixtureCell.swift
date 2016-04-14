@@ -52,8 +52,8 @@ class TableFixtureCell: UITableViewCell {
         butLocked.hidden = !fixture.independent
         
         if fixture.independent != true {
-            fixtureSlider.setValue(fixture.finalLevel, animated: true)
-            fixtureLevel.text = "\(Int(fixture.finalLevel * 100))%"
+            fixtureSlider.setValue((fixture.getChanByName("I")?.finalLevel)!, animated: true)
+            fixtureLevel.text = "\(Int((fixture.getChanByName("I")?.finalLevel)! * 100))%"
         }
         
         if fixture.style == "Intensity" {
@@ -99,11 +99,12 @@ class TableFixtureCell: UITableViewCell {
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.fixture.independent = true
         butLocked.hidden = false
-        self.fixture.indLevel = sender.value
+
+        fixture.getChanByName("I")?.indLevel = sender.value
         tableVC?.indOffButton.hidden = false
         
         //temp
-        fixtureLevel.text = "\(Int(sender.value * 100))%"
+        //fixtureLevel.text = "\(Int(sender.value * 100))%"
     }
     
     //IndButton Presses

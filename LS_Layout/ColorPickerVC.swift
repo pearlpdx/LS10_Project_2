@@ -85,7 +85,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
             
 
             
-            brightnessSlider.value = (curFixture?.indLevel)!
+            brightnessSlider.value = (curFixture?.getChanByName("I")?.indLevel)!
           //  redSlider.value = (curFixture?.indRed)!
 
             redSlider.value = (curFixture?.getChanByName("R")?.indLevel)!
@@ -100,7 +100,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
 //            amberSlider.value = (curFixture?.indAmber)!
 //            whiteSlider.value = (curFixture?.indWhite)!
             
-            brightnessLbl.text = "\(Int((curFixture?.indLevel)! * 100))%"
+            brightnessLbl.text = "\(Int((curFixture?.getChanByName("I")?.indLevel)! * 100))%"
             redLbl.text = "\(Int((curFixture?.getChanByName("R")?.indLevel)! * 255))"
             greenLbl.text = "\(Int((curFixture?.getChanByName("G")?.indLevel)! * 255))"
             blueLbl.text = "\(Int((curFixture?.getChanByName("B")?.indLevel)! * 255))"
@@ -201,7 +201,7 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         //Actions
         @IBAction func brightnessValueChaged(sender: UISlider) {
             colorWheel.brightness = sender.value
-            curFixture!.indLevel = sender.value
+         //   curFixture!.indLevel = sender.value
             wellView2.backgroundColor = colorWheel.currentColor()
             brightnessLbl.text = "\(Int(sender.value * 100))%"
             // displayRGB((colorWheel.currentColor()))

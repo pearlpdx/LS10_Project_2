@@ -103,22 +103,36 @@ class SubSetupTVC: UITableViewController,
         for fix in fixtures {
             let fixEntity = NSEntityDescription.entityForName("FixtureStore", inManagedObjectContext: context)!
             let fixStore = FixtureStore(entity: fixEntity, insertIntoManagedObjectContext: context)
+            
+            fixStore.fixtureNumber = Int16(fix.number!)!
+            fixStore.subNumber = sub.number
        
             sub.setValue(NSSet(object: fixStore), forKey: "fixtureStores")        
             context.insertObject(fixStore)
-          //  sub.fixtureStores.append(fixStore)
+            sub.fixStores.append(fixStore)
+            var cNumber:Int16 = 0
             
-        
-        
+            for chan in fix.channels {
+             
+                let chanEntity = NSEntityDescription.entityForName("ChannelStore", inManagedObjectContext: context)!
+                let chanStore = ChannelStore(entity: chanEntity, insertIntoManagedObjectContext: context)
+                fixStore.setValue(NSSet(objects: chanStore), forKey: "toChannelStores")
+            
+                chanStore.level = chan.recLevel
+                print ("\(chanStore.level)")
+                chanStore.icbf = chan.icbf
+                chanStore.name = chan.name
+                chanStore.fixtureNumber = fixStore.fixtureNumber
+                chanStore.subNumber = sub.number
+                chanStore.chanNumber = cNumber
+                cNumber += 1
+            
+                context.insertObject(chanStore)
+                fixStore.channelStores.append(chanStore)
+                
+            }
         }
-        
-        
-        
-        
-        
-        
-        
-        
+                
         context.insertObject(sub)
         subMasters.append(sub)
         

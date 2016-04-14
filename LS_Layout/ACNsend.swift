@@ -58,10 +58,11 @@ class ACNsend: NSObject {
 //            }
 //        }
         
-        //Refresh Fixture (they refresh channels)
-        
+        //reset highest level in all channels
         for fix in fixtures {
-            fix.timerTick()
+            for chan in fix.channels{
+                chan.resetHighestLevels()
+            }
         }
         
         //Refresh SubMasters
