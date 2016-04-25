@@ -33,7 +33,7 @@ class CollectionFixtureCell: UICollectionViewCell {
         
         fixtureName.text = self.fixture.name
        
-        imgColor.backgroundColor = fixture.getDislayColor()
+        imgColor.backgroundColor = fixture.getRGBColor()
  
     }
 }

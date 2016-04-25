@@ -58,14 +58,4 @@ class Channel {
     }
     
     
-    //todo  Remove Timer Tick???
-    func timerTick(onInd: Bool) {
-        //test only
-        if onInd == true {
-            finalLevel = indLevel
-        }
-    }
-    
-    
-    
 }

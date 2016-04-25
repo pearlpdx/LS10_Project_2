@@ -173,8 +173,6 @@ class MatchGelVC: UIViewController,
 
     //Header Tapped Action
     func sectionHeaderTapped(recognizer: UITapGestureRecognizer) {
-//        print("Tapping working")
-//        print(recognizer.view?.tag)
         
         let indexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection:(recognizer.view?.tag as Int!)!)
         if (indexPath.row == 0) {

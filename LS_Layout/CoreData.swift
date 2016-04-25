@@ -96,8 +96,8 @@ class CoreDataHandler: NSObject {
             tempChan = results as! [ChannelStore]
             
             for chan in tempChan {
-                // print ("lev: \(chan.level) icbf: \(chan.icbf!) name: \(chan.name!) sub: \(chan.subNumber) fix: \(chan.fixtureNumber) chan: \(chan.chanNumber)" )
-                subMasters[Int(chan.subNumber - 1)].fixStores[Int(chan.fixtureNumber - 1)].channelStores.append(chan)
+               // print ("lev: \(chan.level) icbf: \(chan.icbf!) name: \(chan.name!) sub: \(chan.subNumber) fix: \(chan.fixtureNumber) chan: \(chan.chanNumber)" )
+                subMasters[Int(chan.subNumber - 1)].fixStores[Int(chan.fixtureNumber - 1)].channelDic[chan.name!] = chan
             }
             
         } catch let err as NSError {

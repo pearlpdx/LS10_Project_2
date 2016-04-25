@@ -100,13 +100,11 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
             //_______________________
             
             fixture.setUpChannels()
-            fixture.getChanByName("I")?.finalLevel = 0.0
-            fixture.getChanByName("R")?.finalLevel = 1.0
-            fixture.getChanByName("G")?.finalLevel = 1.0
-            fixture.getChanByName("B")?.finalLevel = 1.0
-            fixture.getChanByName("A")?.finalLevel = 0.0
-            fixture.getChanByName("W")?.finalLevel = 0.0
-            
+            fixture.channelDic["I"]?.finalLevel = 0.0
+            fixture.channelDic["R"]?.finalLevel = 1.0
+            fixture.channelDic["G"]?.finalLevel = 1.0
+            fixture.channelDic["B"]?.finalLevel = 1.0
+           
             
             let ii = findNextFixtureNumber()
             fixture.number = "\(ii)"

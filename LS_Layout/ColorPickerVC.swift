@@ -9,6 +9,7 @@
 import UIKit
 import iOS_color_wheel
 
+
 extension UIColor {
     var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
@@ -21,7 +22,6 @@ extension String {
     }
 }
 
-   //  var _curFixture: Channel!
 
 class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
@@ -29,137 +29,63 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         @IBOutlet weak var redLbl: UILabel!
         @IBOutlet weak var greenLbl: UILabel!
         @IBOutlet weak var blueLbl: UILabel!
-        @IBOutlet weak var amberLbl: UILabel!
-        @IBOutlet weak var whiteLbl: UILabel!
-        
+    
         @IBOutlet weak var brightnessLbl: UILabel!
         @IBOutlet weak var brightnessSlider: UISlider!
         @IBOutlet weak var redSlider: UISlider!
         @IBOutlet weak var greenSlider: UISlider!
         @IBOutlet weak var blueSlider: UISlider!
-        @IBOutlet weak var amberSlider: UISlider!
-        @IBOutlet weak var whiteSlider: UISlider!
-      //  @IBOutlet weak var wheelView: UIView!
         
         var colorWheel: ISColorWheel!
         var curColor: UIColor?
         var arrayForBool : NSMutableArray = NSMutableArray()
     
-       // var curFixture: Channel!
+          var curFixture: Fixture?
     
-//    var curFixture: Channel {
-//        get{
-//            return _curFixture
-//        }
-//        set{
-//            _curFixture = newValue
-//        }
-//
-//    }
     
-    var curFixture: Fixture?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
- 
-            if curColor != nil {
-                if let myColor = curColor?.coreImageColor {
-                  //  curFixture?.indRed = Float(myColor.red)
-                    curFixture?.getChanByName("R")?.indLevel = Float(myColor.red)
-                     curFixture?.getChanByName("G")?.indLevel = Float(myColor.green)
-                     curFixture?.getChanByName("B")?.indLevel = Float(myColor.blue)
-//                    curFixture?.indGreen = Float(myColor.green)
-//                    curFixture?.indBlue = Float(myColor.blue)
-                }
+        if curColor != nil {
+            if let myColor = curColor?.coreImageColor {
                 
-            }
-            
-            var indAmber = curFixture?.getChanByName("A")?.indLevel
-            if indAmber == nil {
-                indAmber = 0.0
-            }
-            var indWhite = curFixture?.getChanByName("W")?.indLevel
-            if indWhite == nil {
-                indWhite = 0.0
-            }
-            
-
-            
-            brightnessSlider.value = (curFixture?.getChanByName("I")?.indLevel)!
-          //  redSlider.value = (curFixture?.indRed)!
-
-            redSlider.value = (curFixture?.getChanByName("R")?.indLevel)!
-            greenSlider.value = (curFixture?.getChanByName("G")?.indLevel)!
-            blueSlider.value = (curFixture?.getChanByName("B")?.indLevel)!
-            
-            amberSlider.value = (indAmber)!
-            whiteSlider.value = (indWhite)!
-           
-//            greenSlider.value = (curFixture?.indGreen)!
-//            blueSlider.value = (curFixture?.indBlue)!
-//            amberSlider.value = (curFixture?.indAmber)!
-//            whiteSlider.value = (curFixture?.indWhite)!
-            
-            brightnessLbl.text = "\(Int((curFixture?.getChanByName("I")?.indLevel)! * 100))%"
-            redLbl.text = "\(Int((curFixture?.getChanByName("R")?.indLevel)! * 255))"
-            greenLbl.text = "\(Int((curFixture?.getChanByName("G")?.indLevel)! * 255))"
-            blueLbl.text = "\(Int((curFixture?.getChanByName("B")?.indLevel)! * 255))"
-          
-            amberLbl.text = "\(Int((indAmber)! * 255))"
-            whiteLbl.text = "\(Int((indWhite)! * 255))"
-          
-            
-            
-
-           
-           // redLbl.text = "\(Int((curFixture?.indRed)! * 255))"
-//            greenLbl.text = "\(Int((curFixture?.indGreen)! * 255))"
-//            blueLbl.text = "\(Int((curFixture?.indBlue)! * 255))"
-//            amberLbl.text = "\(Int((curFixture?.indAmber)! * 255))"
-//            whiteLbl.text = "\(Int((curFixture?.indWhite)! * 255))"
-            
-
-            
-            
-            
-            let size: CGSize = self.view.bounds.size
-            let wheelSize: CGSize = CGSizeMake(size.width * 0.9, size.width * 0.9)
-            self.colorWheel = ISColorWheel(frame: CGRectMake(size.width / 2 - wheelSize.width / 2, size.height * 0.1, wheelSize.width, wheelSize.height))
-            self.colorWheel.delegate = self
-            self.colorWheel.continuous = true
-//            displayRGB(UIColor.whiteColor())
-//            brightnessSlider.value = 1.0            //Preset Int Here
-//            
-            colorWheel.currentColor()
-        
-   
-            self.view!.addSubview(colorWheel)
-            self.wellView2.layer.borderColor = UIColor.blackColor().CGColor
-            self.wellView2.layer.borderWidth = 2.0
-            self.wellView2.layer.cornerRadius = 15
+                curFixture?.channelDic["R"]?.finalLevel = Float(myColor.red)
+                curFixture?.channelDic["G"]?.finalLevel = Float(myColor.green)
+                curFixture?.channelDic["B"]?.finalLevel = Float(myColor.blue)
+            }            
         }
+       
+        brightnessSlider.value = (curFixture?.channelDic["I"]?.finalLevel)!
+        redSlider.value = (curFixture?.channelDic["R"]?.finalLevel)!
+        greenSlider.value = (curFixture?.channelDic["G"]?.finalLevel)!
+        blueSlider.value = (curFixture?.channelDic["B"]?.finalLevel)!
+        
+        brightnessLbl.text = "\(Int((curFixture?.channelDic["I"]?.finalLevel)! * 100))%"
+        redLbl.text = "\(Int((curFixture?.channelDic["R"]?.finalLevel)! * 255))"
+        greenLbl.text = "\(Int((curFixture?.channelDic["G"]?.finalLevel)! * 255))"
+        blueLbl.text = "\(Int((curFixture?.channelDic["B"]?.finalLevel)! * 255))"
+        
+        
+        let size: CGSize = self.view.bounds.size
+        let wheelSize: CGSize = CGSizeMake(size.width * 0.9, size.width * 0.9)
+        self.colorWheel = ISColorWheel(frame: CGRectMake(size.width / 2 - wheelSize.width / 2, size.height * 0.1, wheelSize.width, wheelSize.height))
+        self.colorWheel.delegate = self
+        self.colorWheel.continuous = true
+        colorWheel.currentColor()
+        
+        self.view!.addSubview(colorWheel)
+        self.wellView2.layer.borderColor = UIColor.blackColor().CGColor
+        self.wellView2.layer.borderWidth = 2.0
+        self.wellView2.layer.cornerRadius = 15
+    }
     
     
         override func viewDidAppear(animated: Bool) {
-            
-            amberSlider.hidden = true
-            amberLbl.hidden = true
-            whiteSlider.hidden = true
-            whiteLbl.hidden = true
-            
-            if curFixture?.style == "RGBA" || curFixture!.style == "I+RGBA" || curFixture!.style == "RGBAW" || curFixture == "I+RGBAW" {
-                amberSlider.hidden = false
-                amberLbl.hidden = false
-            }
-            
-            if curFixture?.style == "RGBW" || curFixture!.style == "I+RGBW" || curFixture!.style == "RGBAW" || curFixture == "I+RGBAW" {
-                whiteSlider.hidden = false
-                whiteLbl.hidden = false
-            }
             updateColorWheel()
         }
-        
-        
+    
+    
         func colorWheelDidChangeColor(colorWheel: ISColorWheel) {
             
             wellView2.backgroundColor = colorWheel.currentColor()
@@ -176,13 +102,9 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
                 greenSlider.value = Float(myCIColor.green)
                 blueSlider.value = Float(myCIColor.blue)
 
-                curFixture?.getChanByName("R")?.indLevel = Float(myCIColor.red)
-                curFixture?.getChanByName("G")?.indLevel = Float(myCIColor.green)
-                curFixture?.getChanByName("B")?.indLevel = Float(myCIColor.blue)
-
-                //curFixture!.indRed = Float(myCIColor.red)
-//                curFixture!.indGreen = Float(myCIColor.green)
-//                curFixture!.indBlue = Float(myCIColor.blue)
+                curFixture?.channelDic["R"]?.indLevel = Float(myCIColor.red)
+                curFixture?.channelDic["G"]?.indLevel = Float(myCIColor.green)
+                curFixture?.channelDic["B"]?.indLevel = Float(myCIColor.blue)
             }
         }
         
@@ -201,43 +123,25 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         //Actions
         @IBAction func brightnessValueChaged(sender: UISlider) {
             colorWheel.brightness = sender.value
-         //   curFixture!.indLevel = sender.value
             wellView2.backgroundColor = colorWheel.currentColor()
             brightnessLbl.text = "\(Int(sender.value * 100))%"
-            // displayRGB((colorWheel.currentColor()))
         }
         
         @IBAction func redSliderValueChanged(sender: AnyObject) {
             redLbl.text = "\(Int(redSlider.value * 255))"
-//            curFixture.indRed = sender.value
             updateColorWheel()
         }
         
         @IBAction func greenSliderValueChanged(sender: AnyObject) {
             greenLbl.text = "\(Int(greenSlider.value * 255))"
-//            curFixture.indGreen = sender.value
             updateColorWheel()
         }
         
         @IBAction func blueSliderValueChanged(sender: AnyObject) {
             blueLbl.text = "\(Int(blueSlider.value * 255))"
-//            curFixture.indBlue = sender.value
             updateColorWheel()
         }
-        
-        @IBAction func amberSliderValueChanged(sender: AnyObject) {
-            amberLbl.text = "\(Int(amberSlider.value * 255))"
-            curFixture?.getChanByName("A")?.indLevel = sender.value
-           // curFixture!.indAmber = sender.value
-        }
-        
-        @IBAction func whiteSliderValueChanged(sender: AnyObject) {
-            whiteLbl.text = "\(Int(whiteSlider.value * 255))"
-            curFixture?.getChanByName("W")?.indLevel = sender.value
-            //curFixture!.indWhite = sender.value
-        }
-        
-        
+    
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.

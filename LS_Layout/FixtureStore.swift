@@ -12,7 +12,9 @@ import CoreData
 
 class FixtureStore: NSManagedObject {
     
-    var channelStores = [ChannelStore]()
+    
+    var channelDic = [String: ChannelStore] ()
+ 
 
 // Insert code here to add functionality to your managed object subclass
 

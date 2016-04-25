@@ -30,7 +30,7 @@ class TableFixtureCell: UITableViewCell {
         
         //format slider and current color View
         fixtureSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Normal)
-        fixtureSlider.setThumbImage(UIImage(named: "thumbActive"), forState: UIControlState.Highlighted)
+        fixtureSlider.setThumbImage(UIImage(named: "thumbNormal"), forState: UIControlState.Highlighted)
         colorView.layer.cornerRadius = 10
         colorView.layer.borderWidth = 2
         fixtureCellView.layer.cornerRadius = 5
@@ -52,8 +52,8 @@ class TableFixtureCell: UITableViewCell {
         butLocked.hidden = !fixture.independent
         
         if fixture.independent != true {
-            fixtureSlider.setValue((fixture.getChanByName("I")?.finalLevel)!, animated: true)
-            fixtureLevel.text = "\(Int((fixture.getChanByName("I")?.finalLevel)! * 100))%"
+            fixtureSlider.setValue((fixture.channelDic["I"]?.finalLevel)!, animated: true)
+            fixtureLevel.text = "\(Int((fixture.channelDic["I"]?.finalLevel)! * 100))%"
         }
         
         if fixture.style == "Intensity" {
@@ -62,7 +62,7 @@ class TableFixtureCell: UITableViewCell {
         }   else {
             colorView.hidden = false
             colorButtonOverlayed.enabled = true
-            colorView.backgroundColor = fixture.getDislayColor()
+            colorView.backgroundColor = fixture.getRGBColor()
         }
         
         // Todo: disable cell when editting
@@ -100,7 +100,7 @@ class TableFixtureCell: UITableViewCell {
         self.fixture.independent = true
         butLocked.hidden = false
 
-        fixture.getChanByName("I")?.indLevel = sender.value
+        fixture.channelDic["I"]?.indLevel = sender.value
         tableVC?.indOffButton.hidden = false
         
         //temp

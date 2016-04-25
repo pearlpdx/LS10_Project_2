@@ -109,17 +109,17 @@ class SubSetupTVC: UITableViewController,
        
             sub.setValue(NSSet(object: fixStore), forKey: "fixtureStores")        
             context.insertObject(fixStore)
-            sub.fixStores.append(fixStore)
+                 //sub.fixStores.append(fixStore)
             var cNumber:Int16 = 0
             
-            for chan in fix.channels {
-             
-                let chanEntity = NSEntityDescription.entityForName("ChannelStore", inManagedObjectContext: context)!
-                let chanStore = ChannelStore(entity: chanEntity, insertIntoManagedObjectContext: context)
+            let chanEntity = NSEntityDescription.entityForName("ChannelStore", inManagedObjectContext: context)!
+            let chanStore = ChannelStore(entity: chanEntity, insertIntoManagedObjectContext: context)
+            
+            for (_, chan) in fix.channelDic {
+               
                 fixStore.setValue(NSSet(objects: chanStore), forKey: "toChannelStores")
             
                 chanStore.level = chan.recLevel
-                print ("\(chanStore.level)")
                 chanStore.icbf = chan.icbf
                 chanStore.name = chan.name
                 chanStore.fixtureNumber = fixStore.fixtureNumber
@@ -128,15 +128,14 @@ class SubSetupTVC: UITableViewController,
                 cNumber += 1
             
                 context.insertObject(chanStore)
-                fixStore.channelStores.append(chanStore)
-                
+                fixStore.channelDic[chan.name!] = chanStore
+                //print("\(fixStore.channelDic)")
             }
+            sub.fixStores.append(fixStore)
         }
                 
         context.insertObject(sub)
         subMasters.append(sub)
-        
-     //   fixtureNameString = ""
         
         do {
             try context.save()

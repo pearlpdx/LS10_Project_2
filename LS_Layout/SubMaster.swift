@@ -33,46 +33,52 @@ class SubMaster: NSManagedObject {
     
     
 
-
+//Mark Refresh Tick
     func timerTick() {
         
         var fader:Float = 0.0
+        var isRunning = false
         
         
         if time == 0 {
             time = 1
         }
         
-        if  UpdateRunningTime() == true {
+        //  if  UpdateRunningTime() == true {
+        isRunning = UpdateRunningTime()
+        
+        if time != 0 {
             
+            fader = (Float(runningTime) / Float(time * REFRESH_PER_10TH) )
             
-            if time != 0 {
+        }else {
+            //Todo:  Special rulles for time at zero  be sure to remove special case above
+        }
+        
+        
+        var fixIndex = 0
+        for fix in fixStores {
+            
+            for (name, chan) in fix.channelDic {
                 
-                fader = (Float(runningTime) / Float(time * REFRESH_PER_10TH) )
-                
-            }else {
-                //Todo:  Special rulles for time at zero  be sure to remove special case above
-            }
-            
-            
-            var fIndex = 0
-            for fix in fixStores {
-                
-                var cIndex = 0
-                for chan in fix.channelStores {
+                if isRunning == true {
                     
+                    //All calculations here
                     if chan.icbf == "C" {
                         chan.calLevel = chan.level
                     }
                     else {
                         chan.calLevel = fader * chan.level
                     }
-                    fixtures[fIndex].channels[cIndex].checkForHighest(chan.calLevel, excludeFromSave: exclude)
+                    
                 }
-                cIndex += 1
+                //ToDo  Call into Fixture and let that routine handle all update (Add a start SubMaster func)
+                // print("\(fix.fixtureNumber) name: \(name)  level: \(chan.calLevel)")
+                fixtures[fixIndex].channelDic[name]!.checkForHighest(chan.calLevel, excludeFromSave: exclude)
             }
-            fIndex += 1
+            fixIndex += 1
         }
+        //  }
     }
     
 
@@ -120,7 +126,7 @@ class SubMaster: NSManagedObject {
     
     
     
-    
+    //todo get rid of movie name
     
     func    setMovieImage(img: UIImage) {
         let data = UIImagePNGRepresentation(img)

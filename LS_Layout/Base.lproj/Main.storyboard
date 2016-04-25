@@ -391,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-624" y="2511"/>
+            <point key="canvasLocation" x="-552" y="2511"/>
         </scene>
         <!--CueVC-->
         <scene sceneID="iAG-og-0He">
@@ -904,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywv-F2-n24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="2488"/>
+            <point key="canvasLocation" x="704" y="2504"/>
         </scene>
         <!--Grid-->
         <scene sceneID="wGV-LZ-yph">
@@ -1096,7 +1096,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUl-3w-tKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="1683"/>
+            <point key="canvasLocation" x="80" y="1729"/>
         </scene>
         <!--Fixture-->
         <scene sceneID="efW-ej-eNf">
@@ -1104,7 +1104,7 @@
                 <viewControllerPlaceholder storyboardName="Fixture" id="jqo-xZ-Xxq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ec-PF-c9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512.5" y="2905"/>
+            <point key="canvasLocation" x="-440.5" y="2905"/>
         </scene>
         <!--SubMaster-->
         <scene sceneID="yNW-6A-R9E">
@@ -1127,7 +1127,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="-747.5" y="2905"/>
+            <point key="canvasLocation" x="-691.5" y="2905"/>
         </scene>
     </scenes>
     <resources>

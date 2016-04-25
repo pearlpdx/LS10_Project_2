@@ -58,9 +58,9 @@ class ACNsend: NSObject {
 //            }
 //        }
         
-        //reset highest level in all channels
+        //reset highest level in all channels  (this can go when the Cue Level is pushed)
         for fix in fixtures {
-            for chan in fix.channels{
+            for (_, chan) in fix.channelDic {
                 chan.resetHighestLevels()
             }
         }
