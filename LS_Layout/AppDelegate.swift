@@ -22,9 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         myCoreData.groupFetchAndSetResults()
         
         
+        
+        //build dmx array
+        for _ in 0...511 {
+            dmx.append(UInt8(0))
+        }
+        
+        let sACN = ACNsend()
+        //Start sACN and fade update(later) (move to background)
+        sACN.startTimer(dmx, universe: 1)
+        
+
+        
+        
         //todo Remove these
         myCoreData.fixFetchAndSetResults()
-        myCoreData.chanFetchAndSetResults()
+       // myCoreData.chanFetchAndSetResults()
         // Override point for customization after application launch.
         return true
     }

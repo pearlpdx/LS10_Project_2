@@ -21,6 +21,7 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
     @IBOutlet weak var catLbl: UILabel!
     @IBOutlet weak var numOfFixture: UILabel!
     @IBOutlet weak var numOfFixStepper: UIStepper!
+    @IBOutlet weak var dmxDetailLbl: UILabel!
     
     var dmxSwitchState = false
     
@@ -52,7 +53,6 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
         styleLbl.text = "\(fixtureStyle)"
         catLbl.text = "\(fixtureCategory)"
         fixtureName.text = fixtureNameString
-        
 
 //         Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
@@ -90,20 +90,14 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
             fixture.style = fixtureStyle
             fixture.group = fixtureCategory
             
-            //TODO: REMOVE WHEN READY
-          //  fixture.indRed = 1.0
-//            fixture.indGreen = 1.0
-//            fixture.indBlue = 1.0
-            //fixture.indLevel = 0.0
-//            fixture.indAmber = 0.0
-//            fixture.indWhite = 0.0
-            //_______________________
+            fixture.finalIntensity = 0.0
+            fixture.finalRed = 1.0
+            fixture.finalGreen = 1.0
+            fixture.finalBlue = 1.0
             
-            fixture.setUpChannels()
-            fixture.channelDic["I"]?.finalLevel = 0.0
-            fixture.channelDic["R"]?.finalLevel = 1.0
-            fixture.channelDic["G"]?.finalLevel = 1.0
-            fixture.channelDic["B"]?.finalLevel = 1.0
+            if findHighestDMXChannel() + 16 < 512 {
+                fixture.dmxStart = findHighestDMXChannel() + 10
+            }
            
             
             let ii = findNextFixtureNumber()
@@ -111,6 +105,7 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
             
             context.insertObject(fixture)
             fixtures.append(fixture)
+            fixturesDict[Int(fixture.number!)!] = fixture
             
             fixtureNameString = ""
             
@@ -122,6 +117,20 @@ class CreateFixtureTableViewController: UITableViewController,UITextFieldDelegat
         }
     }
     
+    
+    func findHighestDMXChannel() -> Int {
+        if fixtures.count == 0 {
+            return 0
+        }else {
+            var i = 0
+            for fix in fixtures {
+                if Int(fix.dmxStart) > i {
+                    i = Int(fix.dmxStart)
+                }
+            }
+            return i
+        }
+    }
     
     func findNextFixtureNumber() -> Int {
         if fixtures.count == 0 {

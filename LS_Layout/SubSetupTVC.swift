@@ -26,9 +26,7 @@ class SubSetupTVC: UITableViewController,
     }
  
     var imagePicker: UIImagePickerController!
-
    
-    
     
     @IBOutlet weak var fadeTimeDetail: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -80,6 +78,8 @@ class SubSetupTVC: UITableViewController,
 //    }
 
     @IBAction func imageButtonPressed(sender: AnyObject) {
+        
+        //todo Add Camera as a choice
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 
@@ -94,46 +94,37 @@ class SubSetupTVC: UITableViewController,
         sub.number = findNextSubNumber()
         sub.name = nameTextField.text
         sub.time = Int32(curTime)
+        sub.runState = runStates.goFull
+
         
         if let img = prevImage.image {
-           sub.setMovieImage(img)
+           sub.setMyImage(img)
         }
-        
         
         for fix in fixtures {
-            let fixEntity = NSEntityDescription.entityForName("FixtureStore", inManagedObjectContext: context)!
-            let fixStore = FixtureStore(entity: fixEntity, insertIntoManagedObjectContext: context)
             
-            fixStore.fixtureNumber = Int16(fix.number!)!
-            fixStore.subNumber = sub.number
-       
-            sub.setValue(NSSet(object: fixStore), forKey: "fixtureStores")        
-            context.insertObject(fixStore)
-                 //sub.fixStores.append(fixStore)
-            var cNumber:Int16 = 0
-            
-            let chanEntity = NSEntityDescription.entityForName("ChannelStore", inManagedObjectContext: context)!
-            let chanStore = ChannelStore(entity: chanEntity, insertIntoManagedObjectContext: context)
-            
-            for (_, chan) in fix.channelDic {
-               
-                fixStore.setValue(NSSet(objects: chanStore), forKey: "toChannelStores")
-            
-                chanStore.level = chan.recLevel
-                chanStore.icbf = chan.icbf
-                chanStore.name = chan.name
-                chanStore.fixtureNumber = fixStore.fixtureNumber
-                chanStore.subNumber = sub.number
-                chanStore.chanNumber = cNumber
-                cNumber += 1
-            
-                context.insertObject(chanStore)
-                fixStore.channelDic[chan.name!] = chanStore
-                //print("\(fixStore.channelDic)")
-            }
-            sub.fixStores.append(fixStore)
-        }
+            if sub.indOnly == true && fix.independent != true {
+                //Dont's Record
                 
+            }else {
+                let fixEntity = NSEntityDescription.entityForName("FixtureStore", inManagedObjectContext: context)!
+                let fixStore = FixtureStore(entity: fixEntity, insertIntoManagedObjectContext: context)
+                
+                fixStore.fixtureNumber = Int16(fix.number!)!
+                fixStore.subNumber = sub.number
+                fixStore.intensity = fix.recIntensity
+                fixStore.red = fix.finalRed
+                fixStore.blue = fix.finalBlue
+                fixStore.green = fix.finalGreen
+                
+                sub.setValue(NSSet(object: fixStore), forKey: "fixtureStores")
+                context.insertObject(fixStore)
+                sub.fixStores.append(fixStore)
+
+            }
+            fix.independent = false
+        }
+        
         context.insertObject(sub)
         subMasters.append(sub)
         

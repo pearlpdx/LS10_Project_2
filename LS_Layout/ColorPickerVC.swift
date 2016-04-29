@@ -22,6 +22,7 @@ extension String {
     }
 }
 
+       var curFixture: Fixture?
 
 class ColorPickerVC: UIViewController, ISColorWheelDelegate {
     
@@ -40,31 +41,31 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
         var curColor: UIColor?
         var arrayForBool : NSMutableArray = NSMutableArray()
     
-          var curFixture: Fixture?
+//       var curFixture: Fixture?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if curColor != nil {
-            if let myColor = curColor?.coreImageColor {
-                
-                curFixture?.channelDic["R"]?.finalLevel = Float(myColor.red)
-                curFixture?.channelDic["G"]?.finalLevel = Float(myColor.green)
-                curFixture?.channelDic["B"]?.finalLevel = Float(myColor.blue)
-            }            
-        }
-       
-        brightnessSlider.value = (curFixture?.channelDic["I"]?.finalLevel)!
-        redSlider.value = (curFixture?.channelDic["R"]?.finalLevel)!
-        greenSlider.value = (curFixture?.channelDic["G"]?.finalLevel)!
-        blueSlider.value = (curFixture?.channelDic["B"]?.finalLevel)!
-        
-        brightnessLbl.text = "\(Int((curFixture?.channelDic["I"]?.finalLevel)! * 100))%"
-        redLbl.text = "\(Int((curFixture?.channelDic["R"]?.finalLevel)! * 255))"
-        greenLbl.text = "\(Int((curFixture?.channelDic["G"]?.finalLevel)! * 255))"
-        blueLbl.text = "\(Int((curFixture?.channelDic["B"]?.finalLevel)! * 255))"
+            if curColor != nil {
+                if let myColor = curColor?.coreImageColor {
+                    
+                    curFixture?.finalRed = Float(myColor.red)
+                    curFixture?.finalGreen = Float(myColor.green)
+                    curFixture?.finalBlue = Float(myColor.blue)
+                }
+            }
+            
+            brightnessSlider.value = (curFixture?.finalIntensity)!
+            redSlider.value = (curFixture?.finalRed)!
+            greenSlider.value = (curFixture?.finalGreen)!
+            blueSlider.value = (curFixture?.finalBlue)!
+            
+            brightnessLbl.text = "\(Int((curFixture?.finalIntensity)! * 100))%"
+            redLbl.text = "\(Int((curFixture?.finalRed)! * 255))"
+            greenLbl.text = "\(Int((curFixture?.finalGreen)! * 255))"
+            blueLbl.text = "\(Int((curFixture?.finalBlue)! * 255))"
         
         
         let size: CGSize = self.view.bounds.size
@@ -102,9 +103,9 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
                 greenSlider.value = Float(myCIColor.green)
                 blueSlider.value = Float(myCIColor.blue)
 
-                curFixture?.channelDic["R"]?.indLevel = Float(myCIColor.red)
-                curFixture?.channelDic["G"]?.indLevel = Float(myCIColor.green)
-                curFixture?.channelDic["B"]?.indLevel = Float(myCIColor.blue)
+                curFixture?.finalRed = Float(myCIColor.red)
+                curFixture?.finalGreen = Float(myCIColor.green)
+                curFixture?.finalBlue = Float(myCIColor.blue)
             }
         }
         
@@ -125,20 +126,24 @@ class ColorPickerVC: UIViewController, ISColorWheelDelegate {
             colorWheel.brightness = sender.value
             wellView2.backgroundColor = colorWheel.currentColor()
             brightnessLbl.text = "\(Int(sender.value * 100))%"
+            curFixture?.indIntensity = sender.value
         }
         
         @IBAction func redSliderValueChanged(sender: AnyObject) {
             redLbl.text = "\(Int(redSlider.value * 255))"
+            curFixture?.finalRed = sender.value
             updateColorWheel()
         }
         
         @IBAction func greenSliderValueChanged(sender: AnyObject) {
             greenLbl.text = "\(Int(greenSlider.value * 255))"
+            curFixture?.finalGreen = sender.value
             updateColorWheel()
         }
         
         @IBAction func blueSliderValueChanged(sender: AnyObject) {
             blueLbl.text = "\(Int(blueSlider.value * 255))"
+            curFixture?.finalBlue = sender.value
             updateColorWheel()
         }
     

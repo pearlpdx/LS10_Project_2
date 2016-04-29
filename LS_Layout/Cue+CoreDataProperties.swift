@@ -2,7 +2,7 @@
 //  Cue+CoreDataProperties.swift
 //  LS10_Project
 //
-//  Created by Home on 4/12/16.
+//  Created by Home on 4/25/16.
 //  Copyright © 2016 Pearlmanoffice. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

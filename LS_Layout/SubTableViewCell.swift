@@ -46,7 +46,7 @@ class SubTableViewCell: UITableViewCell {
         subNameLbl.text = "SM: \(sub.number)  \(sub.name!)"
         subTimeLbl.text = sub.time.fadeString
         if sub.image != nil {
-            subImage.image = sub.getMovieImg()
+            subImage.image = sub.getMyImg()
         }
 
         subSlider.value = 0.0
@@ -90,6 +90,7 @@ class SubTableViewCell: UITableViewCell {
 
     @IBAction func upButtonPressed(sender: AnyObject) {
         sub.runState = runStates.goingUp
+        sub.OnStartPress()
     }
     
     @IBAction func haltButtonPressed(sender: AnyObject) {

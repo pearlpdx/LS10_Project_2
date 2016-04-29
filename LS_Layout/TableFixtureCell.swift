@@ -51,10 +51,10 @@ class TableFixtureCell: UITableViewCell {
         fixtureNum.text = fixture.number
         butLocked.hidden = !fixture.independent
         
-        if fixture.independent != true {
-            fixtureSlider.setValue((fixture.channelDic["I"]?.finalLevel)!, animated: true)
-            fixtureLevel.text = "\(Int((fixture.channelDic["I"]?.finalLevel)! * 100))%"
-        }
+       // if fixture.independent != true {
+            fixtureSlider.setValue(fixture.finalIntensity, animated: true)
+       // }
+        fixtureLevel.text = "\(Int(fixture.finalIntensity * 100))%"
         
         if fixture.style == "Intensity" {
             colorView.hidden = true
@@ -100,7 +100,7 @@ class TableFixtureCell: UITableViewCell {
         self.fixture.independent = true
         butLocked.hidden = false
 
-        fixture.channelDic["I"]?.indLevel = sender.value
+        fixture.indIntensity = sender.value
         tableVC?.indOffButton.hidden = false
         
         //temp

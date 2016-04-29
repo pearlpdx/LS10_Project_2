@@ -28,6 +28,7 @@ class ACNsend: NSObject {
     
     func startTimer (dmxlevels: [UInt8], universe: UInt16) {
         self._dmxLevels = dmxlevels
+       // self._dmxLevels = dmx
         self._universe = universe
         
         let interval:NSTimeInterval = 1.0 / (Double(REFRESH_PER_10TH) * 10)
@@ -58,16 +59,20 @@ class ACNsend: NSObject {
 //            }
 //        }
         
-        //reset highest level in all channels  (this can go when the Cue Level is pushed)
+               
+        //Refresh Cue List  (the following code will be handled in Refresh Cue List
         for fix in fixtures {
-            for (_, chan) in fix.channelDic {
-                chan.resetHighestLevels()
-            }
+            fix.finalIntensity = 0
+            fix.recIntensity = 0
         }
         
         //Refresh SubMasters
         for sub in subMasters {
             sub.timerTick()
+        }
+        
+        for fix in fixtures {
+            fix.timerTick()
         }
         
         //refresh display 10 (40/4) a second
@@ -79,8 +84,9 @@ class ACNsend: NSObject {
         
         
       // Send sACN datagram
-        let data:[UInt8] = buildDataGram(self._dmxLevels, optionFlag: false, universe: self._universe)
-        
+        //??? hack
+//        let data:[UInt8] = buildDataGram(_dmxLevels, optionFlag: false, universe: self._universe)
+        let data:[UInt8] = buildDataGram(dmx, optionFlag: false, universe: self._universe)
         udpSend(data, address: INADDR, port: PORT)
     }
     

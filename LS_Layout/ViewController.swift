@@ -41,14 +41,14 @@ class ViewController: UIViewController,
         }
     }
     
-    let sACN = ACNsend()
+//    let sACN = ACNsend()
     let myCoreData = CoreDataHandler()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshTable(_:)), name: "refresh", object: nil)
         
         fixTableView.delegate = self
         fixTableView.dataSource = self
@@ -57,23 +57,14 @@ class ViewController: UIViewController,
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Search
         
-        
-        //load user data
-// xxxx       myCoreData.fetchAndSetResults()
-//        myCoreData.subFetchAndSetResults()
-//        myCoreData.groupFetchAndSetResults()
-        
-        //dismiss keyboard
-       // self.hideKeyboardWhenTappedAround()
-    
-//*******TEMP***********  setup datagram and start sACN refresh
-        for _ in 0...511 {
-            dmx.append(UInt8(0))
-        }
-        
-        //Start sACN and fade update(later) (move to background)
-        sACN.startTimer(dmx, universe: 1)
-
+//        //build dmx array
+//        for _ in 0...511 {
+//            dmx.append(UInt8(0))
+//        }
+//        
+//        //Start sACN and fade update(later) (move to background)
+//        sACN.startTimer(dmx, universe: 1)
+//
     }
 
     func refreshTable(notification: NSNotification) {
@@ -386,13 +377,14 @@ class ViewController: UIViewController,
             // if  let TableFixtureCell = sender as? TableFixtureCell{
             
             if let colorButton = sender as? UIButton {
-                 let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
+                let fixtureCell = colorButton.superview?.superview as! TableFixtureCell
                 
-                colorPickerVC.curFixture = fixtureCell.fixture
+                curFixture = fixtureCell.fixture
+                
             }
         }
     }
-  
+    
 }
 
 class GroupSection {

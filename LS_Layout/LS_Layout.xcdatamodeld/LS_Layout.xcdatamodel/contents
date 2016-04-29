@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="ChannelStore" representedClassName=".ChannelStore" syncable="YES">
-        <attribute name="chanNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="fixtureNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="icbf" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="level" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="subNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="toFixtureStore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FixtureStore" inverseName="toChannelStores" inverseEntity="FixtureStore" syncable="YES"/>
-    </entity>
     <entity name="Cue" representedClassName=".Cue" syncable="YES">
         <attribute name="delayTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="downTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -21,25 +12,21 @@
     </entity>
     <entity name="Fixture" representedClassName=".Fixture" syncable="YES">
         <attribute name="dmx16bit" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dmxStart" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" attributeType="String" syncable="YES"/>
         <attribute name="style" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="FixtureCue" representedClassName=".FixtureCue" syncable="YES">
-        <attribute name="amberlevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="blueLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="cueNumber" attributeType="String" syncable="YES"/>
-        <attribute name="fixNumber" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="greenLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="intensity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="redLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="whiteLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-    </entity>
     <entity name="FixtureStore" representedClassName=".FixtureStore" syncable="YES">
+        <attribute name="blue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="fixtureNumber" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="green" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="intensity" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="moveX" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="moveY" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="red" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="subNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="toChannelStores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChannelStore" inverseName="toFixtureStore" inverseEntity="ChannelStore" syncable="YES"/>
         <relationship name="toSubMaster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubMaster" inverseName="fixtureStores" inverseEntity="SubMaster" syncable="YES"/>
     </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES">
@@ -56,11 +43,9 @@
         <relationship name="fixtureStores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FixtureStore" inverseName="toSubMaster" inverseEntity="FixtureStore" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ChannelStore" positionX="124" positionY="90" width="128" height="148"/>
-        <element name="Cue" positionX="-360" positionY="-361" width="128" height="163"/>
-        <element name="Fixture" positionX="-360" positionY="-135" width="128" height="118"/>
-        <element name="FixtureCue" positionX="-126" positionY="243" width="128" height="163"/>
-        <element name="FixtureStore" positionX="-81" positionY="63" width="128" height="103"/>
+        <element name="Cue" positionX="-353" positionY="-316" width="128" height="163"/>
+        <element name="Fixture" positionX="-351" positionY="-126" width="128" height="133"/>
+        <element name="FixtureStore" positionX="-135" positionY="45" width="128" height="178"/>
         <element name="Group" positionX="-369" positionY="279" width="128" height="73"/>
         <element name="SubMaster" positionX="-353" positionY="45" width="128" height="148"/>
     </elements>

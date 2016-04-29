@@ -102,8 +102,7 @@ class CollectionFixtureVC:      UIViewController,
         if let colorPickerVC = segue.destinationViewController as? ColorPickerVC {
             
             if let channelCollectionCell = sender as? CollectionFixtureCell{
-                
-                colorPickerVC.curFixture = channelCollectionCell.fixture
+                curFixture = channelCollectionCell.fixture
             }
         }
     }

@@ -30,22 +30,18 @@ class SubMaster: NSManagedObject {
     var runningTime:Int32 = 0             //expressed as 10ths * REFRESH_PER_10TH
     
     var runState:runStates = runStates.off
-    
+    var fader:Float = 0.0
     
 
 //Mark Refresh Tick
     func timerTick() {
-        
-        var fader:Float = 0.0
-        var isRunning = false
-        
+    
         
         if time == 0 {
             time = 1
         }
         
-        //  if  UpdateRunningTime() == true {
-        isRunning = UpdateRunningTime()
+        UpdateRunningTime()
         
         if time != 0 {
             
@@ -55,30 +51,23 @@ class SubMaster: NSManagedObject {
             //Todo:  Special rulles for time at zero  be sure to remove special case above
         }
         
-        
-        var fixIndex = 0
-        for fix in fixStores {
-            
-            for (name, chan) in fix.channelDic {
+        if runState != runStates.off { 
+          
+            for fixSt in fixStores {
                 
-                if isRunning == true {
+                if let curFix = fixturesDict[Int(fixSt.fixtureNumber) ] {
                     
-                    //All calculations here
-                    if chan.icbf == "C" {
-                        chan.calLevel = chan.level
-                    }
-                    else {
-                        chan.calLevel = fader * chan.level
-                    }
+                    let newInt = fixSt.intensity * fader
                     
+                    if newInt > curFix.finalIntensity {
+                        curFix.finalIntensity = newInt
+                        if exclude == false {
+                            curFix.recIntensity = newInt
+                        }
+                    }
                 }
-                //ToDo  Call into Fixture and let that routine handle all update (Add a start SubMaster func)
-                // print("\(fix.fixtureNumber) name: \(name)  level: \(chan.calLevel)")
-                fixtures[fixIndex].channelDic[name]!.checkForHighest(chan.calLevel, excludeFromSave: exclude)
             }
-            fixIndex += 1
-        }
-        //  }
+         }
     }
     
 
@@ -124,16 +113,44 @@ class SubMaster: NSManagedObject {
         }
     }
     
+    func OnStartPress() {
+        
+        if fader == 0.0 {
+            
+            for fixSt in fixStores {
+                
+                if let curFix = fixturesDict[Int(fixSt.fixtureNumber) ] {
+                    
+                    if curFix.finalIntensity > 0 {
+                        // Fade Color handled in Fixtures LTP
+                        curFix.deltaRed = fixSt.red - curFix.finalRed
+                        curFix.deltaGreen = fixSt.green - curFix.finalGreen
+                        curFix.deltaBlue = fixSt.blue - curFix.finalBlue
+                        curFix.originRed = curFix.finalRed
+                        curFix.originGreen = curFix.finalGreen
+                        curFix.originBlue = curFix.finalBlue
+                        curFix.destSubMaster = self
+                      
+                    }else {
+                        //Snap to Color at Start
+                        curFix.finalRed = fixSt.red
+                        curFix.finalGreen = fixSt.green
+                        curFix.finalBlue = fixSt.blue
+                        curFix.destSubMaster = nil
+                    }
+                }
+            }
+        }
+    }
     
     
-    //todo get rid of movie name
     
-    func    setMovieImage(img: UIImage) {
+    func    setMyImage(img: UIImage) {
         let data = UIImagePNGRepresentation(img)
         self.image = data
     }
     
-    func getMovieImg() -> UIImage {
+    func getMyImg() -> UIImage {
         let img = UIImage(data: self.image!)!
         return img
     }
