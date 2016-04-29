@@ -100,7 +100,7 @@
 		F439A0ED1CAB337400DA85AC /* SubMaster+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubMaster+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F439A0EE1CAB337500DA85AC /* SubMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMaster.swift; sourceTree = "<group>"; };
 		F439A0F31CAB4BE900DA85AC /* TimePickerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerTVC.swift; sourceTree = "<group>"; };
-		F46FDA0B1C5FDC440087B35C /* LS10_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LS10_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46FDA0B1C5FDC440087B35C /* iPerformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPerformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46FDA0E1C5FDC450087B35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46FDA101C5FDC460087B35C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F46FDA131C5FDC490087B35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		F4C61B0E1C98BF2E00BA29DE /* CueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueTableViewCell.swift; sourceTree = "<group>"; };
 		F4C61B141C98C15300BA29DE /* CueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueVC.swift; sourceTree = "<group>"; };
 		F4C61B161C98C32C00BA29DE /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
-		F4CBFEC01CB6E11C00268FC0 /* LS10_ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LS10_ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4CBFEC01CB6E11C00268FC0 /* iPerformer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPerformer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4CBFEC21CB6E11C00268FC0 /* LS10_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LS10_ProjectTests.swift; sourceTree = "<group>"; };
 		F4CBFEC41CB6E11C00268FC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4CBFECA1CBC60F100268FC0 /* FixtureStore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 		F46FDA0C1C5FDC440087B35C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F46FDA0B1C5FDC440087B35C /* LS10_Project.app */,
-				F4CBFEC01CB6E11C00268FC0 /* LS10_ProjectTests.xctest */,
+				F46FDA0B1C5FDC440087B35C /* iPerformer.app */,
+				F4CBFEC01CB6E11C00268FC0 /* iPerformer.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,9 +351,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F46FDA0A1C5FDC440087B35C /* LS10_Project */ = {
+		F46FDA0A1C5FDC440087B35C /* iPerformer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F46FDA201C5FDC500087B35C /* Build configuration list for PBXNativeTarget "LS10_Project" */;
+			buildConfigurationList = F46FDA201C5FDC500087B35C /* Build configuration list for PBXNativeTarget "iPerformer" */;
 			buildPhases = (
 				99EFAD3CCB1AAE32A2E8388C /* Check Pods Manifest.lock */,
 				F46FDA071C5FDC440087B35C /* Sources */,
@@ -366,14 +366,14 @@
 			);
 			dependencies = (
 			);
-			name = LS10_Project;
+			name = iPerformer;
 			productName = LS_Layout;
-			productReference = F46FDA0B1C5FDC440087B35C /* LS10_Project.app */;
+			productReference = F46FDA0B1C5FDC440087B35C /* iPerformer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4CBFEBF1CB6E11C00268FC0 /* LS10_ProjectTests */ = {
+		F4CBFEBF1CB6E11C00268FC0 /* iPerformerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4CBFEC91CB6E11C00268FC0 /* Build configuration list for PBXNativeTarget "LS10_ProjectTests" */;
+			buildConfigurationList = F4CBFEC91CB6E11C00268FC0 /* Build configuration list for PBXNativeTarget "iPerformerTests" */;
 			buildPhases = (
 				F4CBFEBC1CB6E11C00268FC0 /* Sources */,
 				F4CBFEBD1CB6E11C00268FC0 /* Frameworks */,
@@ -384,9 +384,9 @@
 			dependencies = (
 				F4CBFEC61CB6E11C00268FC0 /* PBXTargetDependency */,
 			);
-			name = LS10_ProjectTests;
+			name = iPerformerTests;
 			productName = LS10_ProjectTests;
-			productReference = F4CBFEC01CB6E11C00268FC0 /* LS10_ProjectTests.xctest */;
+			productReference = F4CBFEC01CB6E11C00268FC0 /* iPerformer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -410,7 +410,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F46FDA061C5FDC430087B35C /* Build configuration list for PBXProject "LS10_Project" */;
+			buildConfigurationList = F46FDA061C5FDC430087B35C /* Build configuration list for PBXProject "iPerformer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -423,8 +423,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F46FDA0A1C5FDC440087B35C /* LS10_Project */,
-				F4CBFEBF1CB6E11C00268FC0 /* LS10_ProjectTests */,
+				F46FDA0A1C5FDC440087B35C /* iPerformer */,
+				F4CBFEBF1CB6E11C00268FC0 /* iPerformerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -565,7 +565,7 @@
 /* Begin PBXTargetDependency section */
 		F4CBFEC61CB6E11C00268FC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F46FDA0A1C5FDC440087B35C /* LS10_Project */;
+			target = F46FDA0A1C5FDC440087B35C /* iPerformer */;
 			targetProxy = F4CBFEC51CB6E11C00268FC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -685,6 +685,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -701,7 +702,7 @@
 				INFOPLIST_FILE = LS_Layout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pearlmanoffice.LS-Layout";
-				PRODUCT_NAME = LS10_Project;
+				PRODUCT_NAME = iPerformer;
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 			};
@@ -717,7 +718,7 @@
 				INFOPLIST_FILE = LS_Layout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pearlmanoffice.LS-Layout";
-				PRODUCT_NAME = LS10_Project;
+				PRODUCT_NAME = iPerformer;
 				PROVISIONING_PROFILE = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 			};
@@ -732,9 +733,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pearlmanoffice.LS10-ProjectTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPerformer;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LS10_Project.app/LS10_Project";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPerformer.app/iPerformer";
 			};
 			name = Debug;
 		};
@@ -747,16 +748,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pearlmanoffice.LS10-ProjectTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iPerformer;
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LS10_Project.app/LS10_Project";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iPerformer.app/iPerformer";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F46FDA061C5FDC430087B35C /* Build configuration list for PBXProject "LS10_Project" */ = {
+		F46FDA061C5FDC430087B35C /* Build configuration list for PBXProject "iPerformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F46FDA1E1C5FDC500087B35C /* Debug */,
@@ -765,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F46FDA201C5FDC500087B35C /* Build configuration list for PBXNativeTarget "LS10_Project" */ = {
+		F46FDA201C5FDC500087B35C /* Build configuration list for PBXNativeTarget "iPerformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F46FDA211C5FDC500087B35C /* Debug */,
@@ -774,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4CBFEC91CB6E11C00268FC0 /* Build configuration list for PBXNativeTarget "LS10_ProjectTests" */ = {
+		F4CBFEC91CB6E11C00268FC0 /* Build configuration list for PBXNativeTarget "iPerformerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4CBFEC71CB6E11C00268FC0 /* Debug */,
